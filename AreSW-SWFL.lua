@@ -540,7 +540,7 @@ if not fn then
     error("[AreSW] logic.lua compile error: " .. tostring(compileErr) .. "\n--- Source preview ---\n" .. src:sub(1, 200))
 end
 local LogicInit = fn()
-local L = LogicInit({ notify = notify, Options = Options })
+local L = LogicInit({ CXmcblXsF = notify, VlVEpYGw = Options })
 
 -- ══════════════════════════════════════════════
 -- LOGIQUE TEAM WINDOW (UI dans ce fichier, fonctions via L)
