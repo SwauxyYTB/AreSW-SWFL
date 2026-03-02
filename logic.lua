@@ -1,9 +1,3 @@
--- ══════════════════════════════════════════════════════════════════
---  logic.lua — AreSW SWFL  |  Logique, fonctions, état partagé
---  Ce fichier retourne une fonction init(ctx) -> module
---  ctx = { notify = fn, Options = FluentOptions }
--- ══════════════════════════════════════════════════════════════════
-
 return function(ctx)
     local notify  = ctx.notify
     local Options = ctx.Options
