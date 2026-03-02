@@ -1,5 +1,5 @@
 -- ══════════════════════════════════════════════
--- LIBRAIRIES
+-- LIBRAIRY
 -- ══════════════════════════════════════════════
 local Fluent = loadstring(game:HttpGet(
     "https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"
@@ -17,10 +17,11 @@ local Options = Fluent.Options
 -- ══════════════════════════════════════════════
 -- SERVICES / LOCALS (UI uniquement)
 -- ══════════════════════════════════════════════
-local Players          = Logic.Players
-local ReplicatedStorage = Logic.ReplicatedStorage
-local RunService        = Logic.RunService
-local LocalPlayer       = Logic.LocalPlayer
+local Players           = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local RunService        = game:GetService("RunService")
+local ProximityPromptSvc = game:GetService("ProximityPromptService")
+local LocalPlayer       = Players.LocalPlayer
 local PlayerGui         = LocalPlayer:WaitForChild("PlayerGui")
 local UserInputService  = game:GetService("UserInputService")
 
