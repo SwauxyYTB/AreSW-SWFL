@@ -1,6 +1,6 @@
 --[Obfuscated by Hercules v1.6.2 | hercules-obfuscator.xyz/discord | hercules-obfuscator.xyz/source]
 local LSiRGjiKVr, dAHhqDisVSn, DVjinzMg, RXkUzvEVYne, KpUWQdsEpoT, AZmmFQoDc, fjxYriwxTT, NzGLwGpHvdw, nteHqfSiri, nhDZxZYu
-LSiRGjiKVr = loadstring; dAHhqDisVSn = ipairs; DVjinzMg = pairs; RXkUzvEVYne = tostring; KpUWQdsEpoT = type; AZmmFQoDc = math.floor; fjxYriwxTT = string.char; NzGLwGpHvdw = table.concat; nteHqfSiri = table.insert; nhDZxZYu = game:GetService;
+LSiRGjiKVr = loadstring; dAHhqDisVSn = ipairs; DVjinzMg = pairs; RXkUzvEVYne = tostring; KpUWQdsEpoT = type; AZmmFQoDc = math.floor; fjxYriwxTT = string.char; NzGLwGpHvdw = table.concat; nteHqfSiri = table.insert; nhDZxZYu = function(s) return game:GetService(s) end;
 if true then local _ = 9 end
 while false do local _ = 54 break end
 local Qdgmvqde = 71
