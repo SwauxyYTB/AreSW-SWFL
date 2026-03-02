@@ -1,5 +1,13 @@
+-- ══════════════════════════════════════════════════════════════════
+--  AreSW-SWFL.lua — Interface Fluent + chargement de logic.lua
+--  ⚠️  REMPLACE LA LIGNE "LOGIC_RAW_URL" par l'URL raw de ton repo
+--      ex: https://raw.githubusercontent.com/TON_USER/TON_REPO/main/logic.lua
+-- ══════════════════════════════════════════════════════════════════
+
+local LOGIC_RAW_URL = "https://raw.githubusercontent.com/TON_USER/TON_REPO/main/logic.lua"
+
 -- ══════════════════════════════════════════════
--- LIBRAIRY
+-- CHARGEMENT LIBRAIRIES
 -- ══════════════════════════════════════════════
 local Fluent = loadstring(game:HttpGet(
     "https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"
@@ -8,22 +16,15 @@ local InterfaceManager = loadstring(game:HttpGet(
     "https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"
 ))()
 
-local Logic = loadstring(game:HttpGet(
-    "https://raw.githubusercontent.com/SwauxyYTB/AreSW-SWFL/refs/heads/main/logic.lua"
-))()
-
 local Options = Fluent.Options
 
--- ══════════════════════════════════════════════
--- SERVICES / LOCALS (UI uniquement)
--- ══════════════════════════════════════════════
-local Players           = game:GetService("Players")
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local RunService        = game:GetService("RunService")
+local Players            = game:GetService("Players")
+local ReplicatedStorage  = game:GetService("ReplicatedStorage")
 local ProximityPromptSvc = game:GetService("ProximityPromptService")
-local LocalPlayer       = Players.LocalPlayer
-local PlayerGui         = LocalPlayer:WaitForChild("PlayerGui")
-local UserInputService  = game:GetService("UserInputService")
+local UserInputService   = game:GetService("UserInputService")
+local RunService         = game:GetService("RunService")
+local LocalPlayer        = Players.LocalPlayer
+local PlayerGui          = LocalPlayer:WaitForChild("PlayerGui")
 
 local isMobile = UserInputService.TouchEnabled and not UserInputService.KeyboardEnabled
 local vp       = workspace.CurrentCamera.ViewportSize
@@ -31,9 +32,9 @@ local WIN_W    = isMobile and math.clamp(math.floor(vp.X) - 16, 290, 370) or 580
 local WIN_H    = isMobile and math.clamp(math.floor(vp.Y) - 70, 360, 500) or 460
 local TAB_W    = isMobile and 72 or 160
 
--- ══════════════════════════════════════════════
--- STYLE CONSTANTS
--- ══════════════════════════════════════════════
+-- ══════════════════════════════════════════════════════════════════
+--  SHARED STYLE CONSTANTS
+-- ══════════════════════════════════════════════════════════════════
 local FL_BG      = Color3.fromRGB(45,  45,  48)
 local FL_SIDEBAR = Color3.fromRGB(38,  38,  40)
 local FL_ITEM    = Color3.fromRGB(55,  55,  58)
@@ -49,11 +50,6 @@ local T_ITEM = 0.25
 local T_SEP  = 0.55
 
 local targetParent = pcall(gethui) and gethui() or game:GetService("CoreGui")
-
-local function notify(title, msg, dur)
-    Fluent:Notify({ Title = title or "GUI", Content = msg or "", Duration = dur or 3 })
-end
-Logic.notify = notify
 
 -- ══════════════════════════════════════════════════════════════════
 --  TEAM WINDOW
@@ -83,8 +79,7 @@ TeamWin.Visible                = false
 TeamWin.Parent                 = TWGui
 Instance.new("UICorner", TeamWin).CornerRadius = UDim.new(0, 9)
 local twBd = Instance.new("UIStroke", TeamWin)
-twBd.Color     = FL_BORDER
-twBd.Thickness = 1
+twBd.Color = FL_BORDER; twBd.Thickness = 1
 
 local twHdr = Instance.new("Frame")
 twHdr.Name             = "Header"
@@ -157,8 +152,7 @@ twDrop.ZIndex              = 3
 twDrop.Parent              = TeamWin
 Instance.new("UICorner", twDrop).CornerRadius = UDim.new(0, 6)
 local twDropBd = Instance.new("UIStroke", twDrop)
-twDropBd.Color     = FL_BORDER
-twDropBd.Thickness = 1
+twDropBd.Color = FL_BORDER; twDropBd.Thickness = 1
 
 local twDropArrow = Instance.new("TextLabel")
 twDropArrow.Size                  = UDim2.new(0, 20, 1, 0)
@@ -254,138 +248,13 @@ twStatus.Parent                = TeamWin
 
 local TW_LIST_H = 100
 
--- ══════════════════════════════════════════════
--- Logique fenêtre Teams
--- ══════════════════════════════════════════════
-local teamBtns = {}
-local listOpen = false
-
-local function setTWS(msg, ok)
-    twStatus.Text = msg
-    twStatus.TextColor3 = ok == true  and Color3.fromRGB(100, 210, 100)
-                       or ok == false and Color3.fromRGB(220,  70,  70)
-                       or FL_STXT
-end
-
-local function updateTWLayout()
-    local lh = listOpen and TW_LIST_H or 0
-    local listBottom = 78 + lh
-    twSep.Position    = UDim2.new(0, 10, 0, listBottom + 4)
-    twJoin.Position   = UDim2.new(0, 10,  0, listBottom + 12)
-    twReFire.Position = UDim2.new(0, 108, 0, listBottom + 12)
-    twStatus.Position = UDim2.new(0, 10,  0, listBottom + 44)
-    TeamWin.Size      = UDim2.new(0, TW_W, 0, listBottom + 12 + 28 + 20 + 6)
-    twListOuter.Size  = UDim2.new(1, -20, 0, lh)
-    twDropArrow.Text  = listOpen and "▲" or "▼"
-end
-
-local function buildTeamList()
-    for _, b in ipairs(teamBtns) do pcall(function() b:Destroy() end) end
-    teamBtns = {}; Logic.selectedTeamColor = nil; Logic.dropSelectedName = nil
-    twDrop.Text = "  Select..."
-    local ts = game:FindService("Teams")
-    if not ts then setTWS("Teams introuvable", false); return end
-    local count = 0
-    for idx, team in ipairs(ts:GetTeams()) do
-        local include = (team.Name == "Unemployed") or Logic.teamExistsInJobsMain(team.Name)
-        if include then
-            local row = Instance.new("Frame")
-            row.Size             = UDim2.new(1, 0, 0, 28)
-            row.BackgroundColor3 = FL_HOVER
-            row.BackgroundTransparency = 1
-            row.BorderSizePixel  = 0
-            row.LayoutOrder      = idx
-            row.ZIndex           = 5
-            row.Parent           = twScroll
-            Instance.new("UICorner", row).CornerRadius = UDim.new(0, 4)
-            local rowSep = Instance.new("Frame", row)
-            rowSep.Size             = UDim2.new(1, 0, 0, 1)
-            rowSep.Position         = UDim2.new(0, 0, 1, -1)
-            rowSep.BackgroundColor3 = FL_SEP
-            rowSep.BackgroundTransparency = 0.3
-            rowSep.BorderSizePixel  = 0
-            rowSep.ZIndex           = 6
-            local rowBtn = Instance.new("TextButton", row)
-            rowBtn.Size                 = UDim2.new(1, 0, 1, 0)
-            rowBtn.BackgroundTransparency = 1
-            rowBtn.BorderSizePixel      = 0
-            rowBtn.Text                 = "  " .. team.Name
-            rowBtn.Font                 = Enum.Font.Gotham
-            rowBtn.TextSize             = 11
-            rowBtn.TextColor3           = FL_TXT
-            rowBtn.TextXAlignment       = Enum.TextXAlignment.Left
-            rowBtn.AutoButtonColor      = false
-            rowBtn.ZIndex               = 7
-            table.insert(teamBtns, row)
-            rowBtn.MouseEnter:Connect(function()
-                if team.TeamColor ~= Logic.selectedTeamColor then row.BackgroundTransparency = 0 end
-            end)
-            rowBtn.MouseLeave:Connect(function()
-                if team.TeamColor ~= Logic.selectedTeamColor then row.BackgroundTransparency = 1 end
-            end)
-            rowBtn.MouseButton1Click:Connect(function()
-                for _, b in ipairs(teamBtns) do
-                    pcall(function()
-                        b.BackgroundTransparency = 1
-                        b:FindFirstChildOfClass("TextButton").TextColor3 = FL_TXT
-                    end)
-                end
-                row.BackgroundTransparency = 0
-                rowBtn.TextColor3 = FL_TXT
-                Logic.selectedTeamColor = team.TeamColor
-                Logic.dropSelectedName  = team.Name
-                listOpen  = false
-                updateTWLayout()
-                twDrop.Text       = "  " .. team.Name
-                twDrop.TextColor3 = FL_TXT
-                setTWS("Selectionne : " .. team.Name, nil)
-            end)
-            count += 1
-        end
-    end
-    if count == 0 then setTWS("Aucune team disponible", false)
-    else setTWS(count .. " team(s)", nil) end
-end
-
-twDrop.MouseButton1Click:Connect(function() listOpen = not listOpen; updateTWLayout() end)
-
-for _, btn in ipairs({twJoin, twReFire, twHdrClose}) do
-    btn.MouseEnter:Connect(function() btn.BackgroundColor3 = FL_HOVER; btn.BackgroundTransparency = T_ITEM - 0.05 end)
-    btn.MouseLeave:Connect(function() btn.BackgroundColor3 = FL_ITEM; btn.BackgroundTransparency = T_ITEM end)
-end
-twHdrClose.MouseEnter:Connect(function() twHdrClose.BackgroundColor3 = Color3.fromRGB(190,50,50); twHdrClose.BackgroundTransparency = 0.1 end)
-twHdrClose.MouseLeave:Connect(function() twHdrClose.BackgroundColor3 = FL_ITEM; twHdrClose.BackgroundTransparency = T_ITEM end)
-
-twHdrClose.MouseButton1Click:Connect(function()
-    TeamWin.Visible = false
-    pcall(function()
-        local tog = Options["ShowTeamWin"]
-        if tog then rawset(tog, "Value", false); pcall(function() tog:OnChanged() end) end
-    end)
-end)
-
-twJoin.MouseButton1Click:Connect(function()
-    if not Logic.selectedTeamColor then setTWS("Jus select a team u want to join in", false); return end
-    local te = ReplicatedStorage:FindFirstChild("TeamEvent")
-    if not te then setTWS("TeamEvent introuvable", false); return end
-    local ok = pcall(function() te:FireServer(Logic.selectedTeamColor) end)
-    setTWS(ok and ("joined : " .. tostring(Logic.dropSelectedName)) or "Error", ok)
-end)
-
-twReFire.MouseButton1Click:Connect(function()
-    local mt = LocalPlayer.Team
-    if not mt then setTWS("Pas de team", false); return end
-    local te = ReplicatedStorage:FindFirstChild("TeamEvent")
-    if not te then setTWS("TeamEvent introuvable", false); return end
-    local ok = pcall(function() te:FireServer(mt.TeamColor) end)
-    setTWS(ok and ("Resent : " .. mt.Name) or "Error", ok)
-end)
-
-updateTWLayout()
-
 -- ══════════════════════════════════════════════════════════════════
 --  COLOR WINDOW
 -- ══════════════════════════════════════════════════════════════════
+local colorCycleActive  = false
+local colorSelectedCar  = nil
+local colorCarColors    = {}
+
 local CWGui = Instance.new("ScreenGui")
 CWGui.Name           = "ColorWindow_Fluent"
 CWGui.ResetOnSpawn   = false
@@ -411,8 +280,7 @@ ColorWin.Visible                = false
 ColorWin.Parent                 = CWGui
 Instance.new("UICorner", ColorWin).CornerRadius = UDim.new(0, 9)
 local cwBd = Instance.new("UIStroke", ColorWin)
-cwBd.Color     = FL_BORDER
-cwBd.Thickness = 1
+cwBd.Color = FL_BORDER; cwBd.Thickness = 1
 
 local cwHdr = Instance.new("Frame")
 cwHdr.Name             = "Header"
@@ -501,8 +369,7 @@ cwDrop.ZIndex              = 3
 cwDrop.Parent              = ColorWin
 Instance.new("UICorner", cwDrop).CornerRadius = UDim.new(0, 6)
 local cwDropBd = Instance.new("UIStroke", cwDrop)
-cwDropBd.Color     = FL_BORDER
-cwDropBd.Thickness = 1
+cwDropBd.Color = FL_BORDER; cwDropBd.Thickness = 1
 
 local cwDropArrow = Instance.new("TextLabel")
 cwDropArrow.Size                  = UDim2.new(0, 20, 1, 0)
@@ -561,6 +428,9 @@ local setCWS
 
 local cwPreviews = {}
 local cwHalos    = {}
+
+-- Les swatches couleur sont créés après L (logic) donc on forward-declare
+-- leur logique click et on les branche après init de L
 for i = 1, 5 do
     local halo = Instance.new("Frame")
     halo.Size             = UDim2.new(0, 32, 0, 24)
@@ -572,8 +442,7 @@ for i = 1, 5 do
     halo.Parent           = cwPreviewRow
     Instance.new("UICorner", halo).CornerRadius = UDim.new(0, 6)
     local haloBd = Instance.new("UIStroke", halo)
-    haloBd.Color     = Color3.fromRGB(235, 235, 235)
-    haloBd.Thickness = 1.5
+    haloBd.Color = Color3.fromRGB(235, 235, 235); haloBd.Thickness = 1.5
     cwHalos[i] = halo
 
     local sw = Instance.new("TextButton")
@@ -587,24 +456,7 @@ for i = 1, 5 do
     sw.Parent           = cwPreviewRow
     Instance.new("UICorner", sw).CornerRadius = UDim.new(0, 4)
     local swBd = Instance.new("UIStroke", sw)
-    swBd.Color     = FL_BORDER
-    swBd.Thickness = 1
-    local idx = i
-    sw.MouseButton1Click:Connect(function()
-        if not Logic.colorSelectedCar or not Logic.colorSelectedCar.Parent then setCWS("Jus select a vehicule", false); return end
-        if not Logic.colorCarColors[idx] then setCWS("Color wasnt found(probably path changed or bug, if u did smth with dex, stop for ur own sake)", false); return end
-        Logic.colorCycleActive = false
-        cwCycleBtn.Text = "▶  Start Color switches(rainbow effect ig)"
-        Logic.applyCarColor(Logic.colorSelectedCar, Logic.colorCarColors[idx])
-        for j = 1, 5 do
-            local bd = cwPreviews[j]:FindFirstChildOfClass("UIStroke")
-            if bd then bd.Color = (j == idx) and FL_TXT or FL_BORDER; bd.Thickness = (j == idx) and 2 or 1 end
-            cwHalos[j].Visible = (j == idx)
-        end
-        setCWS("Color " .. idx .. " applied", true)
-    end)
-    sw.MouseEnter:Connect(function() if Logic.colorCarColors[idx] then local bd=sw:FindFirstChildOfClass("UIStroke"); if bd and bd.Thickness==1 then bd.Color=FL_TXT end end end)
-    sw.MouseLeave:Connect(function() local bd=sw:FindFirstChildOfClass("UIStroke"); if bd and bd.Thickness==1 then bd.Color=FL_BORDER end end)
+    swBd.Color = FL_BORDER; swBd.Thickness = 1
     cwPreviews[i] = sw
 end
 
@@ -666,11 +518,166 @@ cwStatus.Parent                = ColorWin
 local CW_LIST_H = 100
 
 -- ══════════════════════════════════════════════
--- Logique fenêtre Color
+-- MAIN WINDOW FLUENT
 -- ══════════════════════════════════════════════
-local cwCarBtns  = {}
-local cwListOpen = false
+local Window = Fluent:CreateWindow({
+    Title       = "AreSW - SWFL",
+    SubTitle    = "[PLACEHOLDER]",
+    TabWidth    = TAB_W,
+    Size        = UDim2.fromOffset(WIN_W, WIN_H),
+    Acrylic     = false,
+    Theme       = "Dark",
+    MinimizeKey = Enum.KeyCode.RightControl,
+})
 
+-- ══════════════════════════════════════════════
+-- NOTIFY HELPER (défini ici, passé à logic.lua)
+-- ══════════════════════════════════════════════
+local function notify(title, msg, dur)
+    Fluent:Notify({ Title = title or "GUI", Content = msg or "", Duration = dur or 3 })
+end
+
+-- ══════════════════════════════════════════════
+-- CHARGEMENT DE LOGIC.LUA DEPUIS GITHUB
+-- ══════════════════════════════════════════════
+local LogicInit = loadstring(game:HttpGet(LOGIC_RAW_URL))()
+local L = LogicInit({ notify = notify, Options = Options })
+
+-- ══════════════════════════════════════════════
+-- LOGIQUE TEAM WINDOW (UI dans ce fichier, fonctions via L)
+-- ══════════════════════════════════════════════
+local selectedTeamColor = nil
+local teamBtns          = {}
+local listOpen          = false
+local dropSelectedName  = nil
+
+local function setTWS(msg, ok)
+    twStatus.Text = msg
+    twStatus.TextColor3 = ok == true  and Color3.fromRGB(100, 210, 100)
+                       or ok == false and Color3.fromRGB(220,  70,  70)
+                       or FL_STXT
+end
+
+local function updateTWLayout()
+    local lh = listOpen and TW_LIST_H or 0
+    local listBottom = 78 + lh
+    twSep.Position    = UDim2.new(0, 10, 0, listBottom + 4)
+    twJoin.Position   = UDim2.new(0, 10,  0, listBottom + 12)
+    twReFire.Position = UDim2.new(0, 108, 0, listBottom + 12)
+    twStatus.Position = UDim2.new(0, 10,  0, listBottom + 44)
+    TeamWin.Size      = UDim2.new(0, TW_W, 0, listBottom + 12 + 28 + 20 + 6)
+    twListOuter.Size  = UDim2.new(1, -20, 0, lh)
+    twDropArrow.Text  = listOpen and "▲" or "▼"
+end
+
+local function buildTeamList()
+    for _, b in ipairs(teamBtns) do pcall(function() b:Destroy() end) end
+    teamBtns = {}; selectedTeamColor = nil; dropSelectedName = nil
+    twDrop.Text = "  Select..."
+    local ts = game:FindService("Teams")
+    if not ts then setTWS("Teams introuvable", false); return end
+    local count = 0
+    for idx, team in ipairs(ts:GetTeams()) do
+        -- Utilise la fonction de logic.lua via L
+        local include = (team.Name == "Unemployed") or L.teamExistsInJobsMain(team.Name)
+        if include then
+            local row = Instance.new("Frame")
+            row.Size             = UDim2.new(1, 0, 0, 28)
+            row.BackgroundColor3 = FL_HOVER
+            row.BackgroundTransparency = 1
+            row.BorderSizePixel  = 0
+            row.LayoutOrder      = idx
+            row.ZIndex           = 5
+            row.Parent           = twScroll
+            Instance.new("UICorner", row).CornerRadius = UDim.new(0, 4)
+            local rowSep = Instance.new("Frame", row)
+            rowSep.Size             = UDim2.new(1, 0, 0, 1)
+            rowSep.Position         = UDim2.new(0, 0, 1, -1)
+            rowSep.BackgroundColor3 = FL_SEP
+            rowSep.BackgroundTransparency = 0.3
+            rowSep.BorderSizePixel  = 0
+            rowSep.ZIndex           = 6
+            local rowBtn = Instance.new("TextButton", row)
+            rowBtn.Size                 = UDim2.new(1, 0, 1, 0)
+            rowBtn.BackgroundTransparency = 1
+            rowBtn.BorderSizePixel      = 0
+            rowBtn.Text                 = "  " .. team.Name
+            rowBtn.Font                 = Enum.Font.Gotham
+            rowBtn.TextSize             = 11
+            rowBtn.TextColor3           = FL_TXT
+            rowBtn.TextXAlignment       = Enum.TextXAlignment.Left
+            rowBtn.AutoButtonColor      = false
+            rowBtn.ZIndex               = 7
+            table.insert(teamBtns, row)
+            rowBtn.MouseEnter:Connect(function()
+                if team.TeamColor ~= selectedTeamColor then row.BackgroundTransparency = 0 end
+            end)
+            rowBtn.MouseLeave:Connect(function()
+                if team.TeamColor ~= selectedTeamColor then row.BackgroundTransparency = 1 end
+            end)
+            rowBtn.MouseButton1Click:Connect(function()
+                for _, b in ipairs(teamBtns) do
+                    pcall(function()
+                        b.BackgroundTransparency = 1
+                        b:FindFirstChildOfClass("TextButton").TextColor3 = FL_TXT
+                    end)
+                end
+                row.BackgroundTransparency = 0
+                rowBtn.TextColor3 = FL_TXT
+                selectedTeamColor = team.TeamColor
+                dropSelectedName  = team.Name
+                listOpen  = false
+                updateTWLayout()
+                twDrop.Text       = "  " .. team.Name
+                twDrop.TextColor3 = FL_TXT
+                setTWS("Selectionne : " .. team.Name, nil)
+            end)
+            count += 1
+        end
+    end
+    if count == 0 then setTWS("Aucune team disponible", false)
+    else setTWS(count .. " team(s)", nil) end
+end
+
+twDrop.MouseButton1Click:Connect(function() listOpen = not listOpen; updateTWLayout() end)
+
+for _, btn in ipairs({twJoin, twReFire, twHdrClose}) do
+    btn.MouseEnter:Connect(function() btn.BackgroundColor3 = FL_HOVER; btn.BackgroundTransparency = T_ITEM - 0.05 end)
+    btn.MouseLeave:Connect(function() btn.BackgroundColor3 = FL_ITEM; btn.BackgroundTransparency = T_ITEM end)
+end
+twHdrClose.MouseEnter:Connect(function() twHdrClose.BackgroundColor3 = Color3.fromRGB(190,50,50); twHdrClose.BackgroundTransparency = 0.1 end)
+twHdrClose.MouseLeave:Connect(function() twHdrClose.BackgroundColor3 = FL_ITEM; twHdrClose.BackgroundTransparency = T_ITEM end)
+
+twHdrClose.MouseButton1Click:Connect(function()
+    TeamWin.Visible = false
+    pcall(function()
+        local tog = Options["ShowTeamWin"]
+        if tog then rawset(tog, "Value", false); pcall(function() tog:OnChanged() end) end
+    end)
+end)
+
+twJoin.MouseButton1Click:Connect(function()
+    if not selectedTeamColor then setTWS("Jus select a team u want to join in", false); return end
+    local te = ReplicatedStorage:FindFirstChild("TeamEvent")
+    if not te then setTWS("TeamEvent introuvable", false); return end
+    local ok = pcall(function() te:FireServer(selectedTeamColor) end)
+    setTWS(ok and ("joined : " .. tostring(dropSelectedName)) or "Error", ok)
+end)
+
+twReFire.MouseButton1Click:Connect(function()
+    local mt = LocalPlayer.Team
+    if not mt then setTWS("Pas de team", false); return end
+    local te = ReplicatedStorage:FindFirstChild("TeamEvent")
+    if not te then setTWS("TeamEvent introuvable", false); return end
+    local ok = pcall(function() te:FireServer(mt.TeamColor) end)
+    setTWS(ok and ("Resent : " .. mt.Name) or "Error", ok)
+end)
+
+updateTWLayout()
+
+-- ══════════════════════════════════════════════
+-- LOGIQUE COLOR WINDOW (UI dans ce fichier, fonctions via L)
+-- ══════════════════════════════════════════════
 setCWS = function(msg, ok)
     cwStatus.Text = msg
     cwStatus.TextColor3 = ok == true  and Color3.fromRGB(100, 210, 100)
@@ -692,10 +699,29 @@ local function updateCWLayout()
     cwDropArrow.Text      = cwListOpen and "▲" or "▼"
 end
 
+-- cwListOpen doit être accessible dans updateCWLayout ci-dessus, on le déclare ici
+local cwCarBtns  = {}
+local cwListOpen = false
+
+-- On redefine updateCWLayout maintenant que cwListOpen existe (closure)
+updateCWLayout = function()
+    local lh = cwListOpen and CW_LIST_H or 0
+    local listBottom = 78 + lh
+    cwSep.Position        = UDim2.new(0, 10, 0, listBottom + 4)
+    cwPreviewRow.Position = UDim2.new(0, 10, 0, listBottom + 12)
+    cwSep2.Position       = UDim2.new(0, 10, 0, listBottom + 38)
+    cwCycleBtn.Position   = UDim2.new(0, 10, 0, listBottom + 46)
+    cwRefresh.Position    = UDim2.new(0, 10, 0, listBottom + 80)
+    cwStatus.Position     = UDim2.new(0, 10, 0, listBottom + 112)
+    ColorWin.Size         = UDim2.new(0, CW_W, 0, listBottom + 112 + 20)
+    cwListOuter.Size      = UDim2.new(1, -20, 0, lh)
+    cwDropArrow.Text      = cwListOpen and "▲" or "▼"
+end
+
 local function updateColorPreviews()
     for i = 1, 5 do
-        if Logic.colorCarColors[i] then
-            cwPreviews[i].BackgroundColor3 = Logic.colorCarColors[i]
+        if colorCarColors[i] then
+            cwPreviews[i].BackgroundColor3 = colorCarColors[i]
             local swBd = cwPreviews[i]:FindFirstChildOfClass("UIStroke")
             if swBd then swBd.Color = FL_BORDER end
         else
@@ -704,14 +730,47 @@ local function updateColorPreviews()
     end
 end
 
+-- Branchement des clicks swatches (maintenant que L et setCWS existent)
+for i = 1, 5 do
+    local sw  = cwPreviews[i]
+    local idx = i
+    sw.MouseButton1Click:Connect(function()
+        if not colorSelectedCar or not colorSelectedCar.Parent then
+            setCWS("Jus select a vehicule", false); return
+        end
+        if not colorCarColors[idx] then
+            setCWS("Color wasnt found(probably path changed or bug, if u did smth with dex, stop for ur own sake)", false); return
+        end
+        colorCycleActive = false
+        cwCycleBtn.Text = "▶  Start Color switches(rainbow effect ig)"
+        L.applyCarColor(colorSelectedCar, colorCarColors[idx])   -- via logic.lua
+        for j = 1, 5 do
+            local bd = cwPreviews[j]:FindFirstChildOfClass("UIStroke")
+            if bd then bd.Color = (j == idx) and FL_TXT or FL_BORDER; bd.Thickness = (j == idx) and 2 or 1 end
+            cwHalos[j].Visible = (j == idx)
+        end
+        setCWS("Color " .. idx .. " applied", true)
+    end)
+    sw.MouseEnter:Connect(function()
+        if colorCarColors[idx] then
+            local bd = sw:FindFirstChildOfClass("UIStroke")
+            if bd and bd.Thickness == 1 then bd.Color = FL_TXT end
+        end
+    end)
+    sw.MouseLeave:Connect(function()
+        local bd = sw:FindFirstChildOfClass("UIStroke")
+        if bd and bd.Thickness == 1 then bd.Color = FL_BORDER end
+    end)
+end
+
 local function buildColorCarList()
     for _, b in ipairs(cwCarBtns) do pcall(function() b:Destroy() end) end
     cwCarBtns = {}
-    Logic.colorCycleActive = false
+    colorCycleActive = false
     cwCycleBtn.Text = "▶  Start Color switches(rainbow effect ig)"
     cwCycleBtn.BackgroundColor3 = FL_ITEM
 
-    local cars = Logic.getCarsInWorkspace()
+    local cars = L.getCarsInWorkspace()   -- via logic.lua
     if #cars == 0 then setCWS("No vehicules was found", false); return end
 
     for idx, car in ipairs(cars) do
@@ -724,6 +783,7 @@ local function buildColorCarList()
         row.ZIndex           = 5
         row.Parent           = cwScroll
         Instance.new("UICorner", row).CornerRadius = UDim.new(0, 4)
+
         local rowSep = Instance.new("Frame", row)
         rowSep.Size             = UDim2.new(1, 0, 0, 1)
         rowSep.Position         = UDim2.new(0, 0, 1, -1)
@@ -731,6 +791,7 @@ local function buildColorCarList()
         rowSep.BackgroundTransparency = 0.3
         rowSep.BorderSizePixel  = 0
         rowSep.ZIndex           = 6
+
         local rowBtn = Instance.new("TextButton", row)
         rowBtn.Size                 = UDim2.new(1, 0, 1, 0)
         rowBtn.BackgroundTransparency = 1
@@ -742,15 +803,17 @@ local function buildColorCarList()
         rowBtn.TextXAlignment       = Enum.TextXAlignment.Left
         rowBtn.AutoButtonColor      = false
         rowBtn.ZIndex               = 7
+
         table.insert(cwCarBtns, row)
+
         rowBtn.MouseEnter:Connect(function()
-            if Logic.colorSelectedCar ~= car.model then row.BackgroundTransparency = 0 end
+            if colorSelectedCar ~= car.model then row.BackgroundTransparency = 0 end
         end)
         rowBtn.MouseLeave:Connect(function()
-            if Logic.colorSelectedCar ~= car.model then row.BackgroundTransparency = 1 end
+            if colorSelectedCar ~= car.model then row.BackgroundTransparency = 1 end
         end)
         rowBtn.MouseButton1Click:Connect(function()
-            Logic.colorCycleActive = false
+            colorCycleActive = false
             cwCycleBtn.Text = "▶  Start Color switches(rainbow effect ig)"
             cwCycleBtn.BackgroundColor3 = FL_ITEM
             for _, b in ipairs(cwCarBtns) do
@@ -761,44 +824,49 @@ local function buildColorCarList()
             end
             row.BackgroundTransparency = 0
             rowBtn.TextColor3 = FL_TXT
-            Logic.colorSelectedCar = car.model
+            colorSelectedCar = car.model
             cwDrop.Text       = "  " .. car.label
             cwDrop.TextColor3 = FL_TXT
             cwListOpen = false
             updateCWLayout()
-            Logic.colorCarColors = Logic.getCarColors(car.model)
+            colorCarColors = L.getCarColors(car.model)   -- via logic.lua
             updateColorPreviews()
-            if #Logic.colorCarColors > 0 then setCWS(#Logic.colorCarColors .. " Found", true)
-            else setCWS("Dang no color found", false) end
+            if #colorCarColors > 0 then
+                setCWS(#colorCarColors .. " Found", true)
+            else
+                setCWS("Dang no color found", false)
+            end
         end)
     end
     setCWS(#cars .. " vehicule(s)", nil)
 end
 
-cwDrop.MouseButton1Click:Connect(function() cwListOpen = not cwListOpen; updateCWLayout() end)
+cwDrop.MouseButton1Click:Connect(function()
+    cwListOpen = not cwListOpen; updateCWLayout()
+end)
 
 cwRefresh.MouseButton1Click:Connect(function()
     buildColorCarList(); setCWS("Refreshed List", nil)
 end)
 
 cwCycleBtn.MouseButton1Click:Connect(function()
-    if not Logic.colorSelectedCar then setCWS("JUS select A vEhiCULE", false); return end
-    if not Logic.colorSelectedCar.Parent then setCWS("Well ig u respawned ur car or its too far away", false); return end
-    if #Logic.colorCarColors == 0 then setCWS("STrangely no color was found, there's no way", false); return end
+    if not colorSelectedCar then setCWS("JUS select A vEhiCULE", false); return end
+    if not colorSelectedCar.Parent then setCWS("Well ig u respawned ur car or its too far away", false); return end
+    if #colorCarColors == 0 then setCWS("STrangely no color was found, there's no way", false); return end
 
-    Logic.colorCycleActive = not Logic.colorCycleActive
+    colorCycleActive = not colorCycleActive
 
-    if Logic.colorCycleActive then
+    if colorCycleActive then
         cwCycleBtn.Text = "Stop Rainbow effect"
         setCWS("Color switches active...", true)
         task.spawn(function()
             local index = 1
-            while Logic.colorCycleActive do
-                if not Logic.colorSelectedCar or not Logic.colorSelectedCar.Parent then
-                    Logic.colorCycleActive = false; break
+            while colorCycleActive do
+                if not colorSelectedCar or not colorSelectedCar.Parent then
+                    colorCycleActive = false; break
                 end
-                local c = Logic.colorCarColors[index]
-                Logic.applyCarColor(Logic.colorSelectedCar, c)
+                local c = colorCarColors[index]
+                L.applyCarColor(colorSelectedCar, c)   -- via logic.lua
                 for i = 1, 5 do
                     local swBd = cwPreviews[i]:FindFirstChildOfClass("UIStroke")
                     local isActive = (i == index)
@@ -809,7 +877,7 @@ cwCycleBtn.MouseButton1Click:Connect(function()
                     cwPreviews[i].BackgroundTransparency = isActive and 0 or 0.15
                     cwHalos[i].Visible = isActive
                 end
-                index = (index % #Logic.colorCarColors) + 1
+                index = (index % #colorCarColors) + 1
                 task.wait(0.5)
             end
             cwCycleBtn.Text = "▶  Restart Color switches(rainbow effect ig)"
@@ -819,7 +887,7 @@ cwCycleBtn.MouseButton1Click:Connect(function()
                 cwPreviews[i].BackgroundTransparency = 0
                 cwHalos[i].Visible = false
             end
-            if not Logic.colorCycleActive then setCWS("Color Switches Stopped", nil) end
+            if not colorCycleActive then setCWS("Color Switches Stopped", nil) end
         end)
     else
         setCWS("Stopped", nil)
@@ -832,7 +900,7 @@ local cwFullHeight = nil
 local function setCWMinimized(v)
     cwMinimized = v
     if v then
-        cwFullHeight  = ColorWin.Size.Y.Offset
+        cwFullHeight = ColorWin.Size.Y.Offset
         ColorWin.Size = UDim2.new(0, CW_W, 0, 34)
         cwHdrMin.Text = "X"
     else
@@ -844,14 +912,22 @@ end
 cwHdrMin.MouseButton1Click:Connect(function() setCWMinimized(not cwMinimized) end)
 
 for _, btn in ipairs({cwCycleBtn, cwRefresh, cwHdrClose, cwHdrMin}) do
-    btn.MouseEnter:Connect(function() btn.BackgroundColor3 = FL_HOVER; btn.BackgroundTransparency = T_ITEM - 0.05 end)
-    btn.MouseLeave:Connect(function() btn.BackgroundColor3 = FL_ITEM; btn.BackgroundTransparency = T_ITEM end)
+    btn.MouseEnter:Connect(function()
+        btn.BackgroundColor3 = FL_HOVER; btn.BackgroundTransparency = T_ITEM - 0.05
+    end)
+    btn.MouseLeave:Connect(function()
+        btn.BackgroundColor3 = FL_ITEM; btn.BackgroundTransparency = T_ITEM
+    end)
 end
-cwHdrClose.MouseEnter:Connect(function() cwHdrClose.BackgroundColor3 = Color3.fromRGB(190,50,50); cwHdrClose.BackgroundTransparency = 0.1 end)
-cwHdrClose.MouseLeave:Connect(function() cwHdrClose.BackgroundColor3 = FL_ITEM; cwHdrClose.BackgroundTransparency = T_ITEM end)
+cwHdrClose.MouseEnter:Connect(function()
+    cwHdrClose.BackgroundColor3 = Color3.fromRGB(190, 50, 50); cwHdrClose.BackgroundTransparency = 0.1
+end)
+cwHdrClose.MouseLeave:Connect(function()
+    cwHdrClose.BackgroundColor3 = FL_ITEM; cwHdrClose.BackgroundTransparency = T_ITEM
+end)
 
 cwHdrClose.MouseButton1Click:Connect(function()
-    Logic.colorCycleActive = false
+    colorCycleActive = false
     ColorWin.Visible = false
     CWGui.Enabled    = false
     pcall(function()
@@ -863,20 +939,7 @@ end)
 updateCWLayout()
 
 -- ══════════════════════════════════════════════
--- MAIN WINDOW FLUENT
--- ══════════════════════════════════════════════
-local Window = Fluent:CreateWindow({
-    Title       = "AreSW - SWFL",
-    SubTitle    = "[PLACEHOLDER]",
-    TabWidth    = TAB_W,
-    Size        = UDim2.fromOffset(WIN_W, WIN_H),
-    Acrylic     = false,
-    Theme       = "Dark",
-    MinimizeKey = Enum.KeyCode.RightControl,
-})
-
--- ══════════════════════════════════════════════
---  BOUTON RUGBY
+--  BOUTON RUGBY (toggle visibilité fenêtre)
 -- ══════════════════════════════════════════════
 local fluentGui = nil
 task.spawn(function()
@@ -884,7 +947,8 @@ task.spawn(function()
     pcall(function() fluentGui = Fluent.GUI end)
     if not fluentGui or not fluentGui:IsA("ScreenGui") then
         for _, g in ipairs(PlayerGui:GetChildren()) do
-            if g:IsA("ScreenGui") and g ~= TWGui and g ~= CWGui and g.Name ~= "TeamWindow_Orion" and g.Name ~= "RugbyToggleSG" then
+            if g:IsA("ScreenGui") and g ~= TWGui and g ~= CWGui
+            and g.Name ~= "TeamWindow_Orion" and g.Name ~= "RugbyToggleSG" then
                 if g:FindFirstChildOfClass("Frame") then fluentGui = g; break end
             end
         end
@@ -904,18 +968,18 @@ RugbyFrame.Size               = UDim2.new(0, 92, 0, 30)
 RugbyFrame.Position           = isMobile
     and UDim2.new(0.5, -46, 0, 4)
     or  UDim2.new(0, 10, 1, -44)
-RugbyFrame.BackgroundColor3      = Color3.fromRGB(28, 28, 38)
+RugbyFrame.BackgroundColor3       = Color3.fromRGB(28, 28, 38)
 RugbyFrame.BackgroundTransparency = 0.22
-RugbyFrame.BorderSizePixel       = 0
-RugbyFrame.Active                = true
-RugbyFrame.Parent                = RugbySG
+RugbyFrame.BorderSizePixel        = 0
+RugbyFrame.Active                 = true
+RugbyFrame.Parent                 = RugbySG
 Instance.new("UICorner", RugbyFrame).CornerRadius = UDim.new(1, 0)
 
 local rl = Instance.new("Frame", RugbyFrame)
 rl.Size = UDim2.new(0,1,0,14); rl.Position = UDim2.new(0.5,0,0.5,-7)
-rl.BackgroundColor3 = Color3.fromRGB(180,180,200); rl.BackgroundTransparency = 0.5
-rl.BorderSizePixel  = 0; rl.ZIndex = 3
-Instance.new("UICorner", rl).CornerRadius = UDim.new(1, 0)
+rl.BackgroundColor3 = Color3.fromRGB(180,180,200); rl.BackgroundTransparency=0.5
+rl.BorderSizePixel=0; rl.ZIndex=3
+Instance.new("UICorner",rl).CornerRadius=UDim.new(1,0)
 
 local rlLabel = Instance.new("TextLabel", RugbyFrame)
 rlLabel.Size = UDim2.new(1,-8,1,0); rlLabel.Position = UDim2.new(0,4,0,0)
@@ -975,7 +1039,7 @@ local Tabs = {
 }
 
 -- ══════════════════════════════════════════════
---   CAR TAB
+--  CAR TAB
 -- ══════════════════════════════════════════════
 local TC = Tabs.Car
 local seatCarDropObj, seatDropObj, stealDropObj
@@ -986,11 +1050,11 @@ TC:AddDropdown("DriveMethod", {
     Values = {"M1 - Remote Direct","M2 - TP + ProxFire","M3 - G_Assets Clone","M4 - Humanoid:Sit direct"},
     Default  = "M1 - Remote Direct",
     Callback = function(v)
-        if     v:find("M1") then Logic.currentDriveMethod = 1
-        elseif v:find("M2") then Logic.currentDriveMethod = 2
-        elseif v:find("M3") then Logic.currentDriveMethod = 3
-        else                      Logic.currentDriveMethod = 4 end
-        notify("Drive", "Methode " .. Logic.currentDriveMethod .. " activee")
+        if     v:find("M1") then L.state.currentDriveMethod = 1
+        elseif v:find("M2") then L.state.currentDriveMethod = 2
+        elseif v:find("M3") then L.state.currentDriveMethod = 3
+        else                      L.state.currentDriveMethod = 4 end
+        notify("Drive", "Methode " .. L.state.currentDriveMethod .. " activee")
     end
 })
 
@@ -999,33 +1063,47 @@ TC:AddToggle("ShowColorWin", {
     Title = "Car Color", Description = "Car Color switcher and jus color selector", Default = false,
     Callback = function(v)
         CWGui.Enabled = v; ColorWin.Visible = v
-        if v then buildColorCarList() else Logic.colorCycleActive = false end
+        if v then buildColorCarList() else colorCycleActive = false end
     end
 })
 
 TC:AddSection("Current vehicule")
-TC:AddDropdown("SpawnCarDrop", { Title = "Vehicule a spawner", Values = Logic.CAR_LIST, Default = "mS3",
-    Callback = function(v) Logic.selSpawnCar = v end
+TC:AddDropdown("SpawnCarDrop", {
+    Title = "Vehicule a spawner", Values = L.CAR_LIST, Default = "mS3",
+    Callback = function(v) L.state.selSpawnCar = v end
 })
+
 TC:AddButton({ Title = "Godmode plus invisibility(Cars shi)", Description = "Make u unkillable(workin for everyone) and invisible(perhaps except hair and for sum avatars or smth) as long as u DONT ENTER a car", Callback = function()
-    local id = Logic.selSpawnCar
+    local id = L.state.selSpawnCar
     notify("Car", "Step 1/3 - Spawning " .. id .. "...", 4)
+
     local ok1 = pcall(function() ReplicatedStorage.SpawnCar:FireServer("requestSpawn", id) end)
     if not ok1 then notify("Car", "Spawn failed", 3); return end
+
     task.spawn(function()
         task.wait(1.5)
-        local car = Logic.findValidCar(id, 8)
+        local car = L.findValidCar(id, 8)
         if not car then notify("Car", id .. " not found", 3); return end
-        local ds = nil; local dsWait = 0
+
+        local ds = nil
+        local dsWait = 0
         repeat
             task.wait(0.2); dsWait += 0.2
             ds = car:FindFirstChild("DriveSeat")
-            if ds then local pp = car.PrimaryPart or ds; if pp.Anchored then ds = nil end end
+            if ds then
+                local pp = car.PrimaryPart or ds
+                if pp.Anchored then ds = nil end
+            end
         until ds or dsWait >= 5
         if not ds then notify("Car", "DriveSeat not ready", 3); return end
-        notify("Car", "Step 2/3 - Entering... (M" .. Logic.currentDriveMethod .. ")", 5)
-        local perAttemptTimeout = Logic.currentDriveMethod == 4 and 1.5 or 3.0
-        local maxAttempts = 6; local seated = false; local attempts = 0
+
+        notify("Car", "Step 2/3 - Entering... (M" .. L.state.currentDriveMethod .. ")", 5)
+
+        local perAttemptTimeout = L.state.currentDriveMethod == 4 and 1.5 or 3.0
+        local maxAttempts = 6
+        local seated = false
+        local attempts = 0
+
         local function isSeated()
             local mc = LocalPlayer.Character; if not mc then return false end
             local hum = mc:FindFirstChildWhichIsA("Humanoid")
@@ -1037,28 +1115,39 @@ TC:AddButton({ Title = "Godmode plus invisibility(Cars shi)", Description = "Mak
             end
             return false
         end
+
         repeat
             attempts += 1
-            if Logic.currentDriveMethod ~= 1 then
-                local mc = LocalPlayer.Character
+            if L.state.currentDriveMethod ~= 1 then
+                local mc  = LocalPlayer.Character
                 local hrp = mc and mc:FindFirstChild("HumanoidRootPart")
-                if hrp and ds.Parent then hrp.CFrame = ds.CFrame * CFrame.new(0, ds.Size.Y / 2 + 1.2, 0) end
-                task.wait(Logic.currentDriveMethod == 4 and 0.05 or 0.2)
+                if hrp and ds.Parent then
+                    hrp.CFrame = ds.CFrame * CFrame.new(0, ds.Size.Y / 2 + 1.2, 0)
+                end
+                task.wait(L.state.currentDriveMethod == 4 and 0.05 or 0.2)
             end
-            Logic.driveInCar(car, "drive")
+            L.driveInCar(car, "drive")
             local w = 0
             repeat task.wait(0.1); w += 0.1 until isSeated() or w >= perAttemptTimeout
-            if isSeated() then seated = true
+            if isSeated() then
+                seated = true
             elseif attempts < maxAttempts then
                 notify("Car", "Not seated (attempt " .. attempts .. "/" .. maxAttempts .. "), retrying...", 2)
                 task.wait(0.4)
             end
         until seated or attempts >= maxAttempts
-        if not seated then notify("Car", "Couldnt get seated after " .. maxAttempts .. " tries - try M1 or move closer to car", 6); return end
-        task.wait(Logic.currentDriveMethod == 4 and 0.6 or 0.25)
+
+        if not seated then
+            notify("Car", "Couldnt get seated after " .. maxAttempts .. " tries - try M1 or move closer to car", 6)
+            return
+        end
+
+        task.wait(L.state.currentDriveMethod == 4 and 0.6 or 0.25)
         if not isSeated() then notify("Car", "Lost seat before trigger, try again", 4); return end
+
         notify("Car", "Seated, step 3/3 - Triggerin...", 3)
         task.wait(0.15)
+
         local ok3 = pcall(function() ReplicatedStorage.SpawnCar:FireServer("requestSpawn", id) end)
         if ok3 then
             pcall(function() ReplicatedStorage.SpawnCar:FireServer("requestSpawn", id) end)
@@ -1073,48 +1162,57 @@ TC:AddButton({ Title = "Godmode plus invisibility(Cars shi)", Description = "Mak
 end })
 
 TC:AddButton({ Title = "Spawn Car", Callback = function()
-    notify("Car", pcall(function() ReplicatedStorage.SpawnCar:FireServer("requestSpawn", Logic.selSpawnCar) end) and Logic.selSpawnCar .. " spawne" or "Erreur Spawn")
+    notify("Car", pcall(function() ReplicatedStorage.SpawnCar:FireServer("requestSpawn", L.state.selSpawnCar) end)
+        and L.state.selSpawnCar .. " spawne" or "Erreur Spawn")
 end })
+
 TC:AddButton({ Title = "Drive Car", Callback = function()
     task.spawn(function()
-        local car = Logic.findValidCar(Logic.selSpawnCar, 4); if not car then notify("Car", "Introuvable"); return end
-        local ok, msg = Logic.driveInCar(car, "drive"); notify("Car", ok and ("Drive: " .. Logic.selSpawnCar) or ("Error: " .. msg))
+        local car = L.findValidCar(L.state.selSpawnCar, 4)
+        if not car then notify("Car", "Introuvable"); return end
+        local ok, msg = L.driveInCar(car, "drive")
+        notify("Car", ok and ("Drive: " .. L.state.selSpawnCar) or ("Error: " .. msg))
     end)
 end })
 
 TC:AddSection("Sit Car")
-seatCarDropObj = TC:AddDropdown("SeatCarDrop", { Title = "Choose a Car", Values = {"→ Click Refresh"}, Default = nil,
+seatCarDropObj = TC:AddDropdown("SeatCarDrop", {
+    Title = "Choose a Car", Values = {"→ Click Refresh"}, Default = nil,
     Callback = function(v)
-        Logic.selSeatCarKey = v
-        if seatDropObj then pcall(function() seatDropObj:SetValues(Logic.buildSeatValues()) end) end
+        L.state.selSeatCarKey = v
+        if seatDropObj then pcall(function() seatDropObj:SetValues(L.buildSeatValues()) end) end
     end
 })
-seatDropObj = TC:AddDropdown("SeatDrop", { Title = "Target Seat", Values = {"Auto"}, Default = "Auto",
-    Callback = function(v) Logic.selSeatKey = v end
+seatDropObj = TC:AddDropdown("SeatDrop", {
+    Title = "Target Seat", Values = {"Auto"}, Default = "Auto",
+    Callback = function(v) L.state.selSeatKey = v end
 })
 TC:AddButton({ Title = "Refresh Car", Callback = function()
-    pcall(function() seatCarDropObj:SetValues(Logic.buildSeatCarValues()) end); notify("Car", "Refreshed list")
+    pcall(function() seatCarDropObj:SetValues(L.buildSeatCarValues()) end)
+    notify("Car", "Refreshed list")
 end })
 TC:AddButton({ Title = "Sit Car", Callback = function()
-    local car = Logic.selSeatCarKey and Logic.seatCarLookup[Logic.selSeatCarKey]
+    local car = L.state.selSeatCarKey and L.seatCarLookup[L.state.selSeatCarKey]
     if not car then notify("Car", "Jus select a car"); return end
     if not car.Parent then notify("Car", "Looks like u have to do it again"); return end
     task.spawn(function()
-        if Logic.currentDriveMethod == 2 or Logic.currentDriveMethod == 3 then
-            pcall(function() Logic.ProximityPromptSvc.Enabled = true end); task.wait(0.05)
+        if L.state.currentDriveMethod == 2 or L.state.currentDriveMethod == 3 then
+            pcall(function() ProximityPromptSvc.Enabled = true end); task.wait(0.05)
         end
         local st = nil
-        if Logic.selSeatKey and Logic.selSeatKey ~= "Auto" and Logic.seatSeatLookup[Logic.selSeatKey] and Logic.seatSeatLookup[Logic.selSeatKey] ~= "_auto_" then
-            st = Logic.seatSeatLookup[Logic.selSeatKey]
+        if L.state.selSeatKey and L.state.selSeatKey ~= "Auto"
+        and L.seatSeatLookup[L.state.selSeatKey]
+        and L.seatSeatLookup[L.state.selSeatKey] ~= "_auto_" then
+            st = L.seatSeatLookup[L.state.selSeatKey]
         end
         if not st then
-            local all = Logic.getCarSeats(car)
+            local all = L.getCarSeats(car)
             for _, s in ipairs(all) do if s.Occupant == nil and s.Name ~= "DriveSeat" then st = s; break end end
             if not st then for _, s in ipairs(all) do if s.Occupant == nil then st = s; break end end end
             if not st and #all > 0 then st = all[1] end
         end
         if not st then notify("Car", "No seat"); return end
-        local ok, msg = Logic.driveInCar(car, st)
+        local ok, msg = L.driveInCar(car, st)
         notify("Car", ok and ("Assis: " .. st.Name) or ("Erreur: " .. msg))
     end)
 end })
@@ -1124,51 +1222,62 @@ TC:AddToggle("AutoRejoinToggle", {
     Title       = "Auto rejoin after respawn",
     Description = "Get u ah back to ur last known car seat",
     Default     = false,
-    Callback    = function(v) Logic.autoRejoinOn = v end
+    Callback    = function(v) L.state.autoRejoinOn = v end
 })
 TC:AddButton({
     Title       = "Sit back at ur last seat",
     Description = "[PLACEHOLDER]",
     Callback    = function()
-        if not Logic.persistCarName then notify("Car", "No seats detected(Try to sit first)"); return end
-        local car  = Logic.resolveCarAfterRespawn()
-        if not car then notify("Car", "Véhicule '" .. Logic.persistCarName .. "' introuvable"); return end
-        local seat = Logic.findSeatInCar(car, Logic.persistSeatName) or car:FindFirstChild("DriveSeat")
-        if not seat then notify("Car", "Seat '" .. Logic.persistSeatName .. "' not found"); return end
+        local pName = L.getPersistCarName()
+        local pSeat = L.getPersistSeatName()
+        if not pName then notify("Car", "No seats detected(Try to sit first)"); return end
+        local car  = L.resolveCarAfterRespawn()
+        if not car then notify("Car", "Véhicule '" .. pName .. "' introuvable"); return end
+        local seat = L.findSeatInCar(car, pSeat) or car:FindFirstChild("DriveSeat")
+        if not seat then notify("Car", "Seat '" .. pSeat .. "' not found"); return end
         task.spawn(function()
-            local ok, msg = Logic.driveInCar(car, seat)
+            local ok, msg = L.driveInCar(car, seat)
             notify("Car", ok and ("Rejoin ✓  " .. seat.Name .. " (" .. car.Name .. ")") or ("Error: " .. tostring(msg)))
         end)
     end
 })
 
 TC:AddSection("Steal a car(JUS FREE OP SHi)")
-stealDropObj = TC:AddDropdown("StealDrop", { Title = "Target Vehicule To Steal", Values = {"→ Press Refresh"}, Default = nil,
-    Callback = function(v) Logic.selStealKey = v end
+stealDropObj = TC:AddDropdown("StealDrop", {
+    Title = "Target Vehicule To Steal", Values = {"→ Press Refresh"}, Default = nil,
+    Callback = function(v) L.state.selStealKey = v end
 })
-TC:AddToggle("KillEngineToggle", { Title = "[Test]", Default = false,
-    Callback = function(v) Logic.killEngineEnabled = v end
+TC:AddToggle("KillEngineToggle", {
+    Title = "[Test]", Default = false,
+    Callback = function(v) L.state.killEngineEnabled = v end
 })
-TC:AddToggle("KickUIToggle", { Title = "Delete/Hide sum UI driver(jus wanted to try tho)", Default = false,
-    Callback = function(v) Logic.kickUIEnabled = v end
+TC:AddToggle("KickUIToggle", {
+    Title = "Delete/Hide sum UI driver(jus wanted to try tho)", Default = false,
+    Callback = function(v) L.state.kickUIEnabled = v end
 })
 TC:AddButton({ Title = "Refresh Car(s)", Callback = function()
-    pcall(function() stealDropObj:SetValues(Logic.buildStealValues()) end); notify("Car", "Refreshed")
+    pcall(function() stealDropObj:SetValues(L.buildStealValues()) end); notify("Car", "Refreshed")
 end })
 TC:AddButton({ Title = "Steal and Drive", Description = "Actually can try to steal and drive someone vehicule(FUNNY AF TO TROLL, jus buggy sumtimes ALSO can fling ppl vehicule if u try to enter into a passenger seat)", Callback = function()
-    local car = Logic.selStealKey and Logic.stealLookup[Logic.selStealKey]
+    local car = L.state.selStealKey and L.stealLookup[L.state.selStealKey]
     if not car then notify("Car", "Jus select a vehicule to steal"); return end
     if not car.Parent then notify("Car", "No car found(either got respawned, plr left, or u are too far)"); return end
     task.spawn(function()
         local mc  = LocalPlayer.Character; if not mc  then return end
         local hrp = mc:FindFirstChild("HumanoidRootPart"); if not hrp then return end
         local ds  = car:FindFirstChild("DriveSeat"); if not ds then notify("Car", "Driver Seat Not found"); return end
-        if Logic.killEngineEnabled then local io = car:FindFirstChild("IsOn"); if io then pcall(function() io.Value = false end); task.wait(0.1) end end
-        if Logic.kickUIEnabled and ds.Occupant then
+        if L.state.killEngineEnabled then
+            local io = car:FindFirstChild("IsOn")
+            if io then pcall(function() io.Value = false end); task.wait(0.1) end
+        end
+        if L.state.kickUIEnabled and ds.Occupant then
             local oc = ds.Occupant.Parent
             if oc then
                 local cd = Players:GetPlayerFromCharacter(oc)
-                if cd then local ce = ReplicatedStorage:FindFirstChild("cleanUIEvent"); if ce then pcall(function() ce:FireServer("requestClean", cd) end); task.wait(0.15) end end
+                if cd then
+                    local ce = ReplicatedStorage:FindFirstChild("cleanUIEvent")
+                    if ce then pcall(function() ce:FireServer("requestClean", cd) end); task.wait(0.15) end
+                end
             end
         end
         pcall(function() ds.Disabled = false end)
@@ -1191,120 +1300,82 @@ local playerDropObj = nil
 
 local function refreshPlayerList()
     local names = {}
-    for _, plr in ipairs(Players:GetPlayers()) do if plr ~= LocalPlayer then table.insert(names, plr.Name) end end
+    for _, plr in ipairs(Players:GetPlayers()) do
+        if plr ~= LocalPlayer then table.insert(names, plr.Name) end
+    end
     if #names == 0 then names = {"No plrs was found either u alone or jus refresh"} end
     if playerDropObj then pcall(function() playerDropObj:SetValues(names) end) end
 end
 
 TW:AddSection("Target")
-playerDropObj = TW:AddDropdown("PlayerTarget", { Title="Player", Values={"Aucun joueur"}, Default=nil,
+playerDropObj = TW:AddDropdown("PlayerTarget", {
+    Title  = "Player", Values = {"Aucun joueur"}, Default = nil,
     Callback = function(v)
-        Logic.selectedPlayer = nil
-        for _, p in ipairs(Players:GetPlayers()) do if p.Name == v then Logic.selectedPlayer = p; break end end
+        L.state.selectedPlayer = nil
+        for _, p in ipairs(Players:GetPlayers()) do
+            if p.Name == v then L.state.selectedPlayer = p; break end
+        end
     end
 })
-TW:AddButton({ Title="Refresh plrs list", Callback=function() refreshPlayerList() end })
+TW:AddButton({ Title="Refresh plrs list", Callback = function() refreshPlayerList() end })
 
 TW:AddSection("Degats")
 TW:AddButton({ Title="Inflict/send damages to police(OP, crazy tho)", Callback=function()
-    if not Logic.selectedPlayer then notify("Weapon","Jus select ur next victim and u will be in peace"); return end
-    if not Logic.getGun() then notify("Weapon","Equip ur M9(only supportin default free weapon for now)"); return end
-    local ok = Logic.sendDamage(Logic.selectedPlayer.Character)
-    notify("Weapon", ok and Logic.selectedPlayer.Name.." HIT" or "Hum guys the remote even wasnt found... either false alarm or got patched")
+    if not L.state.selectedPlayer then notify("Weapon","Jus select ur next victim and u will be in peace"); return end
+    if not L.getGun() then notify("Weapon","Equip ur M9(only supportin default free weapon for now)"); return end
+    local ok = L.sendDamage(L.state.selectedPlayer.Character)
+    notify("Weapon", ok and L.state.selectedPlayer.Name.." HIT" or "Hum guys the remote even wasnt found... either false alarm or got patched")
 end })
 TW:AddButton({ Title="Loop Kill", Description="Loop kill a police guy until he die", Callback=function()
-    if not Logic.selectedPlayer then notify("Weapon","JUS select a plr who's IN THE police team"); return end
-    if not Logic.getGun() then notify("Weapon","Equip ur M9(only supportin default free weapon for now)"); return end
-    if Logic.killLoopActive then notify("Weapon","kill is already bein processed"); return end
-    Logic.killLoopActive = true
-    task.spawn(function()
-        local tgt = Logic.selectedPlayer; local tries, maxT = 0, 80
-        while Logic.killLoopActive and tries < maxT do
-            local ch = tgt.Character; if ch then
-                local hm = ch:FindFirstChildOfClass("Humanoid")
-                if hm and hm.Health > 0 then Logic.sendDamage(ch); task.wait(0.05); tries += 1
-                else notify("Weapon", tgt.Name.." MURDERED ✓"); break end
-            else task.wait(0.1); tries += 1 end
-        end
-        if tries >= maxT then notify("Weapon","Couldnt rly kill him, took too long") end
-        Logic.killLoopActive = false
-    end)
+    if not L.getGun() then notify("Weapon","Equip ur M9(only supportin default free weapon for now)"); return end
+    L.startKillLoop()
 end })
 TW:AddButton({ Title="Stop killin(u sure u wanna have mercy..?)", Callback=function()
-    Logic.killLoopActive = false; notify("Weapon","Killin stopped")
+    L.stopKillLoop(); notify("Weapon","Killin stopped")
 end })
 
 TW:AddSection("Kill aura(VERY OP)")
-local auraRadius = 200
-local auraRespawnConns = {}
-TW:AddSlider("AuraRadius",{ Title="Radius (studs)", Min=5, Max=700, Default=200, Rounding=5,
-    Callback=function(v) auraRadius = v end
+TW:AddSlider("AuraRadius", {
+    Title = "Radius (studs)", Min = 5, Max = 700, Default = 200, Rounding = 5,
+    Callback = function(v) L.state.auraRadius = v end
 })
-TW:AddToggle("AuraDmg",{ Title="Kill nearby policer(kill aura)", Default=false, Callback=function(v)
-    if v then
-        if not Logic.getGun() then notify("Weapon","Equip ur M9 for murderin police guy(s) ") end
-        local myTeam = LocalPlayer.Team
-        if not myTeam or myTeam.Name ~= "Criminal" then notify("Weapon","Required Criminal team to kill em") end
-        local timers = {}
-        local function hookRespawn(plr)
-            if auraRespawnConns[plr] then auraRespawnConns[plr]:Disconnect() end
-            auraRespawnConns[plr] = plr.CharacterAdded:Connect(function() timers[plr] = nil end)
-        end
-        for _, plr in ipairs(Players:GetPlayers()) do if plr ~= LocalPlayer then hookRespawn(plr) end end
-        local newPlrConn = Players.PlayerAdded:Connect(function(plr) hookRespawn(plr) end)
-        Logic.auraConn = RunService.Heartbeat:Connect(function()
-            local ts = game:FindService("Teams"); if not ts then return end
-            local mt = LocalPlayer.Team
-            if not mt or mt.Name ~= "Criminal" then return end
-            local mc = LocalPlayer.Character; if not mc then return end
-            local mh = mc:FindFirstChild("HumanoidRootPart"); if not mh then return end
-            local now = tick()
-            for _, plr in ipairs(Players:GetPlayers()) do
-                if plr ~= LocalPlayer and plr.Character then
-                    local pt = plr.Team
-                    if pt and (pt.Name == "Police" or pt.Name == "Sheriff") then
-                        local h = plr.Character:FindFirstChild("HumanoidRootPart")
-                        if h and (mh.Position - h.Position).Magnitude <= auraRadius then
-                            local last = timers[plr] or 0
-                            if now - last >= 0.3 then
-                                timers[plr] = now
-                                task.spawn(function() Logic.sendDamage(plr.Character) end)
-                            end
-                        end
-                    end
-                end
-            end
-        end)
-        Logic.auraConn_cleanup = newPlrConn
-    else
-        if Logic.auraConn then Logic.auraConn:Disconnect(); Logic.auraConn = nil end
-        if Logic.auraConn_cleanup then Logic.auraConn_cleanup:Disconnect(); Logic.auraConn_cleanup = nil end
-        for _, c in pairs(auraRespawnConns) do pcall(function() c:Disconnect() end) end
-        auraRespawnConns = {}
+TW:AddToggle("AuraDmg", {
+    Title = "Kill nearby policer(kill aura)", Default = false,
+    Callback = function(v)
+        if v then L.startAura()
+        else       L.stopAura() end
     end
-end })
+})
 
 TW:AddSection("Taser")
 TW:AddButton({ Title="Target plr to tase(need to be police team)", Callback=function()
-    if not Logic.selectedPlayer then notify("Taser","Select a BAD BOY"); return end
-    if not Logic.isPoliceOrSheriff() then notify("Taser","Require Police or Sheriff"); return end
-    local ok = Logic.fireTase(Logic.selectedPlayer)
-    notify("Taser", ok and Logic.selectedPlayer.Name.." tase" or "Erreur")
+    if not L.state.selectedPlayer then notify("Taser","Select a BAD BOY"); return end
+    if not L.isPoliceOrSheriff() then notify("Taser","Require ou Sheriff"); return end
+    local ok = L.fireTase(L.state.selectedPlayer)
+    notify("Taser", ok and L.state.selectedPlayer.Name.." tase" or "Erreur")
 end })
 TW:AddButton({ Title="Taser joueur proche", Callback=function()
-    if not Logic.isPoliceOrSheriff() then notify("Taser","Required to be Police team or Sheriff"); return end
-    local n = Logic.getNearestPlayer(); if not n then notify("Taser","No nearby criminal"); return end
-    local ok = Logic.fireTase(n); notify("Taser", ok and n.Name.." tase" or "Error")
+    if not L.isPoliceOrSheriff() then notify("Taser","Required to be Police team or Sheriff"); return end
+    local n = L.getNearestPlayer(); if not n then notify("Taser","No nearby criminal"); return end
+    local ok = L.fireTase(n)
+    notify("Taser", ok and n.Name.." tase" or "Error")
 end })
-TW:AddToggle("TaseLoop",{ Title="Taser loop (need to be close enough unfortunately)", Default=false, Callback=function(v)
-    if v and not Logic.isPoliceOrSheriff() then notify("Taser","GNG Required Police team or Sheriff"); return end
-    Logic.taseLoopActive = v
-    if v then task.spawn(function()
-        while Logic.taseLoopActive do
-            local n = Logic.getNearestPlayer(); if n then Logic.fireTase(n) end; task.wait(5.2)
+TW:AddToggle("TaseLoop", {
+    Title = "Taser loop (need to be close enough unfortunately)", Default = false,
+    Callback = function(v)
+        if v and not L.isPoliceOrSheriff() then notify("Taser","GNG Required Police team or Sheriff"); return end
+        L.state.taseLoopActive = v
+        if v then
+            task.spawn(function()
+                while L.state.taseLoopActive do
+                    local n = L.getNearestPlayer()
+                    if n then L.fireTase(n) end
+                    task.wait(5.2)
+                end
+            end)
         end
-    end) end
-end })
+    end
+})
 
 -- ══════════════════════════════════════════════
 --  GAME TAB
@@ -1313,16 +1384,18 @@ local TG = Tabs.Game
 
 local success, err = pcall(function()
     TG:AddSection("Teams")
+
     local _allowTeamToggle = false
+
     TG:AddToggle("ShowTeamWin", {
-        Title = "Join team",
-        Default = false,
+        Title = "Join team", Default = false,
         Callback = function(Value)
-            TWGui.Enabled   = Value
+            TWGui.Enabled  = Value
             TeamWin.Visible = Value
             if Value then buildTeamList() end
         end
     })
+
     TG:AddButton({
         Title = "Rejoin the same actual team",
         Callback = function()
@@ -1334,6 +1407,7 @@ local success, err = pcall(function()
             notify("Game", ok and ("Rejoined team: " .. mt.Name) or "Error FireServer")
         end
     })
+
     task.delay(2.5, function()
         TWGui.Enabled = false
         _allowTeamToggle = true
@@ -1342,6 +1416,9 @@ end)
 
 if not success then warn("Error while loadin the game tab :", err) end
 
+-- ══════════════════════════════════════════════
+--  PLRS / SELF TABS (placeholder)
+-- ══════════════════════════════════════════════
 Tabs.Plrs:AddSection("Plrs"); Tabs.Plrs:AddParagraph({ Title="Soon", Content="Plrs functionalities" })
 Tabs.Self:AddSection("Self"); Tabs.Self:AddParagraph({ Title="Soon", Content="Perso functionalities" })
 
@@ -1360,80 +1437,12 @@ TM:AddToggle("FloorFixToggle", {
     Title = "Godmode floor fix",
     Description = "When u equip M9 (or G17 for police or sheriff), either freezes u or TP u up slightly to prevent fallin thro the map(AUTO ENABLED WHEN GODMODE IS SUCESSFULLY SET UP, with godmode option)",
     Default = false,
-    Callback = function(v)
-        if not v then return end
-        local freezeConn = nil
-        local charConns  = {}
-        local function stopFreeze(hrp, hum)
-            if freezeConn then freezeConn:Disconnect(); freezeConn = nil end
-            if hrp  then pcall(function() hrp.Anchored = false end) end
-            if hum  then pcall(function() hum.WalkSpeed = 16; hum.JumpPower = 50 end) end
-        end
-        local function doFix(hrp, hum)
-            if not Options["FloorFixToggle"].Value then return end
-            local mode = Options["FloorFixMode"].Value
-            if mode == "TP Up" then
-                local offset = Options["FloorFixTPHeight"].Value
-                if hrp then pcall(function() hrp.CFrame = hrp.CFrame + Vector3.new(0, offset, 0) end) end
-            elseif mode:find("Freeze") then
-                stopFreeze(hrp, hum)
-                if not hrp then return end
-                pcall(function() hrp.Anchored = true end)
-                if hum then pcall(function() hum.WalkSpeed = 0; hum.JumpPower = 0 end) end
-                local elapsed = 0
-                freezeConn = RunService.Heartbeat:Connect(function(dt)
-                    elapsed += dt
-                    if not Options["FloorFixToggle"].Value or not hrp or not hrp.Parent or elapsed >= 3 then
-                        stopFreeze(hrp, hum); return
-                    end
-                end)
-            end
-        end
-        local function getWeaponForTeam()
-            local team = LocalPlayer.Team; if not team then return nil end
-            if team.Name == "Criminal" then return "M9" end
-            if team.Name == "Police" or team.Name == "Sheriff" then return "G17" end
-            return nil
-        end
-        local function hookCharacter(character)
-            for _, c in ipairs(charConns) do pcall(function() c:Disconnect() end) end
-            charConns = {}
-            stopFreeze(character:FindFirstChild("HumanoidRootPart"), character:FindFirstChildWhichIsA("Humanoid"))
-            local hrp = character:WaitForChild("HumanoidRootPart", 5)
-            local hum = character:WaitForChild("Humanoid", 5)
-            if not hrp or not hum then return end
-            local function watchTool(tool)
-                if not tool:IsA("Tool") then return end
-                local eqConn = tool.Equipped:Connect(function()
-                    if not Options["FloorFixToggle"].Value then return end
-                    local expected = getWeaponForTeam()
-                    if not expected or tool.Name ~= expected then return end
-                    doFix(hrp, hum)
-                end)
-                local uqConn = tool.Unequipped:Connect(function()
-                    local expected = getWeaponForTeam()
-                    if expected and tool.Name == expected then stopFreeze(hrp, hum) end
-                end)
-                table.insert(charConns, eqConn)
-                table.insert(charConns, uqConn)
-            end
-            local bp = LocalPlayer:FindFirstChildOfClass("Backpack")
-            if bp then for _, t in ipairs(bp:GetChildren()) do watchTool(t) end end
-            for _, t in ipairs(character:GetChildren()) do watchTool(t) end
-            local cc = character.ChildAdded:Connect(function(c) watchTool(c) end)
-            local bc = bp and bp.ChildAdded:Connect(function(c) watchTool(c) end)
-            table.insert(charConns, cc)
-            if bc then table.insert(charConns, bc) end
-        end
-        if LocalPlayer.Character then hookCharacter(LocalPlayer.Character) end
-        local sc = LocalPlayer.CharacterAdded:Connect(hookCharacter)
-        table.insert(charConns, sc)
-    end
+    Callback = function(v) L.floorFixCallback(v) end   -- délégué à logic.lua
 })
 
 TM:AddDropdown("FloorFixMode", {
-    Title    = "Floor fix mode",
-    Values   = {"Freeze for 3s(RECOMMENDED)", "TP Up"},
+    Title = "Floor fix mode",
+    Values = {"Freeze for 3s(RECOMMENDED)", "TP Up"},
     Default  = "Freeze for 3s(RECOMMENDED)",
     Callback = function(v) end
 })
@@ -1448,53 +1457,32 @@ TM:AddSlider("FloorFixTPHeight", {
 })
 
 TM:AddSection("Unlimited Ammo")
-TM:AddDropdown("AmmoMethod",{ Title="ammo method", Values={"Basic method","Invisible TP ammo box"}, Default="Basic Method",
-    Callback=function(v) Logic.selAmmoMethod = v == "Basic Method" and "BS" or "tp" end
+
+TM:AddDropdown("AmmoMethod", {
+    Title = "ammo method",
+    Values = {"Basic method","Invisible TP ammo box"},
+    Default = "Basic Method",
+    Callback = function(v)
+        L.state.selAmmoMethod = (v == "Basic Method") and "BS" or "tp"
+    end
 })
-TM:AddToggle("HideAmmo",{
+TM:AddToggle("HideAmmo", {
     Title = "Hide ammo boxes",
     Description = "Makes ammo boxes invisible and no collided. HIGHLY Recommended if ur executor is makin it buggy or smth else (like yep xeno, probably more similar ones)",
     Default = false,
-    Callback = function(v)
-        Logic.hideLoopActive = v
-        if v then task.spawn(function() while Logic.hideLoopActive do Logic.applyHide(); task.wait(0.1) end end) end
-    end
+    Callback = function(v) L.setHideLoop(v) end
 })
-TM:AddToggle("AmmoLoop",{
+TM:AddToggle("AmmoLoop", {
     Title = "Get ammo every 12s",
     Description = "Loop, basic but less laggy better for low devices or complicated executor, like xeno, L xeno. Anyways jus wanna do my best to please yall also btw less detected by the game(or even roblox ig) even tho this game isnt properly protected against exploit(deadah)",
     Default = false,
-    Callback = function(v)
-        Logic.ammoLoopEnabled = v
-        if v and Logic.ammoEnabled then
-            Logic.ammoLoopActive = true
-            task.spawn(function()
-                while Logic.ammoLoopActive and Logic.ammoLoopEnabled do Logic.touchAmmo(); task.wait(12) end
-            end)
-        end
-        if not v then Logic.ammoLoopActive = false end
-    end
+    Callback = function(v) L.setAmmoLoop(v) end
 })
-TM:AddToggle("AmmoEnabled",{
+TM:AddToggle("AmmoEnabled", {
     Title = "Get ammo boxes for every shot",
     Description = "Get ammo for each shot. Tested it had no real issues so workin fine(delta is workin well so far and xeno aswell but kinda annoyin in game if u see a random ammo box poppin up) BUT can get slightly laggy dependin on devices/perfs or even executor(xeno, alr i will stop now)",
     Default = false,
-    Callback = function(v)
-        Logic.ammoEnabled = v
-        if v then
-            if Logic.ammoShootConn then Logic.ammoShootConn:Disconnect() end
-            Logic.ammoShootConn = LocalPlayer:GetMouse().Button1Down:Connect(function() task.spawn(function() Logic.touchAmmo() end) end)
-            if Logic.ammoLoopEnabled then
-                Logic.ammoLoopActive = true
-                task.spawn(function()
-                    while Logic.ammoLoopActive and Logic.ammoLoopEnabled and Logic.ammoEnabled do Logic.touchAmmo(); task.wait(10) end
-                end)
-            end
-        else
-            if Logic.ammoShootConn then Logic.ammoShootConn:Disconnect(); Logic.ammoShootConn = nil end
-            Logic.ammoLoopActive = false
-        end
-    end
+    Callback = function(v) L.setAmmoEnabled(v) end
 })
 
 TM:AddSection("Glasses(jus for fun at this point)")
@@ -1503,16 +1491,18 @@ TM:AddButton({ Title="Break Glasses around u", Description="Basically tryin to b
         local sr = ReplicatedStorage:FindFirstChild("Remotes") and ReplicatedStorage.Remotes:FindFirstChild("ShatterGlass")
         if not sr then notify("Misc","ShatterGlass wasnt found"); return end
         local gp = {}
-        for _, o in ipairs(workspace:GetDescendants()) do
+        for _,o in ipairs(workspace:GetDescendants()) do
             if o:IsA("Part") and o.Name:sub(-6) == "_glass" then table.insert(gp, o) end
         end
         if #gp == 0 then notify("Misc","No glasses found"); return end
         local sent = 0
-        for _, g in ipairs(gp) do
-            if g and g.Parent then pcall(function() sr:FireServer(g) end); sent += 1
-            if sent % 50 == 0 then task.wait() end end
+        for _,g in ipairs(gp) do
+            if g and g.Parent then
+                pcall(function() sr:FireServer(g) end); sent += 1
+                if sent % 50 == 0 then task.wait() end
+            end
         end
-        notify("Misc", sent.."/"..#gp.." Broke Glasses ✓")
+        notify("Misc", sent.."/"..#gp.."Broke Glasses ✓")
     end)
 end })
 
