@@ -66,13 +66,7 @@ end
 local function PubQGRXf(HxwxIELSFq)
     return (HxwxIELSFq >= 48 and HxwxIELSFq <= 57) or (HxwxIELSFq >= 65 and HxwxIELSFq <= 90) or (HxwxIELSFq >= 97 and HxwxIELSFq <= 122)
 end
-
--- ══════════════════════════════════════════════════════════════════
---  logic.lua — AreSW SWFL  |  Logique, fonctions, état partagé
---  Ce fichier retourne une fonction init(ctx) -> module
---  ctx = { CXmcblXsF = fn, VlVEpYGw = FluentOptions }
--- ══════════════════════════════════════════════════════════════════
-
+		
 return function(ctx)
     local CXmcblXsF  = ctx.CXmcblXsF
     local VlVEpYGw = ctx.VlVEpYGw
@@ -84,9 +78,6 @@ return function(ctx)
     local frhDxlcN         = bMmixClZG(IpZYvYDtWVZw("EhaFreivpr", 13))
     local iITsKYNnyyK        = dpjnbwPwL.iITsKYNnyyK
 
-    -- ══════════════════════════════════════════════
-    -- CAR LIST
-    -- ══════════════════════════════════════════════
     local kdUygEkXfDx = {
         IpZYvYDtWVZw("qTri", 16),IpZYvYDtWVZw("vZUsl", 18),IpZYvYDtWVZw("eDibmEfnpo281", 1),IpZYvYDtWVZw("eDwoOnkhbd", 25),IpZYvYDtWVZw("qArba", 13),IpZYvYDtWVZw("t76Sxhwh", 16),IpZYvYDtWVZw("b00WcpcwVigyr_ecn", 20),
         IpZYvYDtWVZw("mUfx", 5),IpZYvYDtWVZw("jYtcl", 24),IpZYvYDtWVZw("pKepp", 4),IpZYvYDtWVZw("sMz", 6),IpZYvYDtWVZw("cI9", 16),IpZYvYDtWVZw("wwXutwy", 5),IpZYvYDtWVZw("nWugls", 20),IpZYvYDtWVZw("vHl", 2),IpZYvYDtWVZw("oBO97", 21),IpZYvYDtWVZw("cBJ79", 9),IpZYvYDtWVZw("sRZ45", 25),
@@ -152,9 +143,6 @@ return function(ctx)
         IpZYvYDtWVZw("fNcdaozm", 21),IpZYvYDtWVZw("pOhzZyvsmoExn", 10)
     }
 
-    -- ══════════════════════════════════════════════
-    -- STATE PARTAGÉ (table passée par référence)
-    -- ══════════════════════════════════════════════
     local SXEQyYmTphD = {
         selectedPlayer     = nil,
         killLoopActive     = false,
@@ -182,16 +170,12 @@ return function(ctx)
     local iCPWsYQT = {}
     local XRVpQFjw    = {}
 
-    -- Persistent zimAVrKwywa
     local xWaEXVtYi          = nil
     local jkvEsNJFBa         = nil
     local roMxsrEyS        = nil
     local GONVzrFeNo     = nil
     local oHOVKoxRjcvc       = {}
 
-    -- ══════════════════════════════════════════════
-    -- FONCTIONS HELPER VOITURES
-    -- ══════════════════════════════════════════════
     local function DjFaAMpQTN(XxSGReJSsbH)
         local hxLwqbtU = XxSGReJSsbH:FindFirstChild(IpZYvYDtWVZw("ThyluIuqj", 16)); if hxLwqbtU then return hxLwqbtU end
         for _, hyJAvugkId in QvXjGXhzcV(XxSGReJSsbH:GetDescendants()) do if hyJAvugkId:IsA(IpZYvYDtWVZw("EnqrlunBnjc", 9)) then return hyJAvugkId end end
@@ -279,9 +263,6 @@ return function(ctx)
         return IpZYvYDtWVZw("?", 3)
     end
 
-    -- ══════════════════════════════════════════════
-    -- DRIVE IN CAR
-    -- ══════════════════════════════════════════════
     local function btrMEsCt(XxSGReJSsbH, YMRPzSta)
         local OnJDlyrlXe = iITsKYNnyyK.Character; if not OnJDlyrlXe then return false, IpZYvYDtWVZw("Vgy jk vkxyuttgmk", 6) end
         local qvIZOJAt = OnJDlyrlXe:FindFirstChild(IpZYvYDtWVZw("YldrefzuIffkGrik", 17)); if not qvIZOJAt then return false, IpZYvYDtWVZw("EOM fkqolrsxyib", 23) end
@@ -367,9 +348,6 @@ return function(ctx)
         return false, IpZYvYDtWVZw("Vncqxmn rwlxwwdn", 9)
     end
 
-    -- ══════════════════════════════════════════════
-    -- SIÈGE PERSISTANT
-    -- ══════════════════════════════════════════════
     local function ioYwoBJNXlZm(DtMFYLuOGX)
         local eUKHmewMpN = workspace:FindFirstChild(IpZYvYDtWVZw("Hfwx", 5)); if not eUKHmewMpN then return nil end
         local CnnmyPSK = DtMFYLuOGX.Parent
@@ -415,7 +393,7 @@ return function(ctx)
         return nil
     end
 
-    local doRejoin  -- forward declare
+    local doRejoin
 
     local function gaHnZwJD(hApFjEkw)
         if GONVzrFeNo then GONVzrFeNo:Disconnect(); GONVzrFeNo = nil end
@@ -455,9 +433,6 @@ return function(ctx)
         end)
     end
 
-    -- ══════════════════════════════════════════════
-    -- BUILDERS DROPDOWN VOITURES
-    -- ══════════════════════════════════════════════
     local function kFhipBDVDm()
         lNInVktUtMLS = {}; local lcTeZyzWeyFS = {}
         local eUKHmewMpN = workspace:FindFirstChild(IpZYvYDtWVZw("Bzqr", 25))
@@ -512,9 +487,6 @@ return function(ctx)
         return #lcTeZyzWeyFS > 0 and lcTeZyzWeyFS or {IpZYvYDtWVZw("Fzhzs ajmnhzqj", 5)}
     end
 
-    -- ══════════════════════════════════════════════
-    -- WEAPON FUNCTIONS
-    -- ══════════════════════════════════════════════
     local function nBtDdfcwnmHS()
         local ndcaJqmwlXX = iITsKYNnyyK.Character; return ndcaJqmwlXX and ndcaJqmwlXX:FindFirstChild(IpZYvYDtWVZw("G9", 20))
     end
@@ -575,9 +547,6 @@ return function(ctx)
         return NFFamzjG
     end
 
-    -- ══════════════════════════════════════════════
-    -- KILL LOOP
-    -- ══════════════════════════════════════════════
     local function RJJzvpiWCx()
         if not SXEQyYmTphD.selectedPlayer then CXmcblXsF(IpZYvYDtWVZw("Ltpedc", 15),IpZYvYDtWVZw("PAY ykrkiz g vrx cnu'y OT ZNK vuroik zkgs", 6)); return end
         if not nBtDdfcwnmHS() then CXmcblXsF(IpZYvYDtWVZw("Gokzyx", 10),IpZYvYDtWVZw("Xjnbi nk F8(hger lniihkmbg wxytnem ykxx pxtihg yhk ghp)", 19)); return end
@@ -597,9 +566,6 @@ return function(ctx)
         end)
     end
 
-    -- ══════════════════════════════════════════════
-    -- KILL AURA
-    -- ══════════════════════════════════════════════
     local function ehKXhLJE()
         if not nBtDdfcwnmHS() then CXmcblXsF(IpZYvYDtWVZw("Qyujih", 20),IpZYvYDtWVZw("Amqel qn I1 bkn iqnzanej lkheya cqu(o) ", 22)) end
         local CNHHkQsX = iITsKYNnyyK.Team
@@ -649,9 +615,6 @@ return function(ctx)
         oHOVKoxRjcvc = {}
     end
 
-    -- ══════════════════════════════════════════════
-    -- AMMO FUNCTIONS
-    -- ══════════════════════════════════════════════
     local function QIqhxFCvG()
         local r = {}
         for _,o in QvXjGXhzcV(workspace:GetChildren()) do
@@ -741,9 +704,6 @@ return function(ctx)
         end
     end
 
-    -- ══════════════════════════════════════════════
-    -- COLOR FUNCTIONS (logique pure, sans UI)
-    -- ══════════════════════════════════════════════
     local function yUhyHVndJR(XxSGReJSsbH)
         for _, child in TBbPYczqJk(XxSGReJSsbH:GetChildren()) do
             if child:IsA(IpZYvYDtWVZw("XksuzkKbktz", 6)) and child.Name:match(IpZYvYDtWVZw("Bdab_RQ", 12)) then return child end
@@ -799,17 +759,11 @@ return function(ctx)
         return IGfrpYegILv
     end
 
-    -- ══════════════════════════════════════════════
-    -- TEAM FUNCTION
-    -- ══════════════════════════════════════════════
     local function fpTpvOFRAMVI(joGfLIhpcpv)
         local LWcxTPAAHXw = workspace:FindFirstChild(IpZYvYDtWVZw("kpctNbjo", 1)); if not LWcxTPAAHXw then return true end
         return LWcxTPAAHXw:FindFirstChild(joGfLIhpcpv) ~= nil
     end
 
-    -- ══════════════════════════════════════════════
-    -- FLOOR FIX CALLBACK (utilise VlVEpYGw passé en ctx)
-    -- ══════════════════════════════════════════════
     local function qQUKNifKUSMI(yKEmoXwihCJx)
         if not yKEmoXwihCJx then return end
         local tolCbiltb = nil
@@ -892,9 +846,6 @@ return function(ctx)
         jflvsiJq(RMxcQFcXySy, lKZFjgxwGSAo)
     end
 
-    -- ══════════════════════════════════════════════
-    -- INIT CONNECTIONS (CharacterAdded / PlayerRemoving)
-    -- ══════════════════════════════════════════════
     if iITsKYNnyyK.Character then gaHnZwJD(iITsKYNnyyK.Character) end
 
     iITsKYNnyyK.CharacterAdded:Connect(function(hApFjEkw)
@@ -911,9 +862,6 @@ return function(ctx)
         end
     end)
 
-    -- ══════════════════════════════════════════════
-    -- RETOUR DU MODULE
-    -- ══════════════════════════════════════════════
     return {
         -- Données
         kdUygEkXfDx         = kdUygEkXfDx,
@@ -922,11 +870,9 @@ return function(ctx)
         iCPWsYQT   = iCPWsYQT,
         XRVpQFjw      = XRVpQFjw,
 
-        -- Accesseurs persist zimAVrKwywa (lecture depuis AreSW-SWFL.lua)
         getPersistCarName  = function() return jkvEsNJFBa end,
         getPersistSeatName = function() return roMxsrEyS end,
 
-        -- Voitures
         findDriveSeat          = findDriveSeat,
         getCarSeats            = getCarSeats,
         isPlayerCar            = isPlayerCar,
@@ -939,7 +885,6 @@ return function(ctx)
         buildSeatValues        = buildSeatValues,
         buildStealValues       = buildStealValues,
 
-        -- Weapon
         getGun             = getGun,
         sendDamage         = sendDamage,
         findTaseBeam       = findTaseBeam,
@@ -947,13 +892,11 @@ return function(ctx)
         isPoliceOrSheriff  = isPoliceOrSheriff,
         fireTase           = fireTase,
 
-        -- Loops
         startKillLoop  = startKillLoop,
         stopKillLoop   = function() SXEQyYmTphD.killLoopActive = false end,
         startAura      = startAura,
         stopAura       = stopAura,
 
-        -- Ammo
         getAllAmmoBoxes = getAllAmmoBoxes,
         applyHide      = applyHide,
         touchAmmo      = touchAmmo,
@@ -961,16 +904,13 @@ return function(ctx)
         setAmmoLoop    = setAmmoLoop,
         setAmmoEnabled = setAmmoEnabled,
 
-        -- Color (logique pure)
         getPropFE          = getPropFE,
         getCarColors       = getCarColors,
         applyCarColor      = applyCarColor,
         getCarsInWorkspace = getCarsInWorkspace,
 
-        -- Team
         teamExistsInJobsMain = teamExistsInJobsMain,
 
-        -- Misc
         floorFixCallback = floorFixCallback,
     }
 end
