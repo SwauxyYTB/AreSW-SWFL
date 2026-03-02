@@ -1,13 +1,7 @@
--- ══════════════════════════════════════════════════════════════════
---  AreSW-SWFL.lua — Interface Fluent + chargement de logic.lua
---  ⚠️  REMPLACE LA LIGNE "LOGIC_RAW_URL" par l'URL raw de ton repo
---      ex: https://raw.githubusercontent.com/TON_USER/TON_REPO/main/logic.lua
--- ══════════════════════════════════════════════════════════════════
-
-local LOGIC_RAW_URL = "https://raw.githubusercontent.com/TON_USER/TON_REPO/main/logic.lua"
+local LOGIC_RAW_URL = https://raw.githubusercontent.com/SwauxyYTB/AreSW-SWFL/refs/heads/main/logic.lua"
 
 -- ══════════════════════════════════════════════
--- CHARGEMENT LIBRAIRIES
+-- LIBRAIRIES
 -- ══════════════════════════════════════════════
 local Fluent = loadstring(game:HttpGet(
     "https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"
