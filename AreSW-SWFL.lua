@@ -534,7 +534,12 @@ end
 -- ══════════════════════════════════════════════
 -- CHARGEMENT DE LOGIC.LUA DEPUIS GITHUB
 -- ══════════════════════════════════════════════
-local LogicInit = loadstring(game:HttpGet(LOGIC_RAW_URL))()
+local src = game:HttpGet(LOGIC_RAW_URL)
+local fn, compileErr = loadstring(src)
+if not fn then
+    error("[AreSW] logic.lua compile error: " .. tostring(compileErr) .. "\n--- Source preview ---\n" .. src:sub(1, 200))
+end
+local LogicInit = fn()
 local L = LogicInit({ notify = notify, Options = Options })
 
 -- ══════════════════════════════════════════════
