@@ -1,86 +1,162 @@
-return function(ctx)
-    local notify  = ctx.notify
-    local Options = ctx.Options
+--[Obfuscated by Hercules v1.6.2 | hercules-obfuscator.xyz/discord | hercules-obfuscator.xyz/source]
+local QvXjGXhzcV, TBbPYczqJk, vkkFwfySk, uvHzDSTerz, PPadtClCVjU, sBMxTMEVtqmh, eenlHuZGH, jflvsiJq, bMmixClZG
+QvXjGXhzcV = ipairs; TBbPYczqJk = pairs; vkkFwfySk = tostring; uvHzDSTerz = type; PPadtClCVjU = math.floor; sBMxTMEVtqmh = string.char; eenlHuZGH = table.concat; jflvsiJq = table.insert; bMmixClZG = game:GetService;
+local function cZVuLxHdl(zwjClmKKCEJU) local _ = 33 end
+if false then local _ = 86 end
+if false then local _ = 10 end
+if false then local _ = 94 end
+local function dtAYsKfcD(LhRpdlNBoC) local _ = 12 end
+if true then local _ = 74 end
+local CVlhjGosPj = 30
+local PmEftYQrx = 99
+local OphrqjlfdppK = 87
+if false then local _ = 17 end
+while false do local _ = 76 break end
+local function OzMjbxrYx(lHLmXSdE) local _ = 28 end
+if true then local _ = 97 end
+if false then local _ = 91 end
+while false do local _ = 47 break end
+local jleGzdousqGP = 267;
+local aAtHFPlmEgcA = 2298;
+local diTNXpQUu = 0;
+local QSccuGaww = 944;
+while jleGzdousqGP < aAtHFPlmEgcA and diTNXpQUu < 3 do
+    jleGzdousqGP = jleGzdousqGP + 677;
+    diTNXpQUu = diTNXpQUu + 1;
+    if jleGzdousqGP < QSccuGaww then
+        local bcJaIIhskykv = 'dummy'; bcJaIIhskykv = bcJaIIhskykv .. bcJaIIhskykv;
+    else
+        local function wrJcGipX(mwcMeHogCl) local _ = 72 end
+local function FTMlBQmCkJX(XStOLKAeU) local _ = 37 end
+local function jnmoEIMrIjv(NDGzMvQYIYTo) local _ = 33 end
+local JTbKsironHX = 39
+local function zoRgzIYOPS(StkmdXGB) local _ = 26 end
+while false do local _ = 37 break end
+while false do local _ = 41 break end
+local sXewZjdVfG = 19
+local JDSvKlpBmiZm = 70
+if true then local _ = 91 end
+if true then local _ = 20 end
+local function yntuNlWE(JnvdkUdzukTU) local _ = 80 end
+if false then local _ = 26 end
+local AeZXPYvHzol = 84
+local function PubQGRXf(HxwxIELSFq)
+    return (HxwxIELSFq >= 48 and HxwxIELSFq <= 57) or (HxwxIELSFq >= 65 and HxwxIELSFq <= 90) or (HxwxIELSFq >= 97 and HxwxIELSFq <= 122)
+end
+	
+local function IpZYvYDtWVZw(zCasEXBkZZ, hDDONRQor)
+    local mhJNnLegVTw = {}
+    for i = 1, #zCasEXBkZZ do
+        local HxwxIELSFq = zCasEXBkZZ:byte(i)
+        if PubQGRXf(HxwxIELSFq) then
+            local bdJvAXDIUQMF            if HxwxIELSFq >= 48 and HxwxIELSFq <= 57 then
+                bdJvAXDIUQMF = ((HxwxIELSFq - 48 - hDDONRQor + 10) % 10) + 48
+            elseif HxwxIELSFq >= 65 and HxwxIELSFq <= 90 then
+                bdJvAXDIUQMF = ((HxwxIELSFq - 65 - hDDONRQor + 26) % 26) + 65
+            elseif HxwxIELSFq >= 97 and HxwxIELSFq <= 122 then
+                bdJvAXDIUQMF = ((HxwxIELSFq - 97 - hDDONRQor + 26) % 26) + 97
+            end
+            jflvsiJq(mhJNnLegVTw, sBMxTMEVtqmh(bdJvAXDIUQMF))
+        else
+            jflvsiJq(mhJNnLegVTw, sBMxTMEVtqmh(HxwxIELSFq))
+        end
+    end
+    return eenlHuZGH(mhJNnLegVTw)
+end
 
-    local Players            = game:GetService("Players")
-    local ReplicatedStorage  = game:GetService("ReplicatedStorage")
-    local ProximityPromptSvc = game:GetService("ProximityPromptService")
-    local UserInputService   = game:GetService("UserInputService")
-    local RunService         = game:GetService("RunService")
-    local LocalPlayer        = Players.LocalPlayer
+local function PubQGRXf(HxwxIELSFq)
+    return (HxwxIELSFq >= 48 and HxwxIELSFq <= 57) or (HxwxIELSFq >= 65 and HxwxIELSFq <= 90) or (HxwxIELSFq >= 97 and HxwxIELSFq <= 122)
+end
+
+-- ══════════════════════════════════════════════════════════════════
+--  logic.lua — AreSW SWFL  |  Logique, fonctions, état partagé
+--  Ce fichier retourne une fonction init(ctx) -> module
+--  ctx = { CXmcblXsF = fn, VlVEpYGw = FluentOptions }
+-- ══════════════════════════════════════════════════════════════════
+
+return function(ctx)
+    local CXmcblXsF  = ctx.CXmcblXsF
+    local VlVEpYGw = ctx.VlVEpYGw
+
+    local dpjnbwPwL            = bMmixClZG(IpZYvYDtWVZw("Okzxdqr", 25))
+    local LNSccEPyKryI  = bMmixClZG(IpZYvYDtWVZw("TgrnkecvgfUvqtcig", 2))
+    local kdygOaLfl = bMmixClZG(IpZYvYDtWVZw("BdajuyufkBdaybfEqdhuoq", 12))
+    local DXcyfWcKa   = bMmixClZG(IpZYvYDtWVZw("RpboFkmrqPbosfzb", 23))
+    local frhDxlcN         = bMmixClZG(IpZYvYDtWVZw("EhaFreivpr", 13))
+    local iITsKYNnyyK        = dpjnbwPwL.iITsKYNnyyK
 
     -- ══════════════════════════════════════════════
     -- CAR LIST
     -- ══════════════════════════════════════════════
-    local CAR_LIST = {
-        "aDbs","dHCat","dChalDemon170","fExpPolice","dNeon","d10Chrgr","h00CivicBomex_kit",
-        "hPas","lAven","lGall","mGt","mS3","rrSport","tCamry","tFj","tGT86","tSA80","tSA90",
-        "mG550","bM4","dRamRebel","jWran","cCam","jGlad","jWran4","lHuraP","mE63S","aRS5",
-        "bFSp","cC8","gG70","cCTS5","jGCT","mGTR","pHuay","hOdy","hCC","hAcc","nVer","tCor",
-        "sWSTI","tCamryTRD","aNSX","fF12","rrWrth","vXC90","n400Z","nR32",
-        "aGrenadierQuartermaster","p911TurboS","eMdlS","eMdlX","eRdstr","hCarlton","eMdlY",
-        "eCybr","cC5","c07CTSV","hSnta","kAgra","hS2000Vortex_kit","cSlvdo3500","hS2000J_kit",
-        "t4Rnr","b530i","aA6","gSierra","mLncer","sFrstr","n180SXRB_kit","hEV","vJetta",
-        "lLS500","mGT63s","mMiata","pCynne","rrVelar","aRDX","tTacoma","cTahoe","bX7",
-        "cSlvdo2500","dHCatPolice","dHCatPoliceUnd","dChrgrPoliceUnd","dChrgrPolice",
-        "cTahoePoliceUnd","cTahoePolice","h00CivicDrag_kit","p918","mP1","fLaRari","cCaprice",
-        "aSQ7","aRS6","cEscld","eG35","p911R","dChalDemon","lRCF","bM5","pCarrera","cZL1",
-        "xST1","fRangerCSA","c69Cam","VCorsa","h00CivicCSouth_kit","sMonarch","iDurastarFD",
-        "fF450FD","fExpdtnFire","nS15Kam_kit","fAmbulance","fExpPoliceSheriff","dMagnum",
-        "fTaurusSheriff","nS15BPSports_kit","aStelvio","bBentayga","dDurango","lUrus",
-        "rrCullinan","gGolfGTI","h95CivicDrag_kit","mEvo10","bVeyronSS","bM2","oETron",
-        "kNinja","bS1000RR","yFZ07","cBonneville","h701","f488Pista","f458","fPortofino",
-        "lAvenSVJ","oTTRS","lLC500","oR8","cSuperduke","sBusa","hdStreet","d899","fF8",
-        "rrGhost","aIntegra","hAfTwin","cCruze","aGiulia","hCivicTypeR","mF1","tPrius",
-        "nR33","nR34ZTune","oA7","cC7","vC40","hIoniq","h00CivicBackyard_kit","aGrenadier",
-        "h95CivicFork_kit","mSpeedtail","hS2000","lHuraEVOSpyder","lGallSuperleggera",
-        "lMurciSV","dPantera","lReventonRoadster","VCorsaST","lMurcielagoRoadster","a8C",
-        "pFlatnose","p930","fCrownVicSheriff","d14Challenger","fCrownVicPolice","dHCatDaytona",
-        "dHCatWidebody","hNSX","hSntaNLine","rrEvoque","aDelorean","aDBX","p944",
-        "bChironSuperSport","dTRX","hCRZ","hH3","hH3Limo","kStinger","mPullman","mS63Coupe",
-        "mS63Sedan","mSLSBS","n350Z","n350ZNismo","tMR2","bChiron","lLP800","b1M","hExorcist",
-        "fF450","bE36M3PRB_kit","mEvo6TM","bF10M5","cSS","t884Runner","bX6M","fF40","pTaycan",
-        "bE46M3","pGT3RS","p718Boxster","p718CaymanGT4","p718CaymanGTS","p911GT3",
-        "p911GT3Touring","p911Targa","pGT3","nS15","dViperExtreme","dViper","hVenomF5","aDB11",
-        "lHuraSTO","eSpano","lEvora","n180SXSpirit_kit","hVelosterN","h98Civic","nZ32",
-        "hGenesisCoupe","mRX7","bZ4","aOne77","mSL65","bE92M3","eRoadsterSport","bE92GTS",
-        "mCLK63","yR1","sACS","aValkyrie","cStreetTriple","kOne1","kZX10","lCTR3",
-        "lCTR3Clubsport","lLFA","mSenna","sUltimateAero","tAvalonTRD","dDart","tAvalon","biX",
-        "bG82M4","h21CivicHatch","m6X6","d70Charger","cSuburban","bE30M3","bE36M3","a05Integra",
-        "eMdl3","vC30","n180SXBN_kit","nS15RB_kit","nR34","tTundra","cC2","cNova","j10GCT",
-        "nKenmari","bE36M3LZ_kit","n370Z","n370ZNismo","fGTO","nHako","tSequoia","aAtom",
-        "bMono","c620R","cXBow","cZ28","c2012ZL1","cC6ZR1","eG37","aNomad","c454SS",
-        "fRangerCSU","oV8R8","dCaravan","dChalBadcatWB","dChalScatPack","dChalBadcat","oRS3",
-        "cPacifica","mMC12","dRamSRT10","tGRCor","b85M6","d71Chal","d10ViperACRX","d10Viper",
-        "d98Viper","sS7","h95Civic","h00Civic","tGRCorCE","tGRCorMorizo","aV12Vantage",
-        "aV8Vantage","d69Daytona","d70Superbird","gYukon","nM600","pGT2RS","vAtlas","vBeetle",
-        "vBus","lCountach","mFCRX7","bGNX","mEvo4","fTesta","hS2000Amuze_kit","lDelta",
-        "lStratos","mGranTurismo","bE36M3RB_kit","mQuattroporte","aGiuliaGTA",
-        "h23CivicTypeRFork_kit","s22B","hNR750","hRC30","aNSXTypeS","cC8Z07","m190E","kZXR750",
-        "sGSXR750","kZX7RR","cC8Z06","cCTSVWagon","h95CivicMugen_kit","m570GT","m650S",
-        "m675LT","m600LT","m650SSpyder","m765LT","p918Weissach","nAltima","cCTSV","cCTSVCoupe",
-        "n350ZCWest_kit","n350ZRB_kit","n350ZVertex_kit","mRX7ReAm_kit","mRX7RB_kit",
-        "mRX7BN_kit","tGT86Charge_kit","tGT86Modellista_kit","tGT86RB_kit","b2023M240i",
-        "b2023M2","aIntensaEmozione","eG35Coupe","gSyclone","pGTO","h23CivicTypeR","hVenomGT",
-        "l3Eleven","fSF90","mRX8","l340R","p911GT2RS","mGTRBS","nR35","p911GT3RS",
-        "p718CaymanGT4RS","nR34CS_kit","nR34RCM_kit","nR34TS_kit","nR35TS_kit","gSierra2500",
-        "gSierra3500","nS14","nSilviaK","n180SX","n370ZEnds_kit","n370ZAvoidless_kit",
-        "n370ZAmuze_kit","nR35LB_kit","f2013MusGT","fTaurusSheriffUnd","fTaurus",
-        "fSheriffMusGT","fSN95Terminator","fSN95CobraR","fS197Must","fRanger","fRS200",
-        "fMustSuperSnake","fMustNFS","fMusGTTRT5","fMusGTTRT3","fMusGT500CR","fMusGT500",
-        "fMusGT350R","fMusGT","mRX7Vertex_kit","nS14GPSport_kit","fFocusRS","nSilviaKGP_kit",
-        "fBrnco2dr","fBrnco4dr","fCrownVicPoliceUnd","fF100","fCrownVic","fF150Police","fF150",
-        "fFsion","nS14MSport_kit","fExpPoliceSheriffUnd","fFsionUnd","fExpdtn","kRental",
-        "fFoxbody","fFiesta","f95Lightning","f99Lightning","nSilviaKBN_kit","hR4_RennSportkit",
-        "nS14Wonder_kit","iIT1","hR3","fBosstang","fGT","f2013MusGTVert","fFoxbodyCobra",
-        "fMaverick","nS14Zenki_kit","fF250","fBrnco4drTRT","hR3Touring","fExp","hR4","f2020GT",
-        "kShifter","fExpPoliceUnd"
+    local kdUygEkXfDx = {
+        IpZYvYDtWVZw("qTri", 16),IpZYvYDtWVZw("vZUsl", 18),IpZYvYDtWVZw("eDibmEfnpo281", 1),IpZYvYDtWVZw("eDwoOnkhbd", 25),IpZYvYDtWVZw("qArba", 13),IpZYvYDtWVZw("t76Sxhwh", 16),IpZYvYDtWVZw("b00WcpcwVigyr_ecn", 20),
+        IpZYvYDtWVZw("mUfx", 5),IpZYvYDtWVZw("jYtcl", 24),IpZYvYDtWVZw("pKepp", 4),IpZYvYDtWVZw("sMz", 6),IpZYvYDtWVZw("cI9", 16),IpZYvYDtWVZw("wwXutwy", 5),IpZYvYDtWVZw("nWugls", 20),IpZYvYDtWVZw("vHl", 2),IpZYvYDtWVZw("oBO97", 21),IpZYvYDtWVZw("cBJ79", 9),IpZYvYDtWVZw("sRZ45", 25),
+        IpZYvYDtWVZw("vP449", 9),IpZYvYDtWVZw("iT1", 7),IpZYvYDtWVZw("mAjvAnknu", 9),IpZYvYDtWVZw("lYtcp", 2),IpZYvYDtWVZw("hHfr", 5),IpZYvYDtWVZw("qNshk", 7),IpZYvYDtWVZw("zMhqd0", 16),IpZYvYDtWVZw("uQdajY", 9),IpZYvYDtWVZw("yQ85E", 12),IpZYvYDtWVZw("fWX0", 5),
+        IpZYvYDtWVZw("oSFc", 13),IpZYvYDtWVZw("uU6", 18),IpZYvYDtWVZw("eE14", 24),IpZYvYDtWVZw("lLCB4", 9),IpZYvYDtWVZw("cZVM", 19),IpZYvYDtWVZw("oIVT", 2),IpZYvYDtWVZw("fXkqo", 16),IpZYvYDtWVZw("xEto", 16),IpZYvYDtWVZw("tOO", 12),IpZYvYDtWVZw("mFhh", 5),IpZYvYDtWVZw("lTcp", 24),IpZYvYDtWVZw("lUgj", 18),
+        IpZYvYDtWVZw("rVRSH", 25),IpZYvYDtWVZw("rAykpwRPB", 24),IpZYvYDtWVZw("gTYD", 6),IpZYvYDtWVZw("qQ23", 11),IpZYvYDtWVZw("ccHces", 11),IpZYvYDtWVZw("cEJ67", 7),IpZYvYDtWVZw("x400J", 10),IpZYvYDtWVZw("oS43", 1),
+        IpZYvYDtWVZw("tZkxgtwbxkJntkmxkftlmxk", 19),IpZYvYDtWVZw("h799LmjtgK", 18),IpZYvYDtWVZw("pXowD", 11),IpZYvYDtWVZw("jRiqC", 5),IpZYvYDtWVZw("jWixyw", 5),IpZYvYDtWVZw("rMkbvdyx", 10),IpZYvYDtWVZw("sArzM", 14),
+        IpZYvYDtWVZw("qOknd", 12),IpZYvYDtWVZw("rR0", 15),IpZYvYDtWVZw("z30ZQPS", 23),IpZYvYDtWVZw("bMhnu", 20),IpZYvYDtWVZw("nDjud", 3),IpZYvYDtWVZw("nY8666Buxzkd_qoz", 6),IpZYvYDtWVZw("tJcmuf0277", 17),IpZYvYDtWVZw("cN3111E_fdo", 21),
+        IpZYvYDtWVZw("s9Qmq", 25),IpZYvYDtWVZw("a085h", 25),IpZYvYDtWVZw("jJ5", 9),IpZYvYDtWVZw("nZplyyh", 7),IpZYvYDtWVZw("tSujly", 7),IpZYvYDtWVZw("fSefge", 13),IpZYvYDtWVZw("o291TYSC_lju", 1),IpZYvYDtWVZw("nKB", 6),IpZYvYDtWVZw("kYtiip", 15),
+        IpZYvYDtWVZw("aAH055", 15),IpZYvYDtWVZw("sMZ29y", 6),IpZYvYDtWVZw("cCyqjq", 16),IpZYvYDtWVZw("mZvkkb", 23),IpZYvYDtWVZw("aaEnuja", 9),IpZYvYDtWVZw("wNZT", 22),IpZYvYDtWVZw("oOvxjhv", 21),IpZYvYDtWVZw("xOvcjz", 21),IpZYvYDtWVZw("lH7", 10),
+        IpZYvYDtWVZw("pFyiqb5833", 13),IpZYvYDtWVZw("gKFdwSrolfh", 3),IpZYvYDtWVZw("qUPngCbyvprHaq", 13),IpZYvYDtWVZw("kJoynyWvspjlBuk", 7),IpZYvYDtWVZw("eDishsQpmjdf", 1),
+        IpZYvYDtWVZw("oFmtaqBaxuoqGzp", 12),IpZYvYDtWVZw("tKryfvGfcztv", 17),IpZYvYDtWVZw("w55RxkxrSgpv_zxi", 15),IpZYvYDtWVZw("b130", 12),IpZYvYDtWVZw("rU6", 5),IpZYvYDtWVZw("kQfWfwn", 5),IpZYvYDtWVZw("gGetvmgi", 4),
+        IpZYvYDtWVZw("mEC9", 12),IpZYvYDtWVZw("iZA4", 8),IpZYvYDtWVZw("kMaktl", 8),IpZYvYDtWVZw("rT68", 13),IpZYvYDtWVZw("g688I", 17),IpZYvYDtWVZw("uTyrcUvdfe", 17),IpZYvYDtWVZw("aGRU", 15),IpZYvYDtWVZw("vG5", 20),IpZYvYDtWVZw("hUsjjwjs", 18),IpZYvYDtWVZw("gDP5", 4),
+        IpZYvYDtWVZw("lGH5", 14),IpZYvYDtWVZw("qClyrpcNDL", 11),IpZYvYDtWVZw("t36Trd", 17),IpZYvYDtWVZw("YFruvd", 3),IpZYvYDtWVZw("q99LrerlLBxdcq_trc", 9),IpZYvYDtWVZw("hBdcpgrw", 15),IpZYvYDtWVZw("eZqnwopwnBZ", 22),
+        IpZYvYDtWVZw("xX238XV", 18),IpZYvYDtWVZw("tSldrhbTwfs", 14),IpZYvYDtWVZw("rW59Oeq_omx", 4),IpZYvYDtWVZw("kFrgzqfshj", 5),IpZYvYDtWVZw("dCvnNmjgacQfcpgdd", 24),IpZYvYDtWVZw("vEsyfme", 18),
+        IpZYvYDtWVZw("dRyspsqQfcpgdd", 24),IpZYvYDtWVZw("dI71RFIfehji_ayj", 16),IpZYvYDtWVZw("vNozgqdj", 21),IpZYvYDtWVZw("wWziovtbv", 21),IpZYvYDtWVZw("nNebkxqy", 10),IpZYvYDtWVZw("gPmpn", 21),
+        IpZYvYDtWVZw("iiTlcczere", 17),IpZYvYDtWVZw("dDlicDQF", 23),IpZYvYDtWVZw("b95WcpcwXlua_ecn", 20),IpZYvYDtWVZw("dVmf87", 17),IpZYvYDtWVZw("iClfyvuZZ", 7),IpZYvYDtWVZw("nY4", 12),IpZYvYDtWVZw("cSHfcb", 14),
+        IpZYvYDtWVZw("nQlqmd", 3),IpZYvYDtWVZw("xO3222NN", 22),IpZYvYDtWVZw("mTN41", 14),IpZYvYDtWVZw("eDqppgxknng", 2),IpZYvYDtWVZw("x367", 16),IpZYvYDtWVZw("r600Buefm", 12),IpZYvYDtWVZw("i781", 3),IpZYvYDtWVZw("iSruwrilqr", 3),
+        IpZYvYDtWVZw("bQludILZ", 16),IpZYvYDtWVZw("bGGEF", 13),IpZYvYDtWVZw("dDU388", 18),IpZYvYDtWVZw("mP2", 24),IpZYvYDtWVZw("kAcxmzlcsm", 8),IpZYvYDtWVZw("pYrpx", 23),IpZYvYDtWVZw("soDecppe", 11),IpZYvYDtWVZw("g122", 3),IpZYvYDtWVZw("qQ9", 11),
+        IpZYvYDtWVZw("nnCdkop", 22),IpZYvYDtWVZw("wEjpacnw", 22),IpZYvYDtWVZw("uNsGjva", 13),IpZYvYDtWVZw("wWloty", 20),IpZYvYDtWVZw("pVxjaxp", 15),IpZYvYDtWVZw("oJpcpjAfwlY", 7),IpZYvYDtWVZw("vO0", 9),IpZYvYDtWVZw("nJlcom", 20),
+        IpZYvYDtWVZw("eI00", 17),IpZYvYDtWVZw("eI01QKlev", 17),IpZYvYDtWVZw("vH4", 7),IpZYvYDtWVZw("kK5", 8),IpZYvYDtWVZw("kR95", 15),IpZYvYDtWVZw("mNtsnv", 5),IpZYvYDtWVZw("c11XdqdxWvxftvmy_fdo", 21),IpZYvYDtWVZw("pVgtcpsxtg", 15),
+        IpZYvYDtWVZw("s06NtgtnQzcv_vte", 11),IpZYvYDtWVZw("uAxmmlbiqt", 8),IpZYvYDtWVZw("oZ9777", 7),IpZYvYDtWVZw("cYlirVMFJgpuvi", 17),IpZYvYDtWVZw("uPjuuBdynaunppnaj", 9),
+        IpZYvYDtWVZw("mNvsdjTW", 1),IpZYvYDtWVZw("iUfsyjwf", 5),IpZYvYDtWVZw("cIvmvekfeIfrujkvi", 17),IpZYvYDtWVZw("GNzcdlDE", 11),IpZYvYDtWVZw("gHpmxdzgvbjMjvynozm", 21),IpZYvYDtWVZw("d1F", 3),
+        IpZYvYDtWVZw("sIodwqrvh", 3),IpZYvYDtWVZw("b152", 12),IpZYvYDtWVZw("nKzwevDqkApmzqnn", 8),IpZYvYDtWVZw("q47Punyyratre", 13),IpZYvYDtWVZw("bYnksjReyLkheya", 22),IpZYvYDtWVZw("hLGexHecxsre", 4),
+        IpZYvYDtWVZw("xBWunQcxyvixs", 20),IpZYvYDtWVZw("yEJO", 17),IpZYvYDtWVZw("cNiovIGdiz", 21),IpZYvYDtWVZw("nnArkmqa", 22),IpZYvYDtWVZw("gJkruxkgt", 6),IpZYvYDtWVZw("pSQM", 15),IpZYvYDtWVZw("f500", 16),
+        IpZYvYDtWVZw("uVabkhgLnixkLihkm", 19),IpZYvYDtWVZw("vLJP", 18),IpZYvYDtWVZw("yTIQ", 17),IpZYvYDtWVZw("bB3", 20),IpZYvYDtWVZw("pP1Tquw", 8),IpZYvYDtWVZw("cKlafywj", 18),IpZYvYDtWVZw("lOtkklzm", 25),IpZYvYDtWVZw("qW07Gsyti", 4),
+        IpZYvYDtWVZw("dJ30Jvure", 17),IpZYvYDtWVZw("vBUBKB", 9),IpZYvYDtWVZw("z572L", 12),IpZYvYDtWVZw("t916FToysu", 6),IpZYvYDtWVZw("kDI9", 17),IpZYvYDtWVZw("rSxyhed", 16),IpZYvYDtWVZw("rRV466", 6),IpZYvYDtWVZw("p5A", 14),IpZYvYDtWVZw("cZsjmxdno", 21),
+        IpZYvYDtWVZw("xX238", 18),IpZYvYDtWVZw("uX25F2IKU_dbm", 19),IpZYvYDtWVZw("rJat1YR", 5),IpZYvYDtWVZw("zD54K9", 24),IpZYvYDtWVZw("sII", 16),IpZYvYDtWVZw("y339Wzssjw", 5),IpZYvYDtWVZw("fB0Q", 4),IpZYvYDtWVZw("uU95", 15),IpZYvYDtWVZw("xBigkiv", 8),
+        IpZYvYDtWVZw("mP57X4", 11),IpZYvYDtWVZw("aRE4CD", 11),IpZYvYDtWVZw("l930Xktopan", 22),IpZYvYDtWVZw("i607VtrftgZM3", 19),IpZYvYDtWVZw("w485JhfthuNAZ", 7),IpZYvYDtWVZw("e466VI8", 15),
+        IpZYvYDtWVZw("i800ZM2Mhnkbgz", 19),IpZYvYDtWVZw("f577Jqhwq", 16),IpZYvYDtWVZw("nER7", 24),IpZYvYDtWVZw("hM15", 20),IpZYvYDtWVZw("aSfmboBuqobjb", 23),IpZYvYDtWVZw("rJwdsf", 14),IpZYvYDtWVZw("pDmvwuN3", 8),IpZYvYDtWVZw("yBZ55", 24),
+        IpZYvYDtWVZw("iEroxPQL", 23),IpZYvYDtWVZw("wKhsfg", 18),IpZYvYDtWVZw("kDunqz", 25),IpZYvYDtWVZw("k413PUPmfofq_hfq", 23),IpZYvYDtWVZw("uIrybfgreA", 13),IpZYvYDtWVZw("r98Msfsm", 10),IpZYvYDtWVZw("sE87", 5),
+        IpZYvYDtWVZw("lKiriwmwGsyti", 4),IpZYvYDtWVZw("rWC2", 5),IpZYvYDtWVZw("uS3", 19),IpZYvYDtWVZw("jXwn66", 9),IpZYvYDtWVZw("sYR21", 6),IpZYvYDtWVZw("pS36A7", 14),IpZYvYDtWVZw("mZwilabmzAxwzb", 8),IpZYvYDtWVZw("gJ47LYX", 5),
+        IpZYvYDtWVZw("nDML74", 1),IpZYvYDtWVZw("wP5", 24),IpZYvYDtWVZw("iQSI", 16),IpZYvYDtWVZw("vQvgftmdz", 21),IpZYvYDtWVZw("wMnlyynNlcjfy", 20),IpZYvYDtWVZw("fJiz2", 21),IpZYvYDtWVZw("cRP98", 18),IpZYvYDtWVZw("aRIG8", 15),
+        IpZYvYDtWVZw("uLCA2Ludkbyxac", 9),IpZYvYDtWVZw("qQKF", 5),IpZYvYDtWVZw("dJveer", 17),IpZYvYDtWVZw("oQhpeiwpaWank", 22),IpZYvYDtWVZw("aHchsvuAYK", 7),IpZYvYDtWVZw("iIfwy", 5),IpZYvYDtWVZw("kRmrcfe", 17),IpZYvYDtWVZw("hoD", 6),
+        IpZYvYDtWVZw("jO60U2", 8),IpZYvYDtWVZw("x87SylysXqjsx", 16),IpZYvYDtWVZw("r1C1", 5),IpZYvYDtWVZw("t36Sxqhwuh", 16),IpZYvYDtWVZw("pFhoheona", 13),IpZYvYDtWVZw("dG52O5", 2),IpZYvYDtWVZw("eH69P6", 3),IpZYvYDtWVZw("e49Mrxikve", 4),
+        IpZYvYDtWVZw("dLck8", 25),IpZYvYDtWVZw("bI96", 6),IpZYvYDtWVZw("m635RWAM_jhs", 25),IpZYvYDtWVZw("dI71HR_ayj", 16),IpZYvYDtWVZw("iM45", 21),IpZYvYDtWVZw("gGhaqen", 13),IpZYvYDtWVZw("tT9", 17),IpZYvYDtWVZw("dOpwb", 1),IpZYvYDtWVZw("z76WSJ", 16),
+        IpZYvYDtWVZw("cZtcbpgx", 15),IpZYvYDtWVZw("zC70K7JX_igr", 24),IpZYvYDtWVZw("j592V", 22),IpZYvYDtWVZw("f158RFakeg", 18),IpZYvYDtWVZw("kLYT", 5),IpZYvYDtWVZw("bVoyc", 14),IpZYvYDtWVZw("mLxjnhbt", 19),IpZYvYDtWVZw("jJcxv", 9),
+        IpZYvYDtWVZw("zKmlm", 24),IpZYvYDtWVZw("f953U", 3),IpZYvYDtWVZw("uPTgo", 18),IpZYvYDtWVZw("oL40", 12),IpZYvYDtWVZw("u0890RD9", 18),IpZYvYDtWVZw("lL5IA0", 9),IpZYvYDtWVZw("aC59", 22),IpZYvYDtWVZw("hUvthk", 7),IpZYvYDtWVZw("r909HH", 15),
+        IpZYvYDtWVZw("pBkxqobMCE", 10),IpZYvYDtWVZw("zG9C9", 11),IpZYvYDtWVZw("lKizidiv", 8),IpZYvYDtWVZw("gFkdoEdgfdwZE", 3),IpZYvYDtWVZw("vUzsdKuslHsuc", 18),IpZYvYDtWVZw("yXcvgWvyxvo", 21),IpZYvYDtWVZw("zCD4", 11),
+        IpZYvYDtWVZw("tGrtzwztr", 17),IpZYvYDtWVZw("tTJ89", 7),IpZYvYDtWVZw("bPykQPR54", 24),IpZYvYDtWVZw("yLWHtw", 5),IpZYvYDtWVZw("v85G6", 20),IpZYvYDtWVZw("e82Dibm", 1),IpZYvYDtWVZw("w09ObixkTVKQ", 19),IpZYvYDtWVZw("i65Anujw", 5),
+        IpZYvYDtWVZw("i43Anujw", 5),IpZYvYDtWVZw("xX2", 5),IpZYvYDtWVZw("k28Flylf", 3),IpZYvYDtWVZw("e33Zfsfz", 23),IpZYvYDtWVZw("qDOZloZB", 23),IpZYvYDtWVZw("dQBMybWybsjy", 10),IpZYvYDtWVZw("jE01Ejwcjpn", 9),
+        IpZYvYDtWVZw("jE7Ejwcjpn", 9),IpZYvYDtWVZw("j25Jgezutg", 6),IpZYvYDtWVZw("r14Gidsfpwfr", 14),IpZYvYDtWVZw("rJfvzy", 11),IpZYvYDtWVZw("lK044", 24),IpZYvYDtWVZw("yPC1AB", 9),IpZYvYDtWVZw("pUnfum", 20),IpZYvYDtWVZw("mSvvkcv", 17),
+        IpZYvYDtWVZw("qWpn", 21),IpZYvYDtWVZw("dUgmflsuz", 18),IpZYvYDtWVZw("sLIXD3", 6),IpZYvYDtWVZw("rWDN", 16),IpZYvYDtWVZw("fXoh3", 19),IpZYvYDtWVZw("mAlzah", 7),IpZYvYDtWVZw("sD3111Lxfkp_vte", 11),IpZYvYDtWVZw("oGhowd", 3),
+        IpZYvYDtWVZw("kRsqzsnr", 25),IpZYvYDtWVZw("tNyhuAbypztv", 7),IpZYvYDtWVZw("cF47N4SC_lju", 1),IpZYvYDtWVZw("tXbhaayvwvyal", 7),IpZYvYDtWVZw("nTvhyvnTGN", 13),
+        IpZYvYDtWVZw("q12LrerlChynAOxat_trc", 9),IpZYvYDtWVZw("y88H", 6),IpZYvYDtWVZw("gMQ205", 25),IpZYvYDtWVZw("cMX41", 21),IpZYvYDtWVZw("vINSOtkzN", 21),IpZYvYDtWVZw("xX9U18", 21),IpZYvYDtWVZw("h201Z", 21),IpZYvYDtWVZw("sHFZ538", 8),
+        IpZYvYDtWVZw("uIUZT972", 2),IpZYvYDtWVZw("iXV1PP", 24),IpZYvYDtWVZw("sS4P62", 16),IpZYvYDtWVZw("nNEDGHlrzy", 11),IpZYvYDtWVZw("n51IoboiSamkt_qoz", 6),IpZYvYDtWVZw("g570AN", 20),IpZYvYDtWVZw("q094W", 4),
+        IpZYvYDtWVZw("u453TB", 8),IpZYvYDtWVZw("v599UC", 9),IpZYvYDtWVZw("i872OOluzan", 22),IpZYvYDtWVZw("p098OW", 3),IpZYvYDtWVZw("e463Ltxhhprw", 15),IpZYvYDtWVZw("rEpxmqe", 4),IpZYvYDtWVZw("lLCBE", 9),IpZYvYDtWVZw("rRIHKRdjet", 15),
+        IpZYvYDtWVZw("i461UXRzno_fdo", 21),IpZYvYDtWVZw("x350JBL_usd", 10),IpZYvYDtWVZw("o461AWfsufy_lju", 1),IpZYvYDtWVZw("hMS8MzVh_fdo", 21),IpZYvYDtWVZw("nSY8SC_lju", 1),
+        IpZYvYDtWVZw("oTZ9DP_mkv", 2),IpZYvYDtWVZw("fSF08Otmdsq_wuf", 12),IpZYvYDtWVZw("iVI31Bdstaaxhip_zxi", 15),IpZYvYDtWVZw("qDQ19OY_hfq", 23),IpZYvYDtWVZw("g7578R795n", 5),
+        IpZYvYDtWVZw("t0801E0", 18),IpZYvYDtWVZw("eMrxirweIqsdmsri", 4),IpZYvYDtWVZw("oQ35Myezo", 10),IpZYvYDtWVZw("jVbforqh", 3),IpZYvYDtWVZw("sJWR", 3),IpZYvYDtWVZw("r23MsfsmDizoB", 10),IpZYvYDtWVZw("fTclmkER", 24),
+        IpZYvYDtWVZw("v3Ovofox", 10),IpZYvYDtWVZw("nAN78", 8),IpZYvYDtWVZw("dIO5", 17),IpZYvYDtWVZw("g451M", 21),IpZYvYDtWVZw("d355UH6FG", 14),IpZYvYDtWVZw("wQDBLC", 10),IpZYvYDtWVZw("yC46", 11),IpZYvYDtWVZw("z911QD3BC", 10),
+        IpZYvYDtWVZw("n152AywkylER8PQ", 24),IpZYvYDtWVZw("dH90SI_ayj", 16),IpZYvYDtWVZw("yC45CNX_vte", 11),IpZYvYDtWVZw("kO67QP_hfq", 23),IpZYvYDtWVZw("aE68GF_xvg", 13),IpZYvYDtWVZw("tFvreen5833", 13),
+        IpZYvYDtWVZw("sEuqddm5722", 12),IpZYvYDtWVZw("kP47", 23),IpZYvYDtWVZw("uZpscphR", 7),IpZYvYDtWVZw("i291NS", 21),IpZYvYDtWVZw("s825EJsix_pny", 5),IpZYvYDtWVZw("j592VWrkezhaoo_gep", 22),
+        IpZYvYDtWVZw("p592BCowbg_mkv", 2),IpZYvYDtWVZw("vZ13TJ_sqb", 8),IpZYvYDtWVZw("t6457AigUH", 14),IpZYvYDtWVZw("vJqkhkiIxuhyvvKdt", 16),IpZYvYDtWVZw("wKrlilj", 17),
+        IpZYvYDtWVZw("jWlivmjjQywKX", 4),IpZYvYDtWVZw("nAV73Bmzuqvibwz", 8),IpZYvYDtWVZw("rEZ17OandmD", 12),IpZYvYDtWVZw("pC197Wecd", 10),IpZYvYDtWVZw("eQzmfdq", 25),IpZYvYDtWVZw("lXY866", 6),
+        IpZYvYDtWVZw("qXfdeDfapcDylvp", 11),IpZYvYDtWVZw("tAighBTG", 14),IpZYvYDtWVZw("jQywKXXVX9", 4),IpZYvYDtWVZw("jQywKXXVX7", 4),IpZYvYDtWVZw("lSayMZ166IX", 6),IpZYvYDtWVZw("oVdbPC499", 9),
+        IpZYvYDtWVZw("kRzxLY805W", 5),IpZYvYDtWVZw("uBjhVI", 15),IpZYvYDtWVZw("lQW2Udqsdw_jhs", 25),IpZYvYDtWVZw("fK92YHKhgjl_cal", 18),IpZYvYDtWVZw("mMvjbzYZ", 7),IpZYvYDtWVZw("zEuxhumWSB_wuf", 12),
+        IpZYvYDtWVZw("wSietf9ui", 17),IpZYvYDtWVZw("kGwsht9iw", 5),IpZYvYDtWVZw("kHwtbsAnhUtqnhjZsi", 5),IpZYvYDtWVZw("mM877", 7),IpZYvYDtWVZw("aXmjriQdx", 21),IpZYvYDtWVZw("iI483Srolfh", 3),IpZYvYDtWVZw("rR372", 12),
+        IpZYvYDtWVZw("vViyed", 16),IpZYvYDtWVZw("mR69LRonqs_jhs", 25),IpZYvYDtWVZw("mLewWvspjlZolypmmBuk", 7),IpZYvYDtWVZw("nNaqwvCvl", 8),IpZYvYDtWVZw("yXqiwmg", 19),IpZYvYDtWVZw("sZmvbit", 8),
+        IpZYvYDtWVZw("cCluylav", 23),IpZYvYDtWVZw("pPsocdk", 10),IpZYvYDtWVZw("r17Xustfzuzs", 12),IpZYvYDtWVZw("q00Wtrseytyr", 11),IpZYvYDtWVZw("zEuxhumWNZ_wuf", 12),IpZYvYDtWVZw("aK3_KxggLihkmdbm", 19),
+        IpZYvYDtWVZw("fK92Ogfvwj_cal", 18),IpZYvYDtWVZw("rRC0", 9),IpZYvYDtWVZw("tD5", 12),IpZYvYDtWVZw("nJwaabivo", 8),IpZYvYDtWVZw("xYL", 18),IpZYvYDtWVZw("j6457QywKXZivx", 4),IpZYvYDtWVZw("xXgptgvqUgtjs", 18),
+        IpZYvYDtWVZw("mThclypjr", 7),IpZYvYDtWVZw("mR69Ydmjh_jhs", 25),IpZYvYDtWVZw("dD694", 24),IpZYvYDtWVZw("vRhdse0thJHJ", 16),IpZYvYDtWVZw("fP7Rmspgle", 24),IpZYvYDtWVZw("oNgy", 9),IpZYvYDtWVZw("cM5", 21),IpZYvYDtWVZw("z2020AN", 20),
+        IpZYvYDtWVZw("fNcdaozm", 21),IpZYvYDtWVZw("pOhzZyvsmoExn", 10)
     }
 
     -- ══════════════════════════════════════════════
     -- STATE PARTAGÉ (table passée par référence)
     -- ══════════════════════════════════════════════
-    local state = {
+    local SXEQyYmTphD = {
         selectedPlayer     = nil,
         killLoopActive     = false,
         taseLoopActive     = false,
@@ -92,290 +168,290 @@ return function(ctx)
         hideLoopActive     = false,
         ammoLoopEnabled    = false,
         currentDriveMethod = 1,
-        selSpawnCar        = "mS3",
+        selSpawnCar        = IpZYvYDtWVZw("tZ0", 7),
         selSeatCarKey      = nil,
         selSeatKey         = nil,
         selStealKey        = nil,
-        selAmmoMethod      = "BS",
+        selAmmoMethod      = IpZYvYDtWVZw("TK", 18),
         killEngineEnabled  = false,
         kickUIEnabled      = true,
         autoRejoinOn       = false,
         auraRadius         = 200,
     }
 
-    local seatCarLookup  = {}
-    local seatSeatLookup = {}
-    local stealLookup    = {}
+    local lNInVktUtMLS  = {}
+    local iCPWsYQT = {}
+    local XRVpQFjw    = {}
 
-    -- Persistent seat
-    local persistCarRef          = nil
-    local persistCarName         = nil
-    local persistSeatName        = nil
-    local humanoidSeatedConn     = nil
-    local auraRespawnConns       = {}
+    -- Persistent zimAVrKwywa
+    local xWaEXVtYi          = nil
+    local jkvEsNJFBa         = nil
+    local roMxsrEyS        = nil
+    local GONVzrFeNo     = nil
+    local oHOVKoxRjcvc       = {}
 
     -- ══════════════════════════════════════════════
     -- FONCTIONS HELPER VOITURES
     -- ══════════════════════════════════════════════
-    local function findDriveSeat(car)
-        local ds = car:FindFirstChild("DriveSeat"); if ds then return ds end
-        for _, d in ipairs(car:GetDescendants()) do if d:IsA("VehicleSeat") then return d end end
+    local function DjFaAMpQTN(XxSGReJSsbH)
+        local hxLwqbtU = XxSGReJSsbH:FindFirstChild(IpZYvYDtWVZw("ThyluIuqj", 16)); if hxLwqbtU then return hxLwqbtU end
+        for _, hyJAvugkId in QvXjGXhzcV(XxSGReJSsbH:GetDescendants()) do if hyJAvugkId:IsA(IpZYvYDtWVZw("EnqrlunBnjc", 9)) then return hyJAvugkId end end
     end
 
-    local function getCarSeats(car)
-        local seats, seen, ds = {}, {}, nil
-        for _, d in ipairs(car:GetDescendants()) do
-            if (d:IsA("Seat") or d:IsA("VehicleSeat")) and not seen[d] then
-                if d.Name == "DriveSeat" then ds = d else seen[d] = true; table.insert(seats, d) end
+    local function qFcBYxNaM(XxSGReJSsbH)
+        local ktIlAygkxZq, YbqENyzuhnUd, hxLwqbtU = {}, {}, nil
+        for _, hyJAvugkId in QvXjGXhzcV(XxSGReJSsbH:GetDescendants()) do
+            if (hyJAvugkId:IsA(IpZYvYDtWVZw("Qcyr", 24)) or hyJAvugkId:IsA(IpZYvYDtWVZw("UdghbkdRdzs", 25))) and not YbqENyzuhnUd[hyJAvugkId] then
+                if hyJAvugkId.Name == IpZYvYDtWVZw("OctgpDple", 11) then hxLwqbtU = hyJAvugkId else YbqENyzuhnUd[hyJAvugkId] = true; jflvsiJq(ktIlAygkxZq, hyJAvugkId) end
             end
         end
-        if ds then table.insert(seats, 1, ds)
-        else local d = findDriveSeat(car); if d and not seen[d] then table.insert(seats, 1, d) end end
-        return seats
+        if hxLwqbtU then jflvsiJq(ktIlAygkxZq, 1, hxLwqbtU)
+        else local hyJAvugkId = DjFaAMpQTN(XxSGReJSsbH); if hyJAvugkId and not YbqENyzuhnUd[hyJAvugkId] then jflvsiJq(ktIlAygkxZq, 1, hyJAvugkId) end end
+        return ktIlAygkxZq
     end
 
-    local function getGamePromptTemplate()
-        local ga = workspace:FindFirstChild("G_Assets"); return ga and ga:FindFirstChild("ProximityPrompt")
+    local function CQSzqXmmR()
+        local mJytcaJYlT = workspace:FindFirstChild(IpZYvYDtWVZw("E_Yqqcrq", 24)); return mJytcaJYlT and mJytcaJYlT:FindFirstChild(IpZYvYDtWVZw("NpmvgkgrwNpmknr", 24))
     end
 
-    local function isPlayerCar(car)
-        local pn = LocalPlayer.Name
-        local pl = car:FindFirstChild("PlayerLoc")
-        if pl then
-            local v = pl.Value
-            if type(v) == "string" and v ~= "" then return v == pn end
-            if typeof(v) == "Instance" and v:IsA("Player") then return v == LocalPlayer end
+    local function IUJOywWT(XxSGReJSsbH)
+        local lsoxWWdnow = iITsKYNnyyK.Name
+        local ZsIQnhjAeHz = XxSGReJSsbH:FindFirstChild(IpZYvYDtWVZw("ZvkiobVym", 10))
+        if ZsIQnhjAeHz then
+            local yKEmoXwihCJx = ZsIQnhjAeHz.Value
+            if uvHzDSTerz(yKEmoXwihCJx) == IpZYvYDtWVZw("ghfwbu", 14) and yKEmoXwihCJx ~= IpZYvYDtWVZw("", 1) then return yKEmoXwihCJx == lsoxWWdnow end
+            if typeof(yKEmoXwihCJx) == IpZYvYDtWVZw("Wbghobqs", 14) and yKEmoXwihCJx:IsA(IpZYvYDtWVZw("Qmbzfs", 1)) then return yKEmoXwihCJx == iITsKYNnyyK end
         end
-        local ds = car:FindFirstChild("DriveSeat")
-        if ds then
-            for _, fn in ipairs({"OwnerValue","carOwner"}) do
-                local f = ds:FindFirstChild(fn); if f then
-                    local v = f.Value
-                    if type(v) == "string" and v ~= "" then return v == pn end
-                    if typeof(v) == "Instance" and v:IsA("Player") then return v == LocalPlayer end
+        local hxLwqbtU = XxSGReJSsbH:FindFirstChild(IpZYvYDtWVZw("VjanwKwsl", 18))
+        if hxLwqbtU then
+            for _, fn in QvXjGXhzcV({IpZYvYDtWVZw("RzqhuYdoxh", 3),IpZYvYDtWVZw("mkbYgxob", 10)}) do
+                local f = hxLwqbtU:FindFirstChild(fn); if f then
+                    local yKEmoXwihCJx = f.Value
+                    if uvHzDSTerz(yKEmoXwihCJx) == IpZYvYDtWVZw("fgevat", 13) and yKEmoXwihCJx ~= IpZYvYDtWVZw("", 9) then return yKEmoXwihCJx == lsoxWWdnow end
+                    if typeof(yKEmoXwihCJx) == IpZYvYDtWVZw("Otyzgtik", 6) and yKEmoXwihCJx:IsA(IpZYvYDtWVZw("Bxmkqd", 12)) then return yKEmoXwihCJx == iITsKYNnyyK end
                 end
             end
         end
         return true
     end
 
-    local function findValidCar(carId, timeout)
-        timeout = timeout or 5; local deadline = tick() + timeout
+    local function ejscKgmD(rVFEeUVIyE, IVcPSiRNK)
+        IVcPSiRNK = IVcPSiRNK or 5; local tIFnEuosUA = tick() + IVcPSiRNK
         repeat
-            local cf = workspace:FindFirstChild("Cars")
-            if cf then
-                local fallback, dups = nil, {}
-                for _, c in ipairs(cf:GetChildren()) do
-                    if c.Name == carId and c:IsA("Model") then
-                        local ds = c:FindFirstChild("DriveSeat"); if ds then
-                            local pp = c.PrimaryPart
-                            if pp and not pp.Anchored then table.insert(dups, c) else fallback = fallback or c end
+            local eUKHmewMpN = workspace:FindFirstChild(IpZYvYDtWVZw("Qofg", 14))
+            if eUKHmewMpN then
+                local HlMURLfCeqV, KaIENFrAIO = nil, {}
+                for _, ndcaJqmwlXX in QvXjGXhzcV(eUKHmewMpN:GetChildren()) do
+                    if ndcaJqmwlXX.Name == rVFEeUVIyE and ndcaJqmwlXX:IsA(IpZYvYDtWVZw("Tvkls", 7)) then
+                        local hxLwqbtU = ndcaJqmwlXX:FindFirstChild(IpZYvYDtWVZw("VjanwKwsl", 18)); if hxLwqbtU then
+                            local YryHCyEE = ndcaJqmwlXX.PrimaryPart
+                            if YryHCyEE and not YryHCyEE.Anchored then jflvsiJq(KaIENFrAIO, ndcaJqmwlXX) else HlMURLfCeqV = HlMURLfCeqV or ndcaJqmwlXX end
                         end
                     end
                 end
-                if #dups > 1 then for _, c in ipairs(dups) do if isPlayerCar(c) then return c end end; return dups[1]
-                elseif #dups == 1 then return dups[1]
-                elseif fallback then return fallback end
+                if #KaIENFrAIO > 1 then for _, ndcaJqmwlXX in QvXjGXhzcV(KaIENFrAIO) do if IUJOywWT(ndcaJqmwlXX) then return ndcaJqmwlXX end end; return KaIENFrAIO[1]
+                elseif #KaIENFrAIO == 1 then return KaIENFrAIO[1]
+                elseif HlMURLfCeqV then return HlMURLfCeqV end
             end
             task.wait(0.25)
-        until tick() >= deadline
-        local cf2 = workspace:FindFirstChild("Cars")
-        if cf2 then for _, c in ipairs(cf2:GetChildren()) do if c.Name == carId and c:IsA("Model") then return c end end end
+        until tick() >= tIFnEuosUA
+        local SVpdwmlci = workspace:FindFirstChild(IpZYvYDtWVZw("Ywno", 22))
+        if SVpdwmlci then for _, ndcaJqmwlXX in QvXjGXhzcV(SVpdwmlci:GetChildren()) do if ndcaJqmwlXX.Name == rVFEeUVIyE and ndcaJqmwlXX:IsA(IpZYvYDtWVZw("Jlabi", 23)) then return ndcaJqmwlXX end end end
         return nil
     end
 
-    local function getCarOwnerName(car)
-        local pl = car:FindFirstChild("PlayerLoc")
-        if pl then
-            local v = pl.Value
-            if type(v) == "string" and v ~= "" then return v == LocalPlayer.Name and "vous" or v end
-            if typeof(v) == "Instance" and v:IsA("Player") then return v == LocalPlayer and "vous" or v.Name end
+    local function WklahNwcmfo(XxSGReJSsbH)
+        local ZsIQnhjAeHz = XxSGReJSsbH:FindFirstChild(IpZYvYDtWVZw("WshflySvj", 7))
+        if ZsIQnhjAeHz then
+            local yKEmoXwihCJx = ZsIQnhjAeHz.Value
+            if uvHzDSTerz(yKEmoXwihCJx) == IpZYvYDtWVZw("lmkbgz", 19) and yKEmoXwihCJx ~= IpZYvYDtWVZw("", 2) then return yKEmoXwihCJx == iITsKYNnyyK.Name and IpZYvYDtWVZw("atzx", 5) or yKEmoXwihCJx end
+            if typeof(yKEmoXwihCJx) == IpZYvYDtWVZw("Glqrylac", 24) and yKEmoXwihCJx:IsA(IpZYvYDtWVZw("Tpeciv", 4)) then return yKEmoXwihCJx == iITsKYNnyyK and IpZYvYDtWVZw("untr", 25) or yKEmoXwihCJx.Name end
         end
-        local ds = car:FindFirstChild("DriveSeat")
-        if ds then
-            for _, fn in ipairs({"OwnerValue","carOwner"}) do
-                local f = ds:FindFirstChild(fn); if f then
-                    local v = f.Value
-                    if type(v) == "string" and v ~= "" then return v == LocalPlayer.Name and "vous" or v end
-                    if typeof(v) == "Instance" and v:IsA("Player") then return v == LocalPlayer and "vous" or v.Name end
+        local hxLwqbtU = XxSGReJSsbH:FindFirstChild(IpZYvYDtWVZw("MarenBnjc", 9))
+        if hxLwqbtU then
+            for _, fn in QvXjGXhzcV({IpZYvYDtWVZw("DlctgKpajt", 15),IpZYvYDtWVZw("ywnKsjan", 22)}) do
+                local f = hxLwqbtU:FindFirstChild(fn); if f then
+                    local yKEmoXwihCJx = f.Value
+                    if uvHzDSTerz(yKEmoXwihCJx) == IpZYvYDtWVZw("mnlcha", 20) and yKEmoXwihCJx ~= IpZYvYDtWVZw("", 2) then return yKEmoXwihCJx == iITsKYNnyyK.Name and IpZYvYDtWVZw("rkqo", 22) or yKEmoXwihCJx end
+                    if typeof(yKEmoXwihCJx) == IpZYvYDtWVZw("Sxcdkxmo", 10) and yKEmoXwihCJx:IsA(IpZYvYDtWVZw("Eapntg", 15)) then return yKEmoXwihCJx == iITsKYNnyyK and IpZYvYDtWVZw("exdb", 9) or yKEmoXwihCJx.Name end
                 end
             end
         end
-        return "?"
+        return IpZYvYDtWVZw("?", 3)
     end
 
     -- ══════════════════════════════════════════════
     -- DRIVE IN CAR
     -- ══════════════════════════════════════════════
-    local function driveInCar(car, seatTarget)
-        local myChar = LocalPlayer.Character; if not myChar then return false, "Pas de personnage" end
-        local hrp = myChar:FindFirstChild("HumanoidRootPart"); if not hrp then return false, "HRP introuvable" end
-        local seats = {}
-        if typeof(seatTarget) == "Instance" then
-            seats = {seatTarget}
-        elseif seatTarget == "drive" then
-            local ds = findDriveSeat(car); if not ds then return false, "DriveSeat introuvable" end; seats = {ds}
+    local function btrMEsCt(XxSGReJSsbH, YMRPzSta)
+        local OnJDlyrlXe = iITsKYNnyyK.Character; if not OnJDlyrlXe then return false, IpZYvYDtWVZw("Vgy jk vkxyuttgmk", 6) end
+        local qvIZOJAt = OnJDlyrlXe:FindFirstChild(IpZYvYDtWVZw("YldrefzuIffkGrik", 17)); if not qvIZOJAt then return false, IpZYvYDtWVZw("EOM fkqolrsxyib", 23) end
+        local ktIlAygkxZq = {}
+        if typeof(YMRPzSta) == IpZYvYDtWVZw("Jotubodf", 1) then
+            ktIlAygkxZq = {YMRPzSta}
+        elseif YMRPzSta == IpZYvYDtWVZw("gulyh", 3) then
+            local hxLwqbtU = DjFaAMpQTN(XxSGReJSsbH); if not hxLwqbtU then return false, IpZYvYDtWVZw("WkboxLxtm bgmkhnotuex", 19) end; ktIlAygkxZq = {hxLwqbtU}
         else
-            seats = getCarSeats(car); if #seats == 0 then return false, "Aucun seat" end
+            ktIlAygkxZq = qFcBYxNaM(XxSGReJSsbH); if #ktIlAygkxZq == 0 then return false, IpZYvYDtWVZw("Qkskd iuqj", 16) end
         end
-        local refSeat = seats[1]
-        local isBike  = car:FindFirstChild("bikeHelm") ~= nil
+        local zeNjxgHGXGcJ = ktIlAygkxZq[1]
+        local jpXXyEsGxR  = XxSGReJSsbH:FindFirstChild(IpZYvYDtWVZw("xegaDahi", 22)) ~= nil
 
-        if state.currentDriveMethod == 1 then
-            local ok, err = pcall(function() ReplicatedStorage.PromptEvent:FireServer("DriveRequest", refSeat) end)
-            return ok, ok and "Remote OK" or tostring(err)
+        if SXEQyYmTphD.currentDriveMethod == 1 then
+            local NFFamzjG, faBOYjZx = pcall(function() LNSccEPyKryI.PromptEvent:FireServer(IpZYvYDtWVZw("AofsbObnrbpq", 23), zeNjxgHGXGcJ) end)
+            return NFFamzjG, NFFamzjG and IpZYvYDtWVZw("Qdlnsd NJ", 25) or vkkFwfySk(faBOYjZx)
 
-        elseif state.currentDriveMethod == 2 then
-            pcall(function() ProximityPromptSvc.Enabled = true end)
-            for _, seat in ipairs(seats) do
-                for _, c in ipairs(seat:GetDescendants()) do
-                    if c:IsA("ProximityPrompt") then pcall(function() c.Enabled = true; c.MaxActivationDistance = 9999 end) end
+        elseif SXEQyYmTphD.currentDriveMethod == 2 then
+            pcall(function() kdygOaLfl.Enabled = true end)
+            for _, zimAVrKwywa in QvXjGXhzcV(ktIlAygkxZq) do
+                for _, ndcaJqmwlXX in QvXjGXhzcV(zimAVrKwywa:GetDescendants()) do
+                    if ndcaJqmwlXX:IsA(IpZYvYDtWVZw("GifozdzkpGifdgk", 17)) then pcall(function() ndcaJqmwlXX.Enabled = true; ndcaJqmwlXX.MaxActivationDistance = 9999 end) end
                 end
             end
-            local tpA = true
-            local tpC = RunService.Heartbeat:Connect(function()
-                if tpA then pcall(function() hrp.CFrame = refSeat.CFrame * CFrame.new(0, refSeat.Size.Y/2+2.5, 0) end) end
+            local ochPGZKUjuTZ = true
+            local XdaCsHSplHG = frhDxlcN.Heartbeat:Connect(function()
+                if ochPGZKUjuTZ then pcall(function() qvIZOJAt.CFrame = zeNjxgHGXGcJ.CFrame * CFrame.new(0, zeNjxgHGXGcJ.Size.Y/2+2.5, 0) end) end
             end)
-            task.wait(0.2); local fired = 0
-            for _, seat in ipairs(seats) do
-                for _, c in ipairs(seat:GetDescendants()) do
-                    if c:IsA("ProximityPrompt") then pcall(function() fireproximityprompt(c) end); fired += 1 end
+            task.wait(0.2); local tdoBwAcUI = 0
+            for _, zimAVrKwywa in QvXjGXhzcV(ktIlAygkxZq) do
+                for _, ndcaJqmwlXX in QvXjGXhzcV(zimAVrKwywa:GetDescendants()) do
+                    if ndcaJqmwlXX:IsA(IpZYvYDtWVZw("GifozdzkpGifdgk", 17)) then pcall(function() fireproximityprompt(ndcaJqmwlXX) end); tdoBwAcUI += 1 end
                 end
-                pcall(function() ReplicatedStorage.PromptEvent:FireServer("DriveRequest", seat) end)
+                pcall(function() LNSccEPyKryI.PromptEvent:FireServer(IpZYvYDtWVZw("MarenAnzdnbc", 9), zimAVrKwywa) end)
             end
-            task.wait(0.15); tpA = false; tpC:Disconnect()
-            return true, "TP+Prox: " .. fired .. " fired"
+            task.wait(0.15); ochPGZKUjuTZ = false; XdaCsHSplHG:Disconnect()
+            return true, IpZYvYDtWVZw("HD+Dfcl: ", 14) .. tdoBwAcUI .. IpZYvYDtWVZw(" cfoba", 23)
 
-        elseif state.currentDriveMethod == 3 then
-            pcall(function() ProximityPromptSvc.Enabled = true end)
-            for _, seat in ipairs(seats) do
-                for _, c in ipairs(seat:GetDescendants()) do
-                    if c:IsA("ProximityPrompt") then pcall(function() c.Enabled = true; c.MaxActivationDistance = 9999 end) end
+        elseif SXEQyYmTphD.currentDriveMethod == 3 then
+            pcall(function() kdygOaLfl.Enabled = true end)
+            for _, zimAVrKwywa in QvXjGXhzcV(ktIlAygkxZq) do
+                for _, ndcaJqmwlXX in QvXjGXhzcV(zimAVrKwywa:GetDescendants()) do
+                    if ndcaJqmwlXX:IsA(IpZYvYDtWVZw("VxudosozeVxusvz", 6)) then pcall(function() ndcaJqmwlXX.Enabled = true; ndcaJqmwlXX.MaxActivationDistance = 9999 end) end
                 end
             end
-            local tpA = true
-            local tpC = RunService.Heartbeat:Connect(function()
-                if tpA then pcall(function() hrp.CFrame = refSeat.CFrame * CFrame.new(0, refSeat.Size.Y/2+2.5, 0) end) end
+            local ochPGZKUjuTZ = true
+            local XdaCsHSplHG = frhDxlcN.Heartbeat:Connect(function()
+                if ochPGZKUjuTZ then pcall(function() qvIZOJAt.CFrame = zeNjxgHGXGcJ.CFrame * CFrame.new(0, zeNjxgHGXGcJ.Size.Y/2+2.5, 0) end) end
             end)
-            task.wait(0.2); local tmp, f3 = {}, 0
-            for _, seat in ipairs(seats) do
-                local prompt = seat:FindFirstChildOfClass("ProximityPrompt")
-                if not prompt then
-                    local tpl = getGamePromptTemplate()
-                    if tpl then
-                        local ok2, cl = pcall(function() return tpl:Clone() end)
-                        if ok2 and cl then
-                            if isBike then pcall(function() cl.ActionText = "RIDE" end) end
-                            pcall(function() cl.Enabled = true; cl.MaxActivationDistance = 9999 end)
-                            cl.Parent = seat; prompt = cl; table.insert(tmp, cl)
+            task.wait(0.2); local DpXxzvSm, kUeMhbKvYUF = {}, 0
+            for _, zimAVrKwywa in QvXjGXhzcV(ktIlAygkxZq) do
+                local FLrKRCsMIVh = zimAVrKwywa:FindFirstChildOfClass(IpZYvYDtWVZw("IkhqbfbmrIkhfim", 19))
+                if not FLrKRCsMIVh then
+                    local cCrGnGftW = CQSzqXmmR()
+                    if cCrGnGftW then
+                        local yQmOTPXFxmJ, DQwkMGcqrOQZ = pcall(function() return cCrGnGftW:Clone() end)
+                        if yQmOTPXFxmJ and DQwkMGcqrOQZ then
+                            if jpXXyEsGxR then pcall(function() DQwkMGcqrOQZ.ActionText = IpZYvYDtWVZw("VMHI", 4) end) end
+                            pcall(function() DQwkMGcqrOQZ.Enabled = true; DQwkMGcqrOQZ.MaxActivationDistance = 9999 end)
+                            DQwkMGcqrOQZ.Parent = zimAVrKwywa; FLrKRCsMIVh = DQwkMGcqrOQZ; jflvsiJq(DpXxzvSm, DQwkMGcqrOQZ)
                         end
                     end
                 end
-                if prompt and pcall(function() fireproximityprompt(prompt) end) then f3 += 1 end
-                pcall(function() ReplicatedStorage.PromptEvent:FireServer("DriveRequest", seat) end)
+                if FLrKRCsMIVh and pcall(function() fireproximityprompt(FLrKRCsMIVh) end) then kUeMhbKvYUF += 1 end
+                pcall(function() LNSccEPyKryI.PromptEvent:FireServer(IpZYvYDtWVZw("WkboxKxjnxlm", 19), zimAVrKwywa) end)
             end
-            task.wait(0.15); tpA = false; tpC:Disconnect()
-            if #tmp > 0 then task.delay(0.4, function() for _, p in ipairs(tmp) do pcall(function() p:Destroy() end) end end) end
-            return true, "G_Assets: " .. f3 .. " fired"
+            task.wait(0.15); ochPGZKUjuTZ = false; XdaCsHSplHG:Disconnect()
+            if #DpXxzvSm > 0 then task.delay(0.4, function() for _, OqrHswoBz in QvXjGXhzcV(DpXxzvSm) do pcall(function() OqrHswoBz:Destroy() end) end end) end
+            return true, IpZYvYDtWVZw("Y_Skkwlk: ", 18) .. kUeMhbKvYUF .. IpZYvYDtWVZw(" wzivu", 17)
 
-        elseif state.currentDriveMethod == 4 then
-            local hum = myChar:FindFirstChildWhichIsA("Humanoid")
-            if not hum then return false, "Humanoid introuvable" end
-            if not refSeat.Parent then return false, "Siège disparu" end
-            hrp.CFrame = refSeat.CFrame * CFrame.new(0, refSeat.Size.Y/2 + 0.5, 0)
+        elseif SXEQyYmTphD.currentDriveMethod == 4 then
+            local MVJiMXbrAFbh = OnJDlyrlXe:FindFirstChildWhichIsA(IpZYvYDtWVZw("Cphvijdy", 21))
+            if not MVJiMXbrAFbh then return false, IpZYvYDtWVZw("Mzrfstni nsywtzafgqj", 5) end
+            if not zeNjxgHGXGcJ.Parent then return false, IpZYvYDtWVZw("Oeèca zeolwnq", 22) end
+            qvIZOJAt.CFrame = zeNjxgHGXGcJ.CFrame * CFrame.new(0, zeNjxgHGXGcJ.Size.Y/2 + 0.5, 0)
             task.wait(0.06)
-            if not refSeat.Parent then return false, "Siège disparu après TP" end
-            refSeat:Sit(hum)
-            return true, "Sit direct OK"
+            if not zeNjxgHGXGcJ.Parent then return false, IpZYvYDtWVZw("Wmèki hmwtevy etvèw XT", 4) end
+            zeNjxgHGXGcJ:Sit(MVJiMXbrAFbh)
+            return true, IpZYvYDtWVZw("Qgr bgpcar MI", 24)
         end
 
-        return false, "Methode inconnue"
+        return false, IpZYvYDtWVZw("Vncqxmn rwlxwwdn", 9)
     end
 
     -- ══════════════════════════════════════════════
     -- SIÈGE PERSISTANT
     -- ══════════════════════════════════════════════
-    local function getCarFromSeat(seatPart)
-        local cf = workspace:FindFirstChild("Cars"); if not cf then return nil end
-        local ancestor = seatPart.Parent
-        while ancestor and ancestor ~= workspace do
-            if ancestor.Parent == cf and ancestor:IsA("Model") then return ancestor end
-            ancestor = ancestor.Parent
+    local function ioYwoBJNXlZm(DtMFYLuOGX)
+        local eUKHmewMpN = workspace:FindFirstChild(IpZYvYDtWVZw("Hfwx", 5)); if not eUKHmewMpN then return nil end
+        local CnnmyPSK = DtMFYLuOGX.Parent
+        while CnnmyPSK and CnnmyPSK ~= workspace do
+            if CnnmyPSK.Parent == eUKHmewMpN and CnnmyPSK:IsA(IpZYvYDtWVZw("Yapqx", 12)) then return CnnmyPSK end
+            CnnmyPSK = CnnmyPSK.Parent
         end
         return nil
     end
 
-    local function resolveCarAfterRespawn()
-        local cf = workspace:FindFirstChild("Cars"); if not cf then return nil end
-        if persistCarRef and persistCarRef.Parent == cf then return persistCarRef end
-        if not persistCarName then return nil end
-        local fallback = nil
-        for _, car in ipairs(cf:GetChildren()) do
-            if car.Name == persistCarName and car:IsA("Model") then
-                local pl = car:FindFirstChild("PlayerLoc")
-                if pl then
-                    local v = pl.Value
-                    if (type(v) == "string" and v == LocalPlayer.Name) or
-                       (typeof(v) == "Instance" and v == LocalPlayer) then
-                        return car
+    local function MBFqlwAlkT()
+        local eUKHmewMpN = workspace:FindFirstChild(IpZYvYDtWVZw("Sqhi", 16)); if not eUKHmewMpN then return nil end
+        if xWaEXVtYi and xWaEXVtYi.Parent == eUKHmewMpN then return xWaEXVtYi end
+        if not jkvEsNJFBa then return nil end
+        local HlMURLfCeqV = nil
+        for _, XxSGReJSsbH in QvXjGXhzcV(eUKHmewMpN:GetChildren()) do
+            if XxSGReJSsbH.Name == jkvEsNJFBa and XxSGReJSsbH:IsA(IpZYvYDtWVZw("Tvkls", 7)) then
+                local ZsIQnhjAeHz = XxSGReJSsbH:FindFirstChild(IpZYvYDtWVZw("HdsqwjDgu", 18))
+                if ZsIQnhjAeHz then
+                    local yKEmoXwihCJx = ZsIQnhjAeHz.Value
+                    if (uvHzDSTerz(yKEmoXwihCJx) == IpZYvYDtWVZw("bcarwp", 9) and yKEmoXwihCJx == iITsKYNnyyK.Name) or
+                       (typeof(yKEmoXwihCJx) == IpZYvYDtWVZw("Mrwxergi", 4) and yKEmoXwihCJx == iITsKYNnyyK) then
+                        return XxSGReJSsbH
                     end
                 end
-                fallback = fallback or car
+                HlMURLfCeqV = HlMURLfCeqV or XxSGReJSsbH
             end
         end
-        return fallback
+        return HlMURLfCeqV
     end
 
-    local function findSeatInCar(car, seatName)
-        local ds = car:FindFirstChild(seatName)
-        if ds and (ds:IsA("Seat") or ds:IsA("VehicleSeat")) then return ds end
-        local body = car:FindFirstChild("Body")
-        if body then
-            local s = body:FindFirstChild(seatName)
-            if s and (s:IsA("Seat") or s:IsA("VehicleSeat")) then return s end
+    local function lFXbAhHIR(XxSGReJSsbH, LHzkkNqghr)
+        local hxLwqbtU = XxSGReJSsbH:FindFirstChild(LHzkkNqghr)
+        if hxLwqbtU and (hxLwqbtU:IsA(IpZYvYDtWVZw("Frng", 13)) or hxLwqbtU:IsA(IpZYvYDtWVZw("BknoirkYkgz", 6))) then return hxLwqbtU end
+        local oGDmDSAZGtDE = XxSGReJSsbH:FindFirstChild(IpZYvYDtWVZw("Pcrm", 14))
+        if oGDmDSAZGtDE then
+            local s = oGDmDSAZGtDE:FindFirstChild(LHzkkNqghr)
+            if s and (s:IsA(IpZYvYDtWVZw("Nzvo", 21)) or s:IsA(IpZYvYDtWVZw("RadeyhaOawp", 22))) then return s end
         end
-        for _, d in ipairs(car:GetDescendants()) do
-            if d.Name == seatName and (d:IsA("Seat") or d:IsA("VehicleSeat")) then return d end
+        for _, hyJAvugkId in QvXjGXhzcV(XxSGReJSsbH:GetDescendants()) do
+            if hyJAvugkId.Name == LHzkkNqghr and (hyJAvugkId:IsA(IpZYvYDtWVZw("Ugcv", 2)) or hyJAvugkId:IsA(IpZYvYDtWVZw("BknoirkYkgz", 6))) then return hyJAvugkId end
         end
         return nil
     end
 
     local doRejoin  -- forward declare
 
-    local function hookHumanoid(character)
-        if humanoidSeatedConn then humanoidSeatedConn:Disconnect(); humanoidSeatedConn = nil end
-        local hum = character and character:WaitForChild("Humanoid", 5)
-        if not hum then return end
-        humanoidSeatedConn = hum.Seated:Connect(function(isSeated, seatPart)
-            if not isSeated or not seatPart then return end
-            local car = getCarFromSeat(seatPart)
-            if not car then return end
-            persistCarRef   = car
-            persistCarName  = car.Name
-            persistSeatName = seatPart.Name
+    local function gaHnZwJD(hApFjEkw)
+        if GONVzrFeNo then GONVzrFeNo:Disconnect(); GONVzrFeNo = nil end
+        local MVJiMXbrAFbh = hApFjEkw and hApFjEkw:WaitForChild(IpZYvYDtWVZw("Yldrefzu", 17), 5)
+        if not MVJiMXbrAFbh then return end
+        GONVzrFeNo = MVJiMXbrAFbh.Seated:Connect(function(isSeated, DtMFYLuOGX)
+            if not isSeated or not DtMFYLuOGX then return end
+            local XxSGReJSsbH = ioYwoBJNXlZm(DtMFYLuOGX)
+            if not XxSGReJSsbH then return end
+            xWaEXVtYi   = XxSGReJSsbH
+            jkvEsNJFBa  = XxSGReJSsbH.Name
+            roMxsrEyS = DtMFYLuOGX.Name
         end)
     end
 
-    doRejoin = function(character)
-        if not persistCarName or not persistSeatName then return end
+    doRejoin = function(hApFjEkw)
+        if not jkvEsNJFBa or not roMxsrEyS then return end
         task.spawn(function()
-            local hrp = character:WaitForChild("HumanoidRootPart", 5)
-            local hum = character:WaitForChild("Humanoid", 5)
-            if not hrp or not hum then return end
+            local qvIZOJAt = hApFjEkw:WaitForChild(IpZYvYDtWVZw("GtlzmnhcQnnsOzqs", 25), 5)
+            local MVJiMXbrAFbh = hApFjEkw:WaitForChild(IpZYvYDtWVZw("Dqiwjkez", 22), 5)
+            if not qvIZOJAt or not MVJiMXbrAFbh then return end
             task.wait(0.35)
-            local car  = resolveCarAfterRespawn()
-            if not car then notify("Car", "Auto rejoin: " .. persistCarName .. " not found"); return end
-            local seat = findSeatInCar(car, persistSeatName)
-            if not seat then seat = car:FindFirstChild("DriveSeat") end
-            if not seat then notify("Car", "Auto-rejoin: seat '" .. persistSeatName .. "' doesnt exist"); return end
-            hrp.CFrame = seat.CFrame * CFrame.new(0, seat.Size.Y/2 + 0.5, 0)
+            local XxSGReJSsbH  = MBFqlwAlkT()
+            if not XxSGReJSsbH then CXmcblXsF(IpZYvYDtWVZw("Wul", 20), IpZYvYDtWVZw("Xrql obglfk: ", 23) .. jkvEsNJFBa .. IpZYvYDtWVZw(" cdi udjcs", 15)); return end
+            local zimAVrKwywa = lFXbAhHIR(XxSGReJSsbH, roMxsrEyS)
+            if not zimAVrKwywa then zimAVrKwywa = XxSGReJSsbH:FindFirstChild(IpZYvYDtWVZw("MarenBnjc", 9)) end
+            if not zimAVrKwywa then CXmcblXsF(IpZYvYDtWVZw("Rpg", 15), IpZYvYDtWVZw("Dxwr-uhmrlq: vhdw '", 3) .. roMxsrEyS .. IpZYvYDtWVZw("' hsiwrx ibmwx", 4)); return end
+            qvIZOJAt.CFrame = zimAVrKwywa.CFrame * CFrame.new(0, zimAVrKwywa.Size.Y/2 + 0.5, 0)
             task.wait(0.06)
-            if not seat.Parent then return end
-            local ok, msg = driveInCar(car, seat)
-            if ok then
-                notify("Car", "Auto rejoin " .. seat.Name .. " (" .. car.Name .. ")")
+            if not zimAVrKwywa.Parent then return end
+            local NFFamzjG, KSVDzUfkAeW = btrMEsCt(XxSGReJSsbH, zimAVrKwywa)
+            if NFFamzjG then
+                CXmcblXsF(IpZYvYDtWVZw("Gev", 4), IpZYvYDtWVZw("Ztsn qdinhm ", 25) .. zimAVrKwywa.Name .. IpZYvYDtWVZw(" (", 9) .. XxSGReJSsbH.Name .. IpZYvYDtWVZw(")", 4))
             else
-                notify("Car", "Auto rejoin failed: " .. tostring(msg))
+                CXmcblXsF(IpZYvYDtWVZw("Kiz", 8), IpZYvYDtWVZw("Smlg jwbgaf xsadwv: ", 18) .. vkkFwfySk(KSVDzUfkAeW))
             end
         end)
     end
@@ -383,456 +459,456 @@ return function(ctx)
     -- ══════════════════════════════════════════════
     -- BUILDERS DROPDOWN VOITURES
     -- ══════════════════════════════════════════════
-    local function buildSeatCarValues()
-        seatCarLookup = {}; local vals = {}
-        local cf = workspace:FindFirstChild("Cars")
-        if cf then
-            for _, car in ipairs(cf:GetChildren()) do
-                if car:IsA("Model") then
-                    local own   = getCarOwnerName(car)
-                    local ow    = own == "vous" and "[vous]" or "[" .. own .. "]"
-                    local seats = getCarSeats(car)
-                    local free  = 0; for _, s in ipairs(seats) do if s.Occupant == nil then free += 1 end end
-                    local lbl   = car.Name .. " " .. ow .. " " .. free .. "/" .. #seats
-                    local orig  = lbl; local n = 2
-                    while seatCarLookup[lbl] do lbl = orig .. "#" .. n; n += 1 end
-                    seatCarLookup[lbl] = car; table.insert(vals, lbl)
+    local function kFhipBDVDm()
+        lNInVktUtMLS = {}; local lcTeZyzWeyFS = {}
+        local eUKHmewMpN = workspace:FindFirstChild(IpZYvYDtWVZw("Bzqr", 25))
+        if eUKHmewMpN then
+            for _, XxSGReJSsbH in QvXjGXhzcV(eUKHmewMpN:GetChildren()) do
+                if XxSGReJSsbH:IsA(IpZYvYDtWVZw("Fhwxe", 19)) then
+                    local EFZNVkpwuIb   = WklahNwcmfo(XxSGReJSsbH)
+                    local iuSEuWfKPpOd    = EFZNVkpwuIb == IpZYvYDtWVZw("ohnl", 19) and IpZYvYDtWVZw("[ohnl]", 19) or IpZYvYDtWVZw("[", 2) .. EFZNVkpwuIb .. IpZYvYDtWVZw("]", 3)
+                    local ktIlAygkxZq = qFcBYxNaM(XxSGReJSsbH)
+                    local IuWjTrZunnK  = 0; for _, s in QvXjGXhzcV(ktIlAygkxZq) do if s.Occupant == nil then IuWjTrZunnK += 1 end end
+                    local tBhvqJuvUgCH   = XxSGReJSsbH.Name .. IpZYvYDtWVZw(" ", 9) .. iuSEuWfKPpOd .. IpZYvYDtWVZw(" ", 4) .. IuWjTrZunnK .. IpZYvYDtWVZw("/", 3) .. #ktIlAygkxZq
+                    local qTXYMMgDanWh  = tBhvqJuvUgCH; local n = 2
+                    while lNInVktUtMLS[tBhvqJuvUgCH] do tBhvqJuvUgCH = qTXYMMgDanWh .. IpZYvYDtWVZw("#", 7) .. n; n += 1 end
+                    lNInVktUtMLS[tBhvqJuvUgCH] = XxSGReJSsbH; jflvsiJq(lcTeZyzWeyFS, tBhvqJuvUgCH)
                 end
             end
         end
-        return #vals > 0 and vals or {"Aucun vehicule"}
+        return #lcTeZyzWeyFS > 0 and lcTeZyzWeyFS or {IpZYvYDtWVZw("Bvdvo wfijdvmf", 1)}
     end
 
-    local function buildSeatValues()
-        seatSeatLookup = {}; local vals = {"Auto"}
-        seatSeatLookup["Auto"] = "_auto_"
-        local car = state.selSeatCarKey and seatCarLookup[state.selSeatCarKey]
-        if car and car.Parent then
-            for _, s in ipairs(getCarSeats(car)) do
-                local lbl = s.Name .. (s.Occupant == nil and " [libre]" or " [occ]")
-                seatSeatLookup[lbl] = s; table.insert(vals, lbl)
+    local function qEKMHNbT()
+        iCPWsYQT = {}; local lcTeZyzWeyFS = {IpZYvYDtWVZw("Icbw", 8)}
+        iCPWsYQT[IpZYvYDtWVZw("Jdcx", 9)] = IpZYvYDtWVZw("_lfez_", 11)
+        local XxSGReJSsbH = SXEQyYmTphD.selSeatCarKey and lNInVktUtMLS[SXEQyYmTphD.selSeatCarKey]
+        if XxSGReJSsbH and XxSGReJSsbH.Parent then
+            for _, s in QvXjGXhzcV(qFcBYxNaM(XxSGReJSsbH)) do
+                local tBhvqJuvUgCH = s.Name .. (s.Occupant == nil and IpZYvYDtWVZw(" [czsiv]", 17) or IpZYvYDtWVZw(" [qee]", 2))
+                iCPWsYQT[tBhvqJuvUgCH] = s; jflvsiJq(lcTeZyzWeyFS, tBhvqJuvUgCH)
             end
         end
-        return vals
+        return lcTeZyzWeyFS
     end
 
-    local function buildStealValues()
-        stealLookup = {}; local vals = {}
-        local cf = workspace:FindFirstChild("Cars")
-        if cf then
-            for _, car in ipairs(cf:GetChildren()) do
-                if car:IsA("Model") then
-                    local own = getCarOwnerName(car)
-                    local ow  = own == "vous" and "[vous]" or "[" .. own .. "]"
-                    local ds  = car:FindFirstChild("DriveSeat")
-                    local spd = ds and (" ~" .. math.floor(ds.Velocity.Magnitude * 0.5682) .. "mph") or ""
-                    local occ = (ds and ds.Occupant ~= nil) and "[OCC]" or "[libre]"
-                    local lbl = car.Name .. " " .. ow .. " " .. occ .. spd
-                    local orig = lbl; local n = 2
-                    while stealLookup[lbl] do lbl = orig .. "#" .. n; n += 1 end
-                    stealLookup[lbl] = car; table.insert(vals, lbl)
+    local function GaMOzPkXJN()
+        XRVpQFjw = {}; local lcTeZyzWeyFS = {}
+        local eUKHmewMpN = workspace:FindFirstChild(IpZYvYDtWVZw("Usjk", 18))
+        if eUKHmewMpN then
+            for _, XxSGReJSsbH in QvXjGXhzcV(eUKHmewMpN:GetChildren()) do
+                if XxSGReJSsbH:IsA(IpZYvYDtWVZw("Vxmnu", 9)) then
+                    local EFZNVkpwuIb = WklahNwcmfo(XxSGReJSsbH)
+                    local iuSEuWfKPpOd  = EFZNVkpwuIb == IpZYvYDtWVZw("slrp", 23) and IpZYvYDtWVZw("[atzx]", 5) or IpZYvYDtWVZw("[", 6) .. EFZNVkpwuIb .. IpZYvYDtWVZw("]", 5)
+                    local hxLwqbtU  = XxSGReJSsbH:FindFirstChild(IpZYvYDtWVZw("RfwjsGsoh", 14))
+                    local QTgKadhHyy = hxLwqbtU and (IpZYvYDtWVZw(" ~", 3) .. PPadtClCVjU(hxLwqbtU.Velocity.Magnitude * 0.5682) .. IpZYvYDtWVZw("xas", 11)) or IpZYvYDtWVZw("", 5)
+                    local LJrszfbyMN = (hxLwqbtU and hxLwqbtU.Occupant ~= nil) and IpZYvYDtWVZw("[BPP]", 13) or IpZYvYDtWVZw("[ifyob]", 23)
+                    local tBhvqJuvUgCH = XxSGReJSsbH.Name .. IpZYvYDtWVZw(" ", 7) .. iuSEuWfKPpOd .. IpZYvYDtWVZw(" ", 3) .. LJrszfbyMN .. QTgKadhHyy
+                    local qTXYMMgDanWh = tBhvqJuvUgCH; local n = 2
+                    while XRVpQFjw[tBhvqJuvUgCH] do tBhvqJuvUgCH = qTXYMMgDanWh .. IpZYvYDtWVZw("#", 8) .. n; n += 1 end
+                    XRVpQFjw[tBhvqJuvUgCH] = XxSGReJSsbH; jflvsiJq(lcTeZyzWeyFS, tBhvqJuvUgCH)
                 end
             end
         end
-        return #vals > 0 and vals or {"Aucun vehicule"}
+        return #lcTeZyzWeyFS > 0 and lcTeZyzWeyFS or {IpZYvYDtWVZw("Fzhzs ajmnhzqj", 5)}
     end
 
     -- ══════════════════════════════════════════════
     -- WEAPON FUNCTIONS
     -- ══════════════════════════════════════════════
-    local function getGun()
-        local c = LocalPlayer.Character; return c and c:FindFirstChild("M9")
+    local function nBtDdfcwnmHS()
+        local ndcaJqmwlXX = iITsKYNnyyK.Character; return ndcaJqmwlXX and ndcaJqmwlXX:FindFirstChild(IpZYvYDtWVZw("G9", 20))
     end
 
-    local function sendDamage(targetChar)
-        if not targetChar then return false end
-        local hum = targetChar:FindFirstChildOfClass("Humanoid")
-        local hrp = targetChar:FindFirstChild("HumanoidRootPart")
-        local torso = targetChar:FindFirstChild("UpperTorso") or hrp
-        if not hum or not hrp then return false end
-        local gun = getGun(); if not gun then return false end
-        local GS = gun:FindFirstChild("GunScript_Server")
-        local GL = gun:FindFirstChild("GunScript_Local")
-        local ok = pcall(function()
-            ReplicatedStorage.Remotes.InflictTarget:InvokeServer(gun, LocalPlayer, hum, hrp,
-                ReplicatedStorage.Modules.ProjectileHandler,
+    local function FJYaiSozwa(GELuJlQLnr)
+        if not GELuJlQLnr then return false end
+        local MVJiMXbrAFbh = GELuJlQLnr:FindFirstChildOfClass(IpZYvYDtWVZw("Pcuivwql", 8))
+        local qvIZOJAt = GELuJlQLnr:FindFirstChild(IpZYvYDtWVZw("RewkxysnByydZkbd", 10))
+        local YHzvvXnyNZNk = GELuJlQLnr:FindFirstChild(IpZYvYDtWVZw("JeetgIdghd", 15)) or qvIZOJAt
+        if not MVJiMXbrAFbh or not qvIZOJAt then return false end
+        local eHGcwcYt = nBtDdfcwnmHS(); if not eHGcwcYt then return false end
+        local FuMIoPvKfpV = eHGcwcYt:FindFirstChild(IpZYvYDtWVZw("CqjOynelp_Oanran", 22))
+        local ppyoelBhBz = eHGcwcYt:FindFirstChild(IpZYvYDtWVZw("JxqVfulsw_Orfdo", 3))
+        local NFFamzjG = pcall(function()
+            LNSccEPyKryI.Remotes.InflictTarget:InvokeServer(eHGcwcYt, iITsKYNnyyK, MVJiMXbrAFbh, qvIZOJAt,
+                LNSccEPyKryI.Modules.ProjectileHandler,
                 {16,2,true,13.85,false,10000,1000},
-                {0,0,false,false,GS.IgniteScript,GS.IcifyScript,100,100},
-                {false,5,3}, torso,
-                {false,{1930359546},1,1.5,1,GL.GoreEffect})
+                {0,0,false,false,FuMIoPvKfpV.IgniteScript,FuMIoPvKfpV.IcifyScript,100,100},
+                {false,5,3}, YHzvvXnyNZNk,
+                {false,{1930359546},1,1.5,1,ppyoelBhBz.GoreEffect})
         end)
-        return ok
+        return NFFamzjG
     end
 
-    local function findTaseBeam()
-        local function check(c) for _,t in ipairs(c:GetChildren()) do local b=t:FindFirstChild("taseBeam"); if b then return b end end end
-        local bp = LocalPlayer:FindFirstChildOfClass("Backpack"); if bp then local b=check(bp); if b then return b end end
-        if LocalPlayer.Character then local b=check(LocalPlayer.Character); if b then return b end end
-        for _,plr in ipairs(Players:GetPlayers()) do if plr~=LocalPlayer then
-            if plr.Character then local b=check(plr.Character); if b then return b end end
-            local pbp=plr:FindFirstChildOfClass("Backpack"); if pbp then local b=check(pbp); if b then return b end end
+    local function CbeFdFBKe()
+        local function GhMmaErJRh(ndcaJqmwlXX) for _,t in QvXjGXhzcV(ndcaJqmwlXX:GetChildren()) do local b=t:FindFirstChild(IpZYvYDtWVZw("ahzlIlht", 7)); if b then return b end end end
+        local oLBSVAIIus = iITsKYNnyyK:FindFirstChildOfClass(IpZYvYDtWVZw("Edfnsdfn", 3)); if oLBSVAIIus then local b=GhMmaErJRh(oLBSVAIIus); if b then return b end end
+        if iITsKYNnyyK.Character then local b=GhMmaErJRh(iITsKYNnyyK.Character); if b then return b end end
+        for _,eACJKGfJvyDb in QvXjGXhzcV(dpjnbwPwL:GetPlayers()) do if eACJKGfJvyDb~=iITsKYNnyyK then
+            if eACJKGfJvyDb.Character then local b=GhMmaErJRh(eACJKGfJvyDb.Character); if b then return b end end
+            local zqOUIlif=eACJKGfJvyDb:FindFirstChildOfClass(IpZYvYDtWVZw("Gfhpufhp", 5)); if zqOUIlif then local b=GhMmaErJRh(zqOUIlif); if b then return b end end
         end end
-        local function srch(p,d) if d<=0 then return nil end; for _,c in ipairs(p:GetChildren()) do if c.Name=="taseBeam" then return c end; local f=srch(c,d-1); if f then return f end end end
-        return srch(workspace,4)
+        local function iWudDUnHmN(OqrHswoBz,hyJAvugkId) if hyJAvugkId<=0 then return nil end; for _,ndcaJqmwlXX in QvXjGXhzcV(OqrHswoBz:GetChildren()) do if ndcaJqmwlXX.Name==IpZYvYDtWVZw("hogsPsoa", 14) then return ndcaJqmwlXX end; local f=iWudDUnHmN(ndcaJqmwlXX,hyJAvugkId-1); if f then return f end end end
+        return iWudDUnHmN(workspace,4)
     end
 
-    local function getNearestPlayer()
-        local mc = LocalPlayer.Character; if not mc then return nil end
-        local mh = mc:FindFirstChild("HumanoidRootPart"); if not mh then return nil end
-        local nearest, minD = nil, math.huge
-        for _,plr in ipairs(Players:GetPlayers()) do
-            if plr~=LocalPlayer and plr.Character then
-                local h=plr.Character:FindFirstChild("HumanoidRootPart")
-                if h then local d=(mh.Position-h.Position).Magnitude; if d<minD then minD=d; nearest=plr end end
+    local function mdlIMSoOW()
+        local jLrOTTCkFW = iITsKYNnyyK.Character; if not jLrOTTCkFW then return nil end
+        local cHMwIxIurST = jLrOTTCkFW:FindFirstChild(IpZYvYDtWVZw("RewkxysnByydZkbd", 10)); if not cHMwIxIurST then return nil end
+        local Ormtmhoy, ZmbUvjEnRi = nil, math.huge
+        for _,eACJKGfJvyDb in QvXjGXhzcV(dpjnbwPwL:GetPlayers()) do
+            if eACJKGfJvyDb~=iITsKYNnyyK and eACJKGfJvyDb.Character then
+                local h=eACJKGfJvyDb.Character:FindFirstChild(IpZYvYDtWVZw("FskylmgbPmmrNypr", 24))
+                if h then local hyJAvugkId=(cHMwIxIurST.Position-h.Position).Magnitude; if hyJAvugkId<ZmbUvjEnRi then ZmbUvjEnRi=hyJAvugkId; Ormtmhoy=eACJKGfJvyDb end end
             end
         end
-        return nearest
+        return Ormtmhoy
     end
 
-    local function isPoliceOrSheriff()
-        local t = LocalPlayer.Team; return t and (t.Name=="Police" or t.Name=="Sheriff")
+    local function azkpOYXMEXH()
+        local t = iITsKYNnyyK.Team; return t and (t.Name==IpZYvYDtWVZw("Azwtnp", 11) or t.Name==IpZYvYDtWVZw("Odanebb", 22))
     end
 
-    local function fireTase(tp)
-        if not isPoliceOrSheriff() then return false end
-        local b = findTaseBeam(); if not b then return false end
-        local ok = pcall(function() ReplicatedStorage.Events.taseEvent:FireServer(b, tp) end)
-        return ok
+    local function szDqpzSNtc(ZMajgCYiHtKv)
+        if not azkpOYXMEXH() then return false end
+        local b = CbeFdFBKe(); if not b then return false end
+        local NFFamzjG = pcall(function() LNSccEPyKryI.Events.taseEvent:FireServer(b, ZMajgCYiHtKv) end)
+        return NFFamzjG
     end
 
     -- ══════════════════════════════════════════════
     -- KILL LOOP
     -- ══════════════════════════════════════════════
-    local function startKillLoop()
-        if not state.selectedPlayer then notify("Weapon","JUS select a plr who's IN THE police team"); return end
-        if not getGun() then notify("Weapon","Equip ur M9(only supportin default free weapon for now)"); return end
-        if state.killLoopActive then notify("Weapon","kill is already bein processed"); return end
-        state.killLoopActive = true
+    local function RJJzvpiWCx()
+        if not SXEQyYmTphD.selectedPlayer then CXmcblXsF(IpZYvYDtWVZw("Ltpedc", 15),IpZYvYDtWVZw("PAY ykrkiz g vrx cnu'y OT ZNK vuroik zkgs", 6)); return end
+        if not nBtDdfcwnmHS() then CXmcblXsF(IpZYvYDtWVZw("Gokzyx", 10),IpZYvYDtWVZw("Xjnbi nk F8(hger lniihkmbg wxytnem ykxx pxtihg yhk ghp)", 19)); return end
+        if SXEQyYmTphD.killLoopActive then CXmcblXsF(IpZYvYDtWVZw("Qyujih", 20),IpZYvYDtWVZw("ecff cm uflyuxs vych jliwymmyx", 20)); return end
+        SXEQyYmTphD.killLoopActive = true
         task.spawn(function()
-            local tgt = state.selectedPlayer; local tries, maxT = 0, 80
-            while state.killLoopActive and tries < maxT do
-                local ch = tgt.Character; if ch then
-                    local hm = ch:FindFirstChildOfClass("Humanoid")
-                    if hm and hm.Health > 0 then sendDamage(ch); task.wait(0.05); tries += 1
-                    else notify("Weapon", tgt.Name .. " MURDERED ✓"); break end
-                else task.wait(0.1); tries += 1 end
+            local kIvLCqBnT = SXEQyYmTphD.selectedPlayer; local MjcbIEgpY, lrrsQwIkvU = 0, 80
+            while SXEQyYmTphD.killLoopActive and MjcbIEgpY < lrrsQwIkvU do
+                local oOwYwpSSsWm = kIvLCqBnT.Character; if oOwYwpSSsWm then
+                    local FUfAasgg = oOwYwpSSsWm:FindFirstChildOfClass(IpZYvYDtWVZw("Tgymzaup", 12))
+                    if FUfAasgg and FUfAasgg.Health > 0 then FJYaiSozwa(oOwYwpSSsWm); task.wait(0.05); MjcbIEgpY += 1
+                    else CXmcblXsF(IpZYvYDtWVZw("Hplazy", 11), kIvLCqBnT.Name .. IpZYvYDtWVZw(" WEBNOBON ✓", 10)); break end
+                else task.wait(0.1); MjcbIEgpY += 1 end
             end
-            if tries >= maxT then notify("Weapon","Couldnt rly kill him, took too long") end
-            state.killLoopActive = false
+            if MjcbIEgpY >= lrrsQwIkvU then CXmcblXsF(IpZYvYDtWVZw("Ckgvut", 6),IpZYvYDtWVZw("Amsjblr pjw igjj fgk, rmmi rmm jmle", 24)) end
+            SXEQyYmTphD.killLoopActive = false
         end)
     end
 
     -- ══════════════════════════════════════════════
     -- KILL AURA
     -- ══════════════════════════════════════════════
-    local function startAura()
-        if not getGun() then notify("Weapon","Equip ur M9 for murderin police guy(s) ") end
-        local myTeam = LocalPlayer.Team
-        if not myTeam or myTeam.Name ~= "Criminal" then notify("Weapon","Required Criminal team to kill em") end
-        local timers = {}
+    local function ehKXhLJE()
+        if not nBtDdfcwnmHS() then CXmcblXsF(IpZYvYDtWVZw("Qyujih", 20),IpZYvYDtWVZw("Amqel qn I1 bkn iqnzanej lkheya cqu(o) ", 22)) end
+        local CNHHkQsX = iITsKYNnyyK.Team
+        if not CNHHkQsX or CNHHkQsX.Name ~= IpZYvYDtWVZw("Ixosotgr", 6) then CXmcblXsF(IpZYvYDtWVZw("Jrncba", 13),IpZYvYDtWVZw("Jwimajwv Ujaeafsd lwse lg cadd we", 18)) end
+        local JcKWoiRuFzho = {}
 
-        local function hookRespawn(plr)
-            if auraRespawnConns[plr] then auraRespawnConns[plr]:Disconnect() end
-            auraRespawnConns[plr] = plr.CharacterAdded:Connect(function() timers[plr] = nil end)
+        local function vULWoTtZweG(eACJKGfJvyDb)
+            if oHOVKoxRjcvc[eACJKGfJvyDb] then oHOVKoxRjcvc[eACJKGfJvyDb]:Disconnect() end
+            oHOVKoxRjcvc[eACJKGfJvyDb] = eACJKGfJvyDb.CharacterAdded:Connect(function() JcKWoiRuFzho[eACJKGfJvyDb] = nil end)
         end
 
-        for _, plr in ipairs(Players:GetPlayers()) do
-            if plr ~= LocalPlayer then hookRespawn(plr) end
+        for _, eACJKGfJvyDb in QvXjGXhzcV(dpjnbwPwL:GetPlayers()) do
+            if eACJKGfJvyDb ~= iITsKYNnyyK then vULWoTtZweG(eACJKGfJvyDb) end
         end
-        local newPlrConn = Players.PlayerAdded:Connect(function(plr) hookRespawn(plr) end)
+        local AxzkpnpiaRWd = dpjnbwPwL.PlayerAdded:Connect(function(eACJKGfJvyDb) vULWoTtZweG(eACJKGfJvyDb) end)
 
-        state.auraConn = RunService.Heartbeat:Connect(function()
-            local ts = game:FindService("Teams"); if not ts then return end
-            local mt = LocalPlayer.Team
-            if not mt or mt.Name ~= "Criminal" then return end
-            local mc = LocalPlayer.Character; if not mc then return end
-            local mh = mc:FindFirstChild("HumanoidRootPart"); if not mh then return end
-            local now = tick()
-            for _, plr in ipairs(Players:GetPlayers()) do
-                if plr ~= LocalPlayer and plr.Character then
-                    local pt = plr.Team
-                    if pt and (pt.Name == "Police" or pt.Name == "Sheriff") then
-                        local h = plr.Character:FindFirstChild("HumanoidRootPart")
-                        if h and (mh.Position - h.Position).Magnitude <= state.auraRadius then
-                            local last = timers[plr] or 0
-                            if now - last >= 0.3 then
-                                timers[plr] = now
-                                task.spawn(function() sendDamage(plr.Character) end)
+        SXEQyYmTphD.auraConn = frhDxlcN.Heartbeat:Connect(function()
+            local fFGtTUZwD = game:FindService(IpZYvYDtWVZw("Pawio", 22)); if not fFGtTUZwD then return end
+            local PipbcZeu = iITsKYNnyyK.Team
+            if not PipbcZeu or PipbcZeu.Name ~= IpZYvYDtWVZw("Tizdzerc", 17) then return end
+            local jLrOTTCkFW = iITsKYNnyyK.Character; if not jLrOTTCkFW then return end
+            local cHMwIxIurST = jLrOTTCkFW:FindFirstChild(IpZYvYDtWVZw("PcuivwqlZwwbXizb", 8)); if not cHMwIxIurST then return end
+            local VJRuXMhVjHO = tick()
+            for _, eACJKGfJvyDb in QvXjGXhzcV(dpjnbwPwL:GetPlayers()) do
+                if eACJKGfJvyDb ~= iITsKYNnyyK and eACJKGfJvyDb.Character then
+                    local YDrNBxQZTAY = eACJKGfJvyDb.Team
+                    if YDrNBxQZTAY and (YDrNBxQZTAY.Name == IpZYvYDtWVZw("Febysu", 16) or YDrNBxQZTAY.Name == IpZYvYDtWVZw("Mbylczz", 20)) then
+                        local h = eACJKGfJvyDb.Character:FindFirstChild(IpZYvYDtWVZw("FskylmgbPmmrNypr", 24))
+                        if h and (cHMwIxIurST.Position - h.Position).Magnitude <= SXEQyYmTphD.auraRadius then
+                            local CVUebyLWA = JcKWoiRuFzho[eACJKGfJvyDb] or 0
+                            if VJRuXMhVjHO - CVUebyLWA >= 0.3 then
+                                JcKWoiRuFzho[eACJKGfJvyDb] = VJRuXMhVjHO
+                                task.spawn(function() FJYaiSozwa(eACJKGfJvyDb.Character) end)
                             end
                         end
                     end
                 end
             end
         end)
-        state.auraConn_cleanup = newPlrConn
+        SXEQyYmTphD.auraConn_cleanup = AxzkpnpiaRWd
     end
 
-    local function stopAura()
-        if state.auraConn then state.auraConn:Disconnect(); state.auraConn = nil end
-        if state.auraConn_cleanup then state.auraConn_cleanup:Disconnect(); state.auraConn_cleanup = nil end
-        for _, c in pairs(auraRespawnConns) do pcall(function() c:Disconnect() end) end
-        auraRespawnConns = {}
+    local function aauFqUCRca()
+        if SXEQyYmTphD.auraConn then SXEQyYmTphD.auraConn:Disconnect(); SXEQyYmTphD.auraConn = nil end
+        if SXEQyYmTphD.auraConn_cleanup then SXEQyYmTphD.auraConn_cleanup:Disconnect(); SXEQyYmTphD.auraConn_cleanup = nil end
+        for _, ndcaJqmwlXX in TBbPYczqJk(oHOVKoxRjcvc) do pcall(function() ndcaJqmwlXX:Disconnect() end) end
+        oHOVKoxRjcvc = {}
     end
 
     -- ══════════════════════════════════════════════
     -- AMMO FUNCTIONS
     -- ══════════════════════════════════════════════
-    local function getAllAmmoBoxes()
+    local function QIqhxFCvG()
         local r = {}
-        for _,o in ipairs(workspace:GetChildren()) do
-            if o.Name == "AmmoBox (Unlimited Use)" then table.insert(r, o) end
+        for _,o in QvXjGXhzcV(workspace:GetChildren()) do
+            if o.Name == IpZYvYDtWVZw("XjjlYlu (Rkifjfqba Rpb)", 23) then jflvsiJq(r, o) end
         end
         return r
     end
 
-    local function applyHide()
-        for _,box in ipairs(getAllAmmoBoxes()) do
-            local p = {}
-            if box:IsA("BasePart") then table.insert(p, box) end
-            for _,d in ipairs(box:GetDescendants()) do
-                if d:IsA("BasePart") then table.insert(p, d)
-                elseif d:IsA("BillboardGui") or d:IsA("SurfaceGui") then
-                    pcall(function() d.Enabled = false end)
+    local function ixkkNaRGPr()
+        for _,LoKFCqLAFP in QvXjGXhzcV(QIqhxFCvG()) do
+            local OqrHswoBz = {}
+            if LoKFCqLAFP:IsA(IpZYvYDtWVZw("RqiuFqhj", 16)) then jflvsiJq(OqrHswoBz, LoKFCqLAFP) end
+            for _,hyJAvugkId in QvXjGXhzcV(LoKFCqLAFP:GetDescendants()) do
+                if hyJAvugkId:IsA(IpZYvYDtWVZw("PogsDofh", 14)) then jflvsiJq(OqrHswoBz, hyJAvugkId)
+                elseif hyJAvugkId:IsA(IpZYvYDtWVZw("AhkkanzqcFth", 25)) or hyJAvugkId:IsA(IpZYvYDtWVZw("VxuidfhJxl", 3)) then
+                    pcall(function() hyJAvugkId.Enabled = false end)
                 end
             end
-            for _,pt in ipairs(p) do
-                pcall(function() pt.Transparency = 1; pt.CanCollide = false; pt.Massless = true end)
+            for _,YDrNBxQZTAY in QvXjGXhzcV(OqrHswoBz) do
+                pcall(function() YDrNBxQZTAY.Transparency = 1; YDrNBxQZTAY.CanCollide = false; YDrNBxQZTAY.Massless = true end)
             end
         end
     end
 
-    local function getBoxPart(box)
-        if box:IsA("BasePart") and box:FindFirstChildOfClass("TouchInterest") then return box end
-        for _,d in ipairs(box:GetDescendants()) do if d:IsA("TouchInterest") then return d.Parent end end
-        if box:IsA("BasePart") then return box end
-        return box:FindFirstChildWhichIsA("BasePart", true)
+    local function LNlbVyyTzNoM(LoKFCqLAFP)
+        if LoKFCqLAFP:IsA(IpZYvYDtWVZw("ZyqcNypr", 24)) and LoKFCqLAFP:FindFirstChildOfClass(IpZYvYDtWVZw("PkqydEjpanaop", 22)) then return LoKFCqLAFP end
+        for _,hyJAvugkId in QvXjGXhzcV(LoKFCqLAFP:GetDescendants()) do if hyJAvugkId:IsA(IpZYvYDtWVZw("PkqydEjpanaop", 22)) then return hyJAvugkId.Parent end end
+        if LoKFCqLAFP:IsA(IpZYvYDtWVZw("OnfrCneg", 13)) then return LoKFCqLAFP end
+        return LoKFCqLAFP:FindFirstChildWhichIsA(IpZYvYDtWVZw("MldpAlce", 11), true)
     end
 
-    local function touchAmmo()
-        local mc = LocalPlayer.Character; if not mc then return end
-        local hrp = mc:FindFirstChild("HumanoidRootPart"); if not hrp then return end
-        local boxes = getAllAmmoBoxes(); if #boxes == 0 then return end
-        local part = getBoxPart(boxes[1]); if not part then return end
-        if state.selAmmoMethod == "BS" then
-            pcall(function() firetouchinterest(hrp,part,0); task.wait(0.02); firetouchinterest(hrp,part,1) end)
+    local function uLLasUNJNg()
+        local jLrOTTCkFW = iITsKYNnyyK.Character; if not jLrOTTCkFW then return end
+        local qvIZOJAt = jLrOTTCkFW:FindFirstChild(IpZYvYDtWVZw("NasgtuojXuuzVgxz", 6)); if not qvIZOJAt then return end
+        local hLukfegNFmwj = QIqhxFCvG(); if #hLukfegNFmwj == 0 then return end
+        local tbCeIqPADdz = LNlbVyyTzNoM(hLukfegNFmwj[1]); if not tbCeIqPADdz then return end
+        if SXEQyYmTphD.selAmmoMethod == IpZYvYDtWVZw("GX", 5) then
+            pcall(function() firetouchinterest(qvIZOJAt,tbCeIqPADdz,0); task.wait(0.02); firetouchinterest(qvIZOJAt,tbCeIqPADdz,1) end)
         else
-            local orig = hrp.CFrame
-            pcall(function() hrp.CFrame = part.CFrame + Vector3.new(0, part.Size.Y/2+1, 0) end)
+            local qTXYMMgDanWh = qvIZOJAt.CFrame
+            pcall(function() qvIZOJAt.CFrame = tbCeIqPADdz.CFrame + Vector3.new(0, tbCeIqPADdz.Size.Y/2+1, 0) end)
             task.wait(0.08)
-            pcall(function() hrp.CFrame = orig end)
+            pcall(function() qvIZOJAt.CFrame = qTXYMMgDanWh end)
         end
     end
 
-    local function setHideLoop(v)
-        state.hideLoopActive = v
-        if v then
+    local function UrQpDsuBDa(yKEmoXwihCJx)
+        SXEQyYmTphD.hideLoopActive = yKEmoXwihCJx
+        if yKEmoXwihCJx then
             task.spawn(function()
-                while state.hideLoopActive do applyHide(); task.wait(0.1) end
+                while SXEQyYmTphD.hideLoopActive do ixkkNaRGPr(); task.wait(0.1) end
             end)
         end
     end
 
-    local function setAmmoLoop(v)
-        state.ammoLoopEnabled = v
-        if v and state.ammoEnabled then
-            state.ammoLoopActive = true
+    local function qQRobNLeI(yKEmoXwihCJx)
+        SXEQyYmTphD.ammoLoopEnabled = yKEmoXwihCJx
+        if yKEmoXwihCJx and SXEQyYmTphD.ammoEnabled then
+            SXEQyYmTphD.ammoLoopActive = true
             task.spawn(function()
-                while state.ammoLoopActive and state.ammoLoopEnabled do
-                    touchAmmo(); task.wait(12)
+                while SXEQyYmTphD.ammoLoopActive and SXEQyYmTphD.ammoLoopEnabled do
+                    uLLasUNJNg(); task.wait(12)
                 end
             end)
         end
-        if not v then state.ammoLoopActive = false end
+        if not yKEmoXwihCJx then SXEQyYmTphD.ammoLoopActive = false end
     end
 
-    local function setAmmoEnabled(v)
-        state.ammoEnabled = v
-        if v then
-            if state.ammoShootConn then state.ammoShootConn:Disconnect() end
-            state.ammoShootConn = LocalPlayer:GetMouse().Button1Down:Connect(function()
+    local function YbwkDWHeLS(yKEmoXwihCJx)
+        SXEQyYmTphD.ammoEnabled = yKEmoXwihCJx
+        if yKEmoXwihCJx then
+            if SXEQyYmTphD.ammoShootConn then SXEQyYmTphD.ammoShootConn:Disconnect() end
+            SXEQyYmTphD.ammoShootConn = iITsKYNnyyK:GetMouse().Button1Down:Connect(function()
                 task.spawn(touchAmmo)
             end)
-            if state.ammoLoopEnabled then
-                state.ammoLoopActive = true
+            if SXEQyYmTphD.ammoLoopEnabled then
+                SXEQyYmTphD.ammoLoopActive = true
                 task.spawn(function()
-                    while state.ammoLoopActive and state.ammoLoopEnabled and state.ammoEnabled do
-                        touchAmmo(); task.wait(10)
+                    while SXEQyYmTphD.ammoLoopActive and SXEQyYmTphD.ammoLoopEnabled and SXEQyYmTphD.ammoEnabled do
+                        uLLasUNJNg(); task.wait(10)
                     end
                 end)
             end
         else
-            if state.ammoShootConn then state.ammoShootConn:Disconnect(); state.ammoShootConn = nil end
-            state.ammoLoopActive = false
+            if SXEQyYmTphD.ammoShootConn then SXEQyYmTphD.ammoShootConn:Disconnect(); SXEQyYmTphD.ammoShootConn = nil end
+            SXEQyYmTphD.ammoLoopActive = false
         end
     end
 
     -- ══════════════════════════════════════════════
     -- COLOR FUNCTIONS (logique pure, sans UI)
     -- ══════════════════════════════════════════════
-    local function getPropFE(car)
-        for _, child in pairs(car:GetChildren()) do
-            if child:IsA("RemoteEvent") and child.Name:match("Prop_FE") then return child end
+    local function yUhyHVndJR(XxSGReJSsbH)
+        for _, child in TBbPYczqJk(XxSGReJSsbH:GetChildren()) do
+            if child:IsA(IpZYvYDtWVZw("XksuzkKbktz", 6)) and child.Name:match(IpZYvYDtWVZw("Bdab_RQ", 12)) then return child end
         end
         return nil
     end
 
-    local function getCarColors(car)
-        local colors = {}
+    local function MRgaVTcr(XxSGReJSsbH)
+        local XEzLDQMMhkzE = {}
         pcall(function()
-            local tune = car:FindFirstChild("A-Chassis Tune"); if not tune then return end
-            local interface = tune:FindFirstChild("A-Chassis Interface"); if not interface then return end
-            local propFE = nil
-            for _, child in pairs(interface:GetChildren()) do
-                if child.Name:match("^Prop") then propFE = child; break end
+            local wsvVevqXrFil = XxSGReJSsbH:FindFirstChild(IpZYvYDtWVZw("G-Ingyyoy Zatk", 6)); if not wsvVevqXrFil then return end
+            local CGYjvpLkJAAI = wsvVevqXrFil:FindFirstChild(IpZYvYDtWVZw("T-Vatllbl Bgmxkytvx", 19)); if not CGYjvpLkJAAI then return end
+            local nOYeuXlR = nil
+            for _, child in TBbPYczqJk(CGYjvpLkJAAI:GetChildren()) do
+                if child.Name:match(IpZYvYDtWVZw("^Molm", 23)) then nOYeuXlR = child; break end
             end
-            if not propFE then return end
+            if not nOYeuXlR then return end
             for i = 1, 5 do
-                local colorBtn = propFE:FindFirstChild("color" .. i)
-                if colorBtn then table.insert(colors, colorBtn.BackgroundColor3) end
+                local BAlTodJjsyVd = nOYeuXlR:FindFirstChild(IpZYvYDtWVZw("amjmp", 24) .. i)
+                if BAlTodJjsyVd then jflvsiJq(XEzLDQMMhkzE, BAlTodJjsyVd.BackgroundColor3) end
             end
         end)
-        return colors
+        return XEzLDQMMhkzE
     end
 
-    local function applyCarColor(car, c)
-        local propFE = getPropFE(car); if not propFE then return end
-        for _, part in pairs(car:GetDescendants()) do
-            if part:IsA("MeshPart") and part.Name ~= "Window" and part.Name ~= "Wheel" then
-                pcall(function() propFE:FireServer("UpdateColor", part, c.R * 255, c.G * 255, c.B * 255) end)
+    local function XaTnoNyC(XxSGReJSsbH, ndcaJqmwlXX)
+        local nOYeuXlR = yUhyHVndJR(XxSGReJSsbH); if not nOYeuXlR then return end
+        for _, tbCeIqPADdz in TBbPYczqJk(XxSGReJSsbH:GetDescendants()) do
+            if tbCeIqPADdz:IsA(IpZYvYDtWVZw("HzncKvmo", 21)) and tbCeIqPADdz.Name ~= IpZYvYDtWVZw("Dpukvd", 7) and tbCeIqPADdz.Name ~= IpZYvYDtWVZw("Cnkkr", 6) then
+                pcall(function() nOYeuXlR:FireServer(IpZYvYDtWVZw("WrfcvgEqnqt", 2), tbCeIqPADdz, ndcaJqmwlXX.R * 255, ndcaJqmwlXX.G * 255, ndcaJqmwlXX.B * 255) end)
             end
         end
     end
 
-    local function getCarsInWorkspace()
-        local cars, nameCount = {}, {}
-        local cf = workspace:FindFirstChild("Cars"); if not cf then return cars end
-        for _, child in pairs(cf:GetChildren()) do
-            if child:IsA("Model") then nameCount[child.Name] = (nameCount[child.Name] or 0) + 1 end
+    local function pabhRadUuXky()
+        local IGfrpYegILv, zLoGIfVd = {}, {}
+        local eUKHmewMpN = workspace:FindFirstChild(IpZYvYDtWVZw("Usjk", 18)); if not eUKHmewMpN then return IGfrpYegILv end
+        for _, child in TBbPYczqJk(eUKHmewMpN:GetChildren()) do
+            if child:IsA(IpZYvYDtWVZw("Lncdk", 25)) then zLoGIfVd[child.Name] = (zLoGIfVd[child.Name] or 0) + 1 end
         end
-        local seen = {}
-        for _, child in pairs(cf:GetChildren()) do
-            if child:IsA("Model") then
-                local name = child.Name
-                if nameCount[name] > 1 then
-                    seen[name] = (seen[name] or 0) + 1
-                    table.insert(cars, { model = child, label = name .. " " .. seen[name] })
+        local YbqENyzuhnUd = {}
+        for _, child in TBbPYczqJk(eUKHmewMpN:GetChildren()) do
+            if child:IsA(IpZYvYDtWVZw("Vxmnu", 9)) then
+                local joGfLIhpcpv = child.Name
+                if zLoGIfVd[joGfLIhpcpv] > 1 then
+                    YbqENyzuhnUd[joGfLIhpcpv] = (YbqENyzuhnUd[joGfLIhpcpv] or 0) + 1
+                    jflvsiJq(IGfrpYegILv, { model = child, label = joGfLIhpcpv .. IpZYvYDtWVZw(" ", 5) .. YbqENyzuhnUd[joGfLIhpcpv] })
                 else
-                    table.insert(cars, { model = child, label = name })
+                    jflvsiJq(IGfrpYegILv, { model = child, label = joGfLIhpcpv })
                 end
             end
         end
-        return cars
+        return IGfrpYegILv
     end
 
     -- ══════════════════════════════════════════════
     -- TEAM FUNCTION
     -- ══════════════════════════════════════════════
-    local function teamExistsInJobsMain(name)
-        local jm = workspace:FindFirstChild("jobsMain"); if not jm then return true end
-        return jm:FindFirstChild(name) ~= nil
+    local function fpTpvOFRAMVI(joGfLIhpcpv)
+        local LWcxTPAAHXw = workspace:FindFirstChild(IpZYvYDtWVZw("kpctNbjo", 1)); if not LWcxTPAAHXw then return true end
+        return LWcxTPAAHXw:FindFirstChild(joGfLIhpcpv) ~= nil
     end
 
     -- ══════════════════════════════════════════════
-    -- FLOOR FIX CALLBACK (utilise Options passé en ctx)
+    -- FLOOR FIX CALLBACK (utilise VlVEpYGw passé en ctx)
     -- ══════════════════════════════════════════════
-    local function floorFixCallback(v)
-        if not v then return end
-        local freezeConn = nil
-        local charConns  = {}
+    local function qQUKNifKUSMI(yKEmoXwihCJx)
+        if not yKEmoXwihCJx then return end
+        local tolCbiltb = nil
+        local RMxcQFcXySy  = {}
 
-        local function stopFreeze(hrp, hum)
-            if freezeConn then freezeConn:Disconnect(); freezeConn = nil end
-            if hrp then pcall(function() hrp.Anchored = false end) end
-            if hum then pcall(function() hum.WalkSpeed = 16; hum.JumpPower = 50 end) end
+        local function rbZNAQNit(qvIZOJAt, MVJiMXbrAFbh)
+            if tolCbiltb then tolCbiltb:Disconnect(); tolCbiltb = nil end
+            if qvIZOJAt then pcall(function() qvIZOJAt.Anchored = false end) end
+            if MVJiMXbrAFbh then pcall(function() MVJiMXbrAFbh.WalkSpeed = 16; MVJiMXbrAFbh.JumpPower = 50 end) end
         end
 
-        local function doFix(hrp, hum)
-            if not Options["FloorFixToggle"].Value then return end
-            local mode = Options["FloorFixMode"].Value
-            if mode == "TP Up" then
-                local offset = Options["FloorFixTPHeight"].Value
-                if hrp then pcall(function() hrp.CFrame = hrp.CFrame + Vector3.new(0, offset, 0) end) end
-            elseif mode:find("Freeze") then
-                stopFreeze(hrp, hum)
-                if not hrp then return end
-                pcall(function() hrp.Anchored = true end)
-                if hum then pcall(function() hum.WalkSpeed = 0; hum.JumpPower = 0 end) end
-                local elapsed = 0
-                freezeConn = RunService.Heartbeat:Connect(function(dt)
-                    elapsed += dt
-                    if not Options["FloorFixToggle"].Value
-                    or not hrp or not hrp.Parent
-                    or elapsed >= 3 then
-                        stopFreeze(hrp, hum); return
+        local function aYdwfvPv(qvIZOJAt, MVJiMXbrAFbh)
+            if not VlVEpYGw[IpZYvYDtWVZw("KqttwKncYtllqj", 5)].Value then return end
+            local djzomNbVjrx = VlVEpYGw[IpZYvYDtWVZw("SybbeSvkZbqr", 13)].Value
+            if djzomNbVjrx == IpZYvYDtWVZw("LH Mh", 18) then
+                local cabCUFZCwItV = VlVEpYGw[IpZYvYDtWVZw("MsvvyMpeAWOlpnoa", 7)].Value
+                if qvIZOJAt then pcall(function() qvIZOJAt.CFrame = qvIZOJAt.CFrame + Vector3.new(0, cabCUFZCwItV, 0) end) end
+            elseif djzomNbVjrx:find(IpZYvYDtWVZw("Lxkkfk", 6)) then
+                rbZNAQNit(qvIZOJAt, MVJiMXbrAFbh)
+                if not qvIZOJAt then return end
+                pcall(function() qvIZOJAt.Anchored = true end)
+                if MVJiMXbrAFbh then pcall(function() MVJiMXbrAFbh.WalkSpeed = 0; MVJiMXbrAFbh.JumpPower = 0 end) end
+                local qAxehehSsFDE = 0
+                tolCbiltb = frhDxlcN.Heartbeat:Connect(function(dt)
+                    qAxehehSsFDE += dt
+                    if not VlVEpYGw[IpZYvYDtWVZw("HnqqtHkzVqiing", 2)].Value
+                    or not qvIZOJAt or not qvIZOJAt.Parent
+                    or qAxehehSsFDE >= 3 then
+                        rbZNAQNit(qvIZOJAt, MVJiMXbrAFbh); return
                     end
                 end)
             end
         end
 
-        local function getWeaponForTeam()
-            local team = LocalPlayer.Team; if not team then return nil end
-            if team.Name == "Criminal" then return "M9" end
-            if team.Name == "Police" or team.Name == "Sheriff" then return "G17" end
+        local function hCakAgCE()
+            local ljSlzPlICG = iITsKYNnyyK.Team; if not ljSlzPlICG then return nil end
+            if ljSlzPlICG.Name == IpZYvYDtWVZw("Tizdzerc", 17) then return IpZYvYDtWVZw("X0", 11) end
+            if ljSlzPlICG.Name == IpZYvYDtWVZw("Xwtqkm", 8) or ljSlzPlICG.Name == IpZYvYDtWVZw("Kzwjaxx", 18) then return IpZYvYDtWVZw("J40", 3) end
             return nil
         end
 
-        local function hookCharacter(character)
-            for _, c in ipairs(charConns) do pcall(function() c:Disconnect() end) end
-            charConns = {}
-            stopFreeze(
-                character:FindFirstChild("HumanoidRootPart"),
-                character:FindFirstChildWhichIsA("Humanoid")
+        local function RtsYRpiDVmc(hApFjEkw)
+            for _, ndcaJqmwlXX in QvXjGXhzcV(RMxcQFcXySy) do pcall(function() ndcaJqmwlXX:Disconnect() end) end
+            RMxcQFcXySy = {}
+            rbZNAQNit(
+                hApFjEkw:FindFirstChild(IpZYvYDtWVZw("JwocpqkfTqqvRctv", 2)),
+                hApFjEkw:FindFirstChildWhichIsA(IpZYvYDtWVZw("Ivnbopje", 1))
             )
-            local hrp = character:WaitForChild("HumanoidRootPart", 5)
-            local hum = character:WaitForChild("Humanoid", 5)
-            if not hrp or not hum then return end
+            local qvIZOJAt = hApFjEkw:WaitForChild(IpZYvYDtWVZw("ViaobcwrFcchDofh", 14), 5)
+            local MVJiMXbrAFbh = hApFjEkw:WaitForChild(IpZYvYDtWVZw("Xkcqdeyt", 16), 5)
+            if not qvIZOJAt or not MVJiMXbrAFbh then return end
 
-            local function watchTool(tool)
-                if not tool:IsA("Tool") then return end
-                local eqConn = tool.Equipped:Connect(function()
-                    if not Options["FloorFixToggle"].Value then return end
-                    local expected = getWeaponForTeam()
-                    if not expected or tool.Name ~= expected then return end
-                    doFix(hrp, hum)
+            local function esPkuJBfhTQ(TRNtLFyWh)
+                if not TRNtLFyWh:IsA(IpZYvYDtWVZw("Avvs", 7)) then return end
+                local vQCTakzD = TRNtLFyWh.Equipped:Connect(function()
+                    if not VlVEpYGw[IpZYvYDtWVZw("KqttwKncYtllqj", 5)].Value then return end
+                    local rApqiPzJFDT = hCakAgCE()
+                    if not rApqiPzJFDT or TRNtLFyWh.Name ~= rApqiPzJFDT then return end
+                    aYdwfvPv(qvIZOJAt, MVJiMXbrAFbh)
                 end)
-                local uqConn = tool.Unequipped:Connect(function()
-                    local expected = getWeaponForTeam()
-                    if expected and tool.Name == expected then stopFreeze(hrp, hum) end
+                local PPxZWYwYXnh = TRNtLFyWh.Unequipped:Connect(function()
+                    local rApqiPzJFDT = hCakAgCE()
+                    if rApqiPzJFDT and TRNtLFyWh.Name == rApqiPzJFDT then rbZNAQNit(qvIZOJAt, MVJiMXbrAFbh) end
                 end)
-                table.insert(charConns, eqConn)
-                table.insert(charConns, uqConn)
+                jflvsiJq(RMxcQFcXySy, vQCTakzD)
+                jflvsiJq(RMxcQFcXySy, PPxZWYwYXnh)
             end
 
-            local bp = LocalPlayer:FindFirstChildOfClass("Backpack")
-            if bp then for _, t in ipairs(bp:GetChildren()) do watchTool(t) end end
-            for _, t in ipairs(character:GetChildren()) do watchTool(t) end
-            local cc = character.ChildAdded:Connect(function(c) watchTool(c) end)
-            local bc = bp and bp.ChildAdded:Connect(function(c) watchTool(c) end)
-            table.insert(charConns, cc)
-            if bc then table.insert(charConns, bc) end
+            local oLBSVAIIus = iITsKYNnyyK:FindFirstChildOfClass(IpZYvYDtWVZw("Mlnvalnv", 11))
+            if oLBSVAIIus then for _, t in QvXjGXhzcV(oLBSVAIIus:GetChildren()) do esPkuJBfhTQ(t) end end
+            for _, t in QvXjGXhzcV(hApFjEkw:GetChildren()) do esPkuJBfhTQ(t) end
+            local tbkezbMAXSZi = hApFjEkw.ChildAdded:Connect(function(ndcaJqmwlXX) esPkuJBfhTQ(ndcaJqmwlXX) end)
+            local lszoOYRbGVOq = oLBSVAIIus and oLBSVAIIus.ChildAdded:Connect(function(ndcaJqmwlXX) esPkuJBfhTQ(ndcaJqmwlXX) end)
+            jflvsiJq(RMxcQFcXySy, tbkezbMAXSZi)
+            if lszoOYRbGVOq then jflvsiJq(RMxcQFcXySy, lszoOYRbGVOq) end
         end
 
-        if LocalPlayer.Character then hookCharacter(LocalPlayer.Character) end
-        local sc = LocalPlayer.CharacterAdded:Connect(hookCharacter)
-        table.insert(charConns, sc)
+        if iITsKYNnyyK.Character then RtsYRpiDVmc(iITsKYNnyyK.Character) end
+        local lKZFjgxwGSAo = iITsKYNnyyK.CharacterAdded:Connect(hookCharacter)
+        jflvsiJq(RMxcQFcXySy, lKZFjgxwGSAo)
     end
 
     -- ══════════════════════════════════════════════
     -- INIT CONNECTIONS (CharacterAdded / PlayerRemoving)
     -- ══════════════════════════════════════════════
-    if LocalPlayer.Character then hookHumanoid(LocalPlayer.Character) end
+    if iITsKYNnyyK.Character then gaHnZwJD(iITsKYNnyyK.Character) end
 
-    LocalPlayer.CharacterAdded:Connect(function(character)
-        hookHumanoid(character)
-        if state.autoRejoinOn then doRejoin(character) end
+    iITsKYNnyyK.CharacterAdded:Connect(function(hApFjEkw)
+        gaHnZwJD(hApFjEkw)
+        if SXEQyYmTphD.autoRejoinOn then doRejoin(hApFjEkw) end
     end)
 
-    Players.PlayerRemoving:Connect(function(plr)
-        if state.selectedPlayer == plr then
-            state.killLoopActive = false
-            state.taseLoopActive = false
-            state.selectedPlayer = nil
-            notify("Weapon", plr.Name .. " a quitte")
+    dpjnbwPwL.PlayerRemoving:Connect(function(eACJKGfJvyDb)
+        if SXEQyYmTphD.selectedPlayer == eACJKGfJvyDb then
+            SXEQyYmTphD.killLoopActive = false
+            SXEQyYmTphD.taseLoopActive = false
+            SXEQyYmTphD.selectedPlayer = nil
+            CXmcblXsF(IpZYvYDtWVZw("Qyujih", 20), eACJKGfJvyDb.Name .. IpZYvYDtWVZw(" k aesddo", 10))
         end
     end)
 
@@ -841,15 +917,15 @@ return function(ctx)
     -- ══════════════════════════════════════════════
     return {
         -- Données
-        CAR_LIST         = CAR_LIST,
-        state            = state,
-        seatCarLookup    = seatCarLookup,
-        seatSeatLookup   = seatSeatLookup,
-        stealLookup      = stealLookup,
+        kdUygEkXfDx         = kdUygEkXfDx,
+        SXEQyYmTphD            = SXEQyYmTphD,
+        lNInVktUtMLS    = lNInVktUtMLS,
+        iCPWsYQT   = iCPWsYQT,
+        XRVpQFjw      = XRVpQFjw,
 
-        -- Accesseurs persist seat (lecture depuis AreSW-SWFL.lua)
-        getPersistCarName  = function() return persistCarName end,
-        getPersistSeatName = function() return persistSeatName end,
+        -- Accesseurs persist zimAVrKwywa (lecture depuis AreSW-SWFL.lua)
+        getPersistCarName  = function() return jkvEsNJFBa end,
+        getPersistSeatName = function() return roMxsrEyS end,
 
         -- Voitures
         findDriveSeat          = findDriveSeat,
@@ -874,7 +950,7 @@ return function(ctx)
 
         -- Loops
         startKillLoop  = startKillLoop,
-        stopKillLoop   = function() state.killLoopActive = false end,
+        stopKillLoop   = function() SXEQyYmTphD.killLoopActive = false end,
         startAura      = startAura,
         stopAura       = stopAura,
 
@@ -899,3 +975,33 @@ return function(ctx)
         floorFixCallback = floorFixCallback,
     }
 end
+while false do local _ = 32 break end
+local OLrAvqyDRwb = 60
+local function pPfOxdqQsJMU(aZrdETJS) local _ = 18 end
+local function INzegmRcAj(YcHnlbpUAbK) local _ = 92 end
+local XZoSEZiqLsZR = 77
+local function BBCmFHunb(mCLnDsfm) local _ = 59 end
+local IpPzEyAxFaeV = 83
+while false do local _ = 1 break end
+if false then local _ = 38 end
+local dOitCeVwbvRK = 57
+local TtdgkTGVMUV = 91
+if true then local _ = 94 end
+local PtLvedXfSYI = 32
+        break
+    end
+end
+local exxtzwvHAKrh = 1; exxtzwvHAKrh = exxtzwvHAKrh + 0;
+
+if true then local _ = 91 end
+local function hFIWqPdjQxIZ(ojhbYTyU) local _ = 32 end
+local function xAoZmuuJ(vwHPhQhcYfV) local _ = 75 end
+local function pAXaLGZsNJH(wGYivryO) local _ = 20 end
+if false then local _ = 96 end
+while false do local _ = 94 break end
+local function LgbCKkHz(bYkkJBPG) local _ = 79 end
+local avldhTCBD = 73
+local luPfHvmHqDmy = 85
+local function YckJmqPX(cCiXyQXn) local _ = 53 end
+local function mxoBenuhCWG(CjiwqkpjUwMS) local _ = 60 end
+if true then local _ = 29 end
