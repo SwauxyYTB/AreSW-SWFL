@@ -1,4 +1,3 @@
---[Obfuscated by Hercules v1.6.2 | hercules-obfuscator.xyz/discord | hercules-obfuscator.xyz/source]
 local QvXjGXhzcV, TBbPYczqJk, vkkFwfySk, uvHzDSTerz, PPadtClCVjU, sBMxTMEVtqmh, eenlHuZGH, jflvsiJq, bMmixClZG
 QvXjGXhzcV = ipairs; TBbPYczqJk = pairs; vkkFwfySk = tostring; uvHzDSTerz = type; PPadtClCVjU = math.floor; sBMxTMEVtqmh = string.char; eenlHuZGH = table.concat; jflvsiJq = table.insert; bMmixClZG = game:GetService;
 local function cZVuLxHdl(zwjClmKKCEJU) local _ = 33 end
