@@ -9,7 +9,7 @@ local InterfaceManager = loadstring(game:HttpGet(
 ))()
 
 local Logic = loadstring(game:HttpGet(
-    "https://raw.githubusercontent.com/TON_USERNAME/TON_REPO/main/logic.lua"
+    "https://raw.githubusercontent.com/SwauxyYTB/AreSW-SWFL/refs/heads/main/Main.lua"
 ))()
 
 local Options = Fluent.Options
