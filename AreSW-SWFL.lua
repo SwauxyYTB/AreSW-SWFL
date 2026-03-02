@@ -1,4 +1,4 @@
-local LOGIC_RAW_URL = https://raw.githubusercontent.com/SwauxyYTB/AreSW-SWFL/refs/heads/main/logic.lua"
+local LOGIC_RAW_URL = "https://raw.githubusercontent.com/SwauxyYTB/AreSW-SWFL/refs/heads/main/logic.lua"
 
 -- ══════════════════════════════════════════════
 -- LIBRAIRIES
