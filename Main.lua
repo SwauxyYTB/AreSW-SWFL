@@ -10,7 +10,7 @@ local InterfaceManager = loadstring(game:HttpGet(
 
 -- ← REMPLACE PAR TON VRAI LIEN RAW GITHUB
 local Core = loadstring(game:HttpGet(
-    "https://raw.githubusercontent.com/TON_USER/TON_REPO/main/core.lua"
+    "https://raw.githubusercontent.com/SwauxyYTB/AreSW-SWFL/refs/heads/main/core.lua"
 ))()
 
 local Options = Fluent.Options
